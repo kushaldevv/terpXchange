@@ -1,0 +1,582 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		2A0FE7BD29B14DF60039E387 /* TerpExchangeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A0FE7BC29B14DF60039E387 /* TerpExchangeApp.swift */; };
+		2A0FE7BF29B14DF60039E387 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A0FE7BE29B14DF60039E387 /* ContentView.swift */; };
+		2A0FE7C129B14DF70039E387 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2A0FE7C029B14DF70039E387 /* Assets.xcassets */; };
+		2A0FE7C429B14DF70039E387 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2A0FE7C329B14DF70039E387 /* Preview Assets.xcassets */; };
+		2A0FE7CE29B14DF70039E387 /* TerpExchangeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A0FE7CD29B14DF70039E387 /* TerpExchangeTests.swift */; };
+		2A0FE7D829B14DF70039E387 /* TerpExchangeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A0FE7D729B14DF70039E387 /* TerpExchangeUITests.swift */; };
+		2A0FE7DA29B14DF70039E387 /* TerpExchangeUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A0FE7D929B14DF70039E387 /* TerpExchangeUITestsLaunchTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		2A0FE7CA29B14DF70039E387 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2A0FE7B129B14DF60039E387 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2A0FE7B829B14DF60039E387;
+			remoteInfo = TerpExchange;
+		};
+		2A0FE7D429B14DF70039E387 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2A0FE7B129B14DF60039E387 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2A0FE7B829B14DF60039E387;
+			remoteInfo = TerpExchange;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		2A0FE7B929B14DF60039E387 /* TerpExchange.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TerpExchange.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2A0FE7BC29B14DF60039E387 /* TerpExchangeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TerpExchangeApp.swift; sourceTree = "<group>"; };
+		2A0FE7BE29B14DF60039E387 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		2A0FE7C029B14DF70039E387 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		2A0FE7C329B14DF70039E387 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		2A0FE7C929B14DF70039E387 /* TerpExchangeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TerpExchangeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		2A0FE7CD29B14DF70039E387 /* TerpExchangeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TerpExchangeTests.swift; sourceTree = "<group>"; };
+		2A0FE7D329B14DF70039E387 /* TerpExchangeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TerpExchangeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		2A0FE7D729B14DF70039E387 /* TerpExchangeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TerpExchangeUITests.swift; sourceTree = "<group>"; };
+		2A0FE7D929B14DF70039E387 /* TerpExchangeUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TerpExchangeUITestsLaunchTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		2A0FE7B629B14DF60039E387 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2A0FE7C629B14DF70039E387 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2A0FE7D029B14DF70039E387 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		2A0FE7B029B14DF60039E387 = {
+			isa = PBXGroup;
+			children = (
+				2A0FE7BB29B14DF60039E387 /* TerpExchange */,
+				2A0FE7CC29B14DF70039E387 /* TerpExchangeTests */,
+				2A0FE7D629B14DF70039E387 /* TerpExchangeUITests */,
+				2A0FE7BA29B14DF60039E387 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		2A0FE7BA29B14DF60039E387 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				2A0FE7B929B14DF60039E387 /* TerpExchange.app */,
+				2A0FE7C929B14DF70039E387 /* TerpExchangeTests.xctest */,
+				2A0FE7D329B14DF70039E387 /* TerpExchangeUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		2A0FE7BB29B14DF60039E387 /* TerpExchange */ = {
+			isa = PBXGroup;
+			children = (
+				2A0FE7BC29B14DF60039E387 /* TerpExchangeApp.swift */,
+				2A0FE7BE29B14DF60039E387 /* ContentView.swift */,
+				2A0FE7C029B14DF70039E387 /* Assets.xcassets */,
+				2A0FE7C229B14DF70039E387 /* Preview Content */,
+			);
+			path = TerpExchange;
+			sourceTree = "<group>";
+		};
+		2A0FE7C229B14DF70039E387 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				2A0FE7C329B14DF70039E387 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		2A0FE7CC29B14DF70039E387 /* TerpExchangeTests */ = {
+			isa = PBXGroup;
+			children = (
+				2A0FE7CD29B14DF70039E387 /* TerpExchangeTests.swift */,
+			);
+			path = TerpExchangeTests;
+			sourceTree = "<group>";
+		};
+		2A0FE7D629B14DF70039E387 /* TerpExchangeUITests */ = {
+			isa = PBXGroup;
+			children = (
+				2A0FE7D729B14DF70039E387 /* TerpExchangeUITests.swift */,
+				2A0FE7D929B14DF70039E387 /* TerpExchangeUITestsLaunchTests.swift */,
+			);
+			path = TerpExchangeUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		2A0FE7B829B14DF60039E387 /* TerpExchange */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2A0FE7DD29B14DF70039E387 /* Build configuration list for PBXNativeTarget "TerpExchange" */;
+			buildPhases = (
+				2A0FE7B529B14DF60039E387 /* Sources */,
+				2A0FE7B629B14DF60039E387 /* Frameworks */,
+				2A0FE7B729B14DF60039E387 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TerpExchange;
+			productName = TerpExchange;
+			productReference = 2A0FE7B929B14DF60039E387 /* TerpExchange.app */;
+			productType = "com.apple.product-type.application";
+		};
+		2A0FE7C829B14DF70039E387 /* TerpExchangeTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2A0FE7E029B14DF70039E387 /* Build configuration list for PBXNativeTarget "TerpExchangeTests" */;
+			buildPhases = (
+				2A0FE7C529B14DF70039E387 /* Sources */,
+				2A0FE7C629B14DF70039E387 /* Frameworks */,
+				2A0FE7C729B14DF70039E387 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2A0FE7CB29B14DF70039E387 /* PBXTargetDependency */,
+			);
+			name = TerpExchangeTests;
+			productName = TerpExchangeTests;
+			productReference = 2A0FE7C929B14DF70039E387 /* TerpExchangeTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		2A0FE7D229B14DF70039E387 /* TerpExchangeUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2A0FE7E329B14DF70039E387 /* Build configuration list for PBXNativeTarget "TerpExchangeUITests" */;
+			buildPhases = (
+				2A0FE7CF29B14DF70039E387 /* Sources */,
+				2A0FE7D029B14DF70039E387 /* Frameworks */,
+				2A0FE7D129B14DF70039E387 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2A0FE7D529B14DF70039E387 /* PBXTargetDependency */,
+			);
+			name = TerpExchangeUITests;
+			productName = TerpExchangeUITests;
+			productReference = 2A0FE7D329B14DF70039E387 /* TerpExchangeUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		2A0FE7B129B14DF60039E387 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1420;
+				LastUpgradeCheck = 1420;
+				TargetAttributes = {
+					2A0FE7B829B14DF60039E387 = {
+						CreatedOnToolsVersion = 14.2;
+					};
+					2A0FE7C829B14DF70039E387 = {
+						CreatedOnToolsVersion = 14.2;
+						TestTargetID = 2A0FE7B829B14DF60039E387;
+					};
+					2A0FE7D229B14DF70039E387 = {
+						CreatedOnToolsVersion = 14.2;
+						TestTargetID = 2A0FE7B829B14DF60039E387;
+					};
+				};
+			};
+			buildConfigurationList = 2A0FE7B429B14DF60039E387 /* Build configuration list for PBXProject "TerpExchange" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 2A0FE7B029B14DF60039E387;
+			productRefGroup = 2A0FE7BA29B14DF60039E387 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				2A0FE7B829B14DF60039E387 /* TerpExchange */,
+				2A0FE7C829B14DF70039E387 /* TerpExchangeTests */,
+				2A0FE7D229B14DF70039E387 /* TerpExchangeUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		2A0FE7B729B14DF60039E387 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2A0FE7C429B14DF70039E387 /* Preview Assets.xcassets in Resources */,
+				2A0FE7C129B14DF70039E387 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2A0FE7C729B14DF70039E387 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2A0FE7D129B14DF70039E387 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		2A0FE7B529B14DF60039E387 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2A0FE7BF29B14DF60039E387 /* ContentView.swift in Sources */,
+				2A0FE7BD29B14DF60039E387 /* TerpExchangeApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2A0FE7C529B14DF70039E387 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2A0FE7CE29B14DF70039E387 /* TerpExchangeTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2A0FE7CF29B14DF70039E387 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2A0FE7DA29B14DF70039E387 /* TerpExchangeUITestsLaunchTests.swift in Sources */,
+				2A0FE7D829B14DF70039E387 /* TerpExchangeUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		2A0FE7CB29B14DF70039E387 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2A0FE7B829B14DF60039E387 /* TerpExchange */;
+			targetProxy = 2A0FE7CA29B14DF70039E387 /* PBXContainerItemProxy */;
+		};
+		2A0FE7D529B14DF70039E387 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2A0FE7B829B14DF60039E387 /* TerpExchange */;
+			targetProxy = 2A0FE7D429B14DF70039E387 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		2A0FE7DB29B14DF70039E387 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		2A0FE7DC29B14DF70039E387 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		2A0FE7DE29B14DF70039E387 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"TerpExchange/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = test.TerpExchange;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		2A0FE7DF29B14DF70039E387 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"TerpExchange/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = test.TerpExchange;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		2A0FE7E129B14DF70039E387 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = test.TerpExchangeTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TerpExchange.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/TerpExchange";
+			};
+			name = Debug;
+		};
+		2A0FE7E229B14DF70039E387 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = test.TerpExchangeTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TerpExchange.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/TerpExchange";
+			};
+			name = Release;
+		};
+		2A0FE7E429B14DF70039E387 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = test.TerpExchangeUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = TerpExchange;
+			};
+			name = Debug;
+		};
+		2A0FE7E529B14DF70039E387 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = test.TerpExchangeUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = TerpExchange;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2A0FE7B429B14DF60039E387 /* Build configuration list for PBXProject "TerpExchange" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2A0FE7DB29B14DF70039E387 /* Debug */,
+				2A0FE7DC29B14DF70039E387 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2A0FE7DD29B14DF70039E387 /* Build configuration list for PBXNativeTarget "TerpExchange" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2A0FE7DE29B14DF70039E387 /* Debug */,
+				2A0FE7DF29B14DF70039E387 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2A0FE7E029B14DF70039E387 /* Build configuration list for PBXNativeTarget "TerpExchangeTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2A0FE7E129B14DF70039E387 /* Debug */,
+				2A0FE7E229B14DF70039E387 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2A0FE7E329B14DF70039E387 /* Build configuration list for PBXNativeTarget "TerpExchangeUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2A0FE7E429B14DF70039E387 /* Debug */,
+				2A0FE7E529B14DF70039E387 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 2A0FE7B129B14DF60039E387 /* Project object */;
+}
