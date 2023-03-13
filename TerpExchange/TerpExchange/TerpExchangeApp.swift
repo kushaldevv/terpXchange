@@ -2,7 +2,7 @@
 //  TerpExchangeApp.swift
 //  TerpExchange
 //
-//  Created by kushal on 3/2/23.
+//  Created by Ryan Abeysinghe on 3/13/23.
 //
 
 import SwiftUI

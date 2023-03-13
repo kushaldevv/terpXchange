@@ -2,7 +2,7 @@
 //  ContentView.swift
 //  TerpExchange
 //
-//  Created by kushal on 3/2/23.
+//  Created by Ryan Abeysinghe on 3/13/23.
 //
 
 import SwiftUI
@@ -13,7 +13,7 @@ struct ContentView: View {
             Image(systemName: "globe")
                 .imageScale(.large)
                 .foregroundColor(.accentColor)
-            Text("Hello, world! -KD2")
+            Text("Hello, world!")
         }
         .padding()
     }
