@@ -7,11 +7,12 @@
 
 import SwiftUI
 import Firebase
-import FirebaseAuth
 import GoogleSignIn
 import FirebaseCore
+import FirebaseAuth
 
 struct AccountOptionsView: View {
+    @StateObject private var vm = SignUpViewModel()
     let gold = Color(red: 252.0/255.0, green: 194.0/255.0, blue: 0)
     
     var body: some View {
@@ -24,11 +25,19 @@ struct AccountOptionsView: View {
                     .font(.custom("Righteous-Regular", size: 40, relativeTo: .headline))
                     .bold()
                     .foregroundColor(gold)
+                    .frame(alignment: .top)
                 
-                GoogleLoginButton(image: Image("google"), text: Text("Sign in with Google"))
-
+                Button {
+                    vm.signUpWithGoogle()
+                } label: {
+                    GoogleLoginButton(image: Image("google"), text: Text("Sign in with Google"))
+                }
+                
+                Spacer()
+               
             }
             .padding()
+            
         }
     }
 }
@@ -66,8 +75,6 @@ struct GoogleLoginButton: View {
         .background(Color.blue)
         .cornerRadius(50.0)
         .shadow(color: Color.black.opacity(0.08), radius: 60, x: 0.0, y: 16)
-        
-        Spacer()
     }
 }
 
