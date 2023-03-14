@@ -12,7 +12,7 @@ import FirebaseCore
 import FirebaseAuth
 
 struct AccountOptionsView: View {
-    @StateObject private var vm = SignUpViewModel()
+    @StateObject private var firebaseAuth = FirebaseAuthenticationModel()
     let gold = Color(red: 252.0/255.0, green: 194.0/255.0, blue: 0)
     
     var body: some View {
@@ -28,7 +28,7 @@ struct AccountOptionsView: View {
                     .frame(alignment: .top)
                 
                 Button {
-                    vm.signUpWithGoogle()
+                    firebaseAuth.signUpWithGoogle()
                 } label: {
                     GoogleLoginButton(image: Image("google"), text: Text("Sign in with Google"))
                 }

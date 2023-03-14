@@ -1,8 +1,8 @@
 //
-//  LoginVM.swift
+//  FirebaseAuthentication.swift
 //  TerpExchange
 //
-//  Created by Ryan Abeysinghe on 3/13/23.
+//  Created by Ryan Abeysinghe on 3/14/23.
 //
 
 import Foundation
@@ -10,7 +10,7 @@ import SwiftUI
 import Firebase
 import GoogleSignIn
 
-class SignUpViewModel: ObservableObject {
+class FirebaseAuthenticationModel: ObservableObject {
     
     @Published var isLogin: Bool = false
     
@@ -25,7 +25,7 @@ class SignUpViewModel: ObservableObject {
         // Sign in
         GIDSignIn.sharedInstance.configuration = config
         
-        GIDSignIn.sharedInstance.signIn(withPresenting: ApplicationUtility.rootViewController) { user, error in
+        GIDSignIn.sharedInstance.signIn(withPresenting: RootUIViewController.rootViewController) { user, error in
             
             if let error = error {
                 print(error.localizedDescription)
@@ -55,3 +55,4 @@ class SignUpViewModel: ObservableObject {
         }
     }
 }
+

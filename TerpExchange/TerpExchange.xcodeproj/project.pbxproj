@@ -14,10 +14,9 @@
 		0B2FA2FB29BF92FE00D9770D /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 0B2FA2FA29BF92FE00D9770D /* FirebaseFirestore */; };
 		0B2FA30629BF9A5200D9770D /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = 0B2FA30529BF9A5200D9770D /* GoogleSignIn */; };
 		0B2FA30829BF9A5200D9770D /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 0B2FA30729BF9A5200D9770D /* GoogleSignInSwift */; };
-		0B80164B29C0010F009DAB09 /* LoginVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B80164A29C0010F009DAB09 /* LoginVM.swift */; };
-		0B80164E29C00883009DAB09 /* Application.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B80164D29C00883009DAB09 /* Application.swift */; };
 		0B80165129C01072009DAB09 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B80165029C01072009DAB09 /* AppDelegate.swift */; };
-		0B80165329C010E7009DAB09 /* +View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B80165229C010E7009DAB09 /* +View.swift */; };
+		0B80165629C0E6D8009DAB09 /* FirebaseAuthentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B80165529C0E6D8009DAB09 /* FirebaseAuthentication.swift */; };
+		0B80165829C0E7A8009DAB09 /* RootUIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B80165729C0E7A8009DAB09 /* RootUIViewController.swift */; };
 		0BF0ECAD29BF8E3C0009DABC /* TerpExchangeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF0ECAC29BF8E3C0009DABC /* TerpExchangeApp.swift */; };
 		0BF0ECAF29BF8E3C0009DABC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF0ECAE29BF8E3C0009DABC /* ContentView.swift */; };
 		0BF0ECB129BF8E3D0009DABC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0BF0ECB029BF8E3D0009DABC /* Assets.xcassets */; };
@@ -29,10 +28,9 @@
 		0B2FA2F029BF8FA300D9770D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		0B2FA2F129BF911300D9770D /* Righteous-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Righteous-Regular.ttf"; sourceTree = "<group>"; };
 		0B2FA2F329BF922500D9770D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		0B80164A29C0010F009DAB09 /* LoginVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVM.swift; sourceTree = "<group>"; };
-		0B80164D29C00883009DAB09 /* Application.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Application.swift; sourceTree = "<group>"; };
 		0B80165029C01072009DAB09 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		0B80165229C010E7009DAB09 /* +View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "+View.swift"; sourceTree = "<group>"; };
+		0B80165529C0E6D8009DAB09 /* FirebaseAuthentication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseAuthentication.swift; sourceTree = "<group>"; };
+		0B80165729C0E7A8009DAB09 /* RootUIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootUIViewController.swift; sourceTree = "<group>"; };
 		0BF0ECA929BF8E3C0009DABC /* TerpExchange.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TerpExchange.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0BF0ECAC29BF8E3C0009DABC /* TerpExchangeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TerpExchangeApp.swift; sourceTree = "<group>"; };
 		0BF0ECAE29BF8E3C0009DABC /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -74,22 +72,14 @@
 			path = Fonts;
 			sourceTree = "<group>";
 		};
-		0B80164929C000EA009DAB09 /* ViewModel */ = {
+		0B80165429C0E5E3009DAB09 /* LoginHelper */ = {
 			isa = PBXGroup;
 			children = (
-				0B80164A29C0010F009DAB09 /* LoginVM.swift */,
-			);
-			path = ViewModel;
-			sourceTree = "<group>";
-		};
-		0B80164F29C00FFF009DAB09 /* Helper */ = {
-			isa = PBXGroup;
-			children = (
-				0B80164D29C00883009DAB09 /* Application.swift */,
 				0B80165029C01072009DAB09 /* AppDelegate.swift */,
-				0B80165229C010E7009DAB09 /* +View.swift */,
+				0B80165529C0E6D8009DAB09 /* FirebaseAuthentication.swift */,
+				0B80165729C0E7A8009DAB09 /* RootUIViewController.swift */,
 			);
-			path = Helper;
+			path = LoginHelper;
 			sourceTree = "<group>";
 		};
 		0BF0ECA029BF8E3C0009DABC = {
@@ -111,8 +101,7 @@
 		0BF0ECAB29BF8E3C0009DABC /* TerpExchange */ = {
 			isa = PBXGroup;
 			children = (
-				0B80164F29C00FFF009DAB09 /* Helper */,
-				0B80164929C000EA009DAB09 /* ViewModel */,
+				0B80165429C0E5E3009DAB09 /* LoginHelper */,
 				0B2FA2F329BF922500D9770D /* GoogleService-Info.plist */,
 				0B2FA2F029BF8FA300D9770D /* Info.plist */,
 				0B2FA2EF29BF8ED500D9770D /* Fonts */,
@@ -215,11 +204,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0B80165629C0E6D8009DAB09 /* FirebaseAuthentication.swift in Sources */,
 				0B80165129C01072009DAB09 /* AppDelegate.swift in Sources */,
-				0B80164E29C00883009DAB09 /* Application.swift in Sources */,
-				0B80164B29C0010F009DAB09 /* LoginVM.swift in Sources */,
 				0BF0ECBB29BF8E530009DABC /* AccountOptionsView.swift in Sources */,
-				0B80165329C010E7009DAB09 /* +View.swift in Sources */,
+				0B80165829C0E7A8009DAB09 /* RootUIViewController.swift in Sources */,
 				0BF0ECAF29BF8E3C0009DABC /* ContentView.swift in Sources */,
 				0BF0ECAD29BF8E3C0009DABC /* TerpExchangeApp.swift in Sources */,
 			);

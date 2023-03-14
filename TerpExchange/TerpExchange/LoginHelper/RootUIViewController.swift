@@ -1,15 +1,14 @@
 //
-//  Application.swift
+//  RootUIViewController.swift
 //  TerpExchange
 //
-//  Created by Ryan Abeysinghe on 3/13/23.
+//  Created by Ryan Abeysinghe on 3/14/23.
 //
 
 import Foundation
 import SwiftUI
-import UIKit
 
-final class ApplicationUtility {
+final class RootUIViewController {
     static var rootViewController: UIViewController {
         guard let screen = UIApplication.shared.connectedScenes.first as? UIWindowScene else {
             return .init()
