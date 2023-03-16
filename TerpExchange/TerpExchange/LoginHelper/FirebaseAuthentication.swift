@@ -51,6 +51,8 @@ class FirebaseAuthenticationModel: ObservableObject {
                 guard let user = res?.user else { return }
                 
                 print(user)
+                
+                UserDefaults.standard.set(true, forKey: "signIn")
             }
         }
     }
