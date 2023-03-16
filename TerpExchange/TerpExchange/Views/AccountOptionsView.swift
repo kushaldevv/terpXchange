@@ -33,10 +33,19 @@ struct AccountOptionsPage: View {
 
             VStack {
                 Text("TerpExchange")
-                    .font(.custom("Righteous-Regular", size: 40, relativeTo: .headline))
+                    .font(.custom("Righteous-Regular", size: 42, relativeTo: .headline))
                     .bold()
                     .foregroundColor(gold)
                     .frame(alignment: .top)
+                    .padding(.bottom, 20)
+                
+                
+                Text("SIGN UP / LOG IN")
+                    .font(.custom("Righteous-Regular", size: 24, relativeTo: .headline))
+                    .bold()
+                    .foregroundColor(.black)
+                    .frame(alignment: .top)
+                    .padding(.bottom, 30)
                 
                 Button {
                     firebaseAuth.signUpWithGoogle()
@@ -44,15 +53,13 @@ struct AccountOptionsPage: View {
                     GoogleLoginButton(image: Image("google"), text: Text("Sign in with Google"))
                 }
                 
-                                
-                NavigationLink(destination: SignUpAccountView(), label: {
-                    SignUpWithEmailButton(image: Image(systemName: "envelope"), text: Text("Sign up with Email"))
+                NavigationLink(destination: LogInAccountView(), label: {
+                    LogInWithEmailButton(image: Image(systemName: "envelope.fill"), text: Text("Log in with Email"))
                         .padding(.top, 30)
                 })
                 
-                
-                NavigationLink(destination: LogInAccountView(), label: {
-                    LogInWithEmailButton(image: Image(systemName: "envelope.fill"), text: Text("Log in with Email"))
+                NavigationLink(destination: SignUpAccountView(), label: {
+                    SignUpWithEmailButton(image: Image(systemName: "envelope"), text: Text("Sign up with Email"))
                         .padding(.top, 30)
                 })
                 
