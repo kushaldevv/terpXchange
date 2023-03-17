@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0B1E558429C4E78E00CEAD7D /* SourceSansPro-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0B1E558329C4E78E00CEAD7D /* SourceSansPro-Black.ttf */; };
+		0B1E558629C4F22C00CEAD7D /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B1E558529C4F22C00CEAD7D /* HomeView.swift */; };
 		0B2FA2F229BF911300D9770D /* Righteous-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0B2FA2F129BF911300D9770D /* Righteous-Regular.ttf */; };
 		0B2FA2F429BF922500D9770D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0B2FA2F329BF922500D9770D /* GoogleService-Info.plist */; };
 		0B2FA2F729BF92FE00D9770D /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 0B2FA2F629BF92FE00D9770D /* FirebaseAnalytics */; };
@@ -30,6 +31,7 @@
 
 /* Begin PBXFileReference section */
 		0B1E558329C4E78E00CEAD7D /* SourceSansPro-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSansPro-Black.ttf"; sourceTree = "<group>"; };
+		0B1E558529C4F22C00CEAD7D /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		0B2FA2F029BF8FA300D9770D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		0B2FA2F129BF911300D9770D /* Righteous-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Righteous-Regular.ttf"; sourceTree = "<group>"; };
 		0B2FA2F329BF922500D9770D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -71,6 +73,7 @@
 				0B80165929C10173009DAB09 /* SignUpAccountView.swift */,
 				0B84FFE029C20CB4007B7AAC /* UserProfileView.swift */,
 				0BB28A3529C29BBF00064A29 /* LogInAccountView.swift */,
+				0B1E558529C4F22C00CEAD7D /* HomeView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -220,6 +223,7 @@
 				0B80165629C0E6D8009DAB09 /* FirebaseAuthentication.swift in Sources */,
 				0B80165129C01072009DAB09 /* AppDelegate.swift in Sources */,
 				0BF0ECBB29BF8E530009DABC /* AccountOptionsView.swift in Sources */,
+				0B1E558629C4F22C00CEAD7D /* HomeView.swift in Sources */,
 				0B84FFE129C20CB4007B7AAC /* UserProfileView.swift in Sources */,
 				0B80165829C0E7A8009DAB09 /* RootUIViewController.swift in Sources */,
 				0BF0ECAF29BF8E3C0009DABC /* ContentView.swift in Sources */,

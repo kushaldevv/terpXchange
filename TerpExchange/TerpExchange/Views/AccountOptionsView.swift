@@ -11,14 +11,19 @@ import GoogleSignIn
 import FirebaseCore
 import FirebaseAuth
 
-struct AccountOptionsView: View {    
+struct AccountOptionsView: View {
+    let gold = Color(red: 252.0/255.0, green: 194.0/255.0, blue: 0)
+    
     var body: some View {
-        NavigationView {
-            VStack {
-                AccountOptionsPage()
-                    .navigationTitle("")
-            }
-        }
+//        NavigationView {
+//            VStack {
+//                AccountOptionsPage()
+//                    .navigationTitle("")
+//            }
+//        }
+        
+        AccountOptionsPage()
+            .navigationTitle("")
     }
 }
 
