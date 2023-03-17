@@ -41,7 +41,7 @@ struct AccountOptionsPage: View {
                 
                 
                 Text("SIGN UP / LOG IN")
-                    .font(.custom("Righteous-Regular", size: 24, relativeTo: .headline))
+                    .font(.custom("SourceSansPro-Black", size: 25, relativeTo: .headline))
                     .bold()
                     .foregroundColor(.black)
                     .frame(alignment: .top)

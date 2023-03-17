@@ -16,6 +16,7 @@
 	<key>UIAppFonts</key>
 	<array>
 		<string>Righteous-Regular.ttf</string>
+		<string>SourceSansPro-Black.ttf</string>
 	</array>
 </dict>
 </plist>
