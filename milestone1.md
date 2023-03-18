@@ -1,4 +1,4 @@
-# TerpExchange project: Milestone 1
+# TerpExchange Project: Milestone 1
 
 ## Group 20
 - Kushal Devkota
@@ -7,7 +7,10 @@
 - Ryan Abeysinghe
 - David Do
 
-As a group, we have accomplished brainstorming and designing the layout of our mobile application. To do this, we developed a wireframe. Moreover, we also began designing the user interface of our login page utilizing SwiftUI. We are a bit behind in terms of setting up the basic UI. We can overcome this by finishing the basic UI as soon as possible. However, we are currently on pace to meet milestone 2. 
+## Accomplished So Far
+As a group, we have accomplished brainstorming and designing the layout of our mobile application. To do this, we developed a wireframe. Moreover, we also began designing the user interface of our login page utilizing SwiftUI. We are a bit behind in terms of setting up the basic UI. We can overcome this by finishing the basic UI as soon as possible. 
+
+One of our group members has already set up a majority of the UI for the login page and also implemented a working signup / login feature with Firebase Authentication. The rest of us will use the break to catch up to speed. This will ensure that we will finish the little bits of milestone 1 and be on pace to meet milestone 2. 
 
 Attached below are a series of screenshots of the main screens from our wireframe:
 
