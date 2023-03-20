@@ -28,14 +28,14 @@ struct AccountOptionsView: View {
 }
 
 struct AccountOptionsPage: View {
-    @StateObject private var firebaseAuth = FirebaseAuthenticationModel()
     let gold = Color(red: 252.0/255.0, green: 194.0/255.0, blue: 0)
+    @StateObject private var firebaseAuth = FirebaseAuthenticationModel()
     
     var body: some View {
         
         ZStack {
             Color.white.edgesIgnoringSafeArea(.all)
-
+            
             VStack {
                 Text("TerpExchange")
                     .font(.custom("Righteous-Regular", size: 42, relativeTo: .headline))
@@ -43,7 +43,6 @@ struct AccountOptionsPage: View {
                     .foregroundColor(gold)
                     .frame(alignment: .top)
                     .padding(.bottom, 20)
-                
                 
                 Text("SIGN UP / LOG IN")
                     .font(.custom("SourceSansPro-Black", size: 25, relativeTo: .headline))
@@ -55,18 +54,18 @@ struct AccountOptionsPage: View {
                 Button {
                     firebaseAuth.signUpWithGoogle()
                 } label: {
-                    GoogleLoginButton(image: Image("google"), text: Text("Sign in with Google"))
+                    GoogleLoginButton(image: Image("google"), text: Text("Continue with Google"))
                 }
                 
-                NavigationLink(destination: LogInAccountView(), label: {
-                    LogInWithEmailButton(image: Image(systemName: "envelope.fill"), text: Text("Log in with Email"))
-                        .padding(.top, 30)
-                })
-                
-                NavigationLink(destination: SignUpAccountView(), label: {
-                    SignUpWithEmailButton(image: Image(systemName: "envelope"), text: Text("Sign up with Email"))
-                        .padding(.top, 30)
-                })
+//                NavigationLink(destination: LogInAccountView(), label: {
+//                    LogInWithEmailButton(image: Image(systemName: "envelope.fill"), text: Text("Log in with Email"))
+//                        .padding(.top, 30)
+//                })
+//
+//                NavigationLink(destination: SignUpAccountView(), label: {
+//                    SignUpWithEmailButton(image: Image(systemName: "envelope"), text: Text("Sign up with Email"))
+//                        .padding(.top, 30)
+//                })
                 
 //                Button {
 //
@@ -76,9 +75,11 @@ struct AccountOptionsPage: View {
 //                }
                 
                 Spacer()
-                
             }
             .padding()
+            .alert(isPresented: $firebaseAuth.showAlert) {
+                Alert(title: Text("INVALID EMAIL ADDRESS\n"), message: Text("Please sign using a\n'@terpmail.umd.edu' email address"))
+            }
         }
     }
 }
@@ -101,7 +102,6 @@ struct GoogleLoginButton: View {
                     .resizable()
                     .frame(width: 20.0, height: 20.0)
             }
-            
             
             Spacer()
             
