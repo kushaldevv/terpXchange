@@ -90,6 +90,7 @@
 		0B80165429C0E5E3009DAB09 /* LoginHelper */ = {
 			isa = PBXGroup;
 			children = (
+				0BF0ECAC29BF8E3C0009DABC /* TerpExchangeApp.swift */,
 				0B80165029C01072009DAB09 /* AppDelegate.swift */,
 				0B80165529C0E6D8009DAB09 /* FirebaseAuthentication.swift */,
 				0B80165729C0E7A8009DAB09 /* RootUIViewController.swift */,
@@ -116,14 +117,13 @@
 		0BF0ECAB29BF8E3C0009DABC /* TerpExchange */ = {
 			isa = PBXGroup;
 			children = (
+				0B2FA2EE29BF8E8900D9770D /* Views */,
 				0B80165429C0E5E3009DAB09 /* LoginHelper */,
+				0B2FA2EF29BF8ED500D9770D /* Fonts */,
+				0BF0ECB229BF8E3D0009DABC /* Preview Content */,
 				0B2FA2F329BF922500D9770D /* GoogleService-Info.plist */,
 				0B2FA2F029BF8FA300D9770D /* Info.plist */,
-				0B2FA2EF29BF8ED500D9770D /* Fonts */,
-				0BF0ECAC29BF8E3C0009DABC /* TerpExchangeApp.swift */,
-				0B2FA2EE29BF8E8900D9770D /* Views */,
 				0BF0ECB029BF8E3D0009DABC /* Assets.xcassets */,
-				0BF0ECB229BF8E3D0009DABC /* Preview Content */,
 			);
 			path = TerpExchange;
 			sourceTree = "<group>";
