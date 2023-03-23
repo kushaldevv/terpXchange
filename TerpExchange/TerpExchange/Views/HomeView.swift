@@ -25,7 +25,7 @@ struct AccountView: View {
             
             VStack {
                 NavigationLink(destination: AccountOptionsView(), label: {
-                    Text("Hello, World!")
+                    Text("Home Page :)")
                 })
             }
         }
