@@ -78,7 +78,7 @@ struct AccountOptionsPage: View {
             }
             .padding()
             .alert(isPresented: $firebaseAuth.showAlert) {
-                Alert(title: Text("INVALID EMAIL ADDRESS\n"), message: Text("Please sign using a\n'@terpmail.umd.edu' email address"))
+                Alert(title: Text("INVALID EMAIL ADDRESS"), message: Text("Please sign using a\n'@terpmail.umd.edu' email address"))
             }
         }
     }

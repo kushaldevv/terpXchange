@@ -16,6 +16,7 @@
 		0B2FA2FB29BF92FE00D9770D /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 0B2FA2FA29BF92FE00D9770D /* FirebaseFirestore */; };
 		0B2FA30629BF9A5200D9770D /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = 0B2FA30529BF9A5200D9770D /* GoogleSignIn */; };
 		0B2FA30829BF9A5200D9770D /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 0B2FA30729BF9A5200D9770D /* GoogleSignInSwift */; };
+		0B70632129CA4E3900DD52E3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0B70632029CA4E3900DD52E3 /* LaunchScreen.storyboard */; };
 		0B80165129C01072009DAB09 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B80165029C01072009DAB09 /* AppDelegate.swift */; };
 		0B80165629C0E6D8009DAB09 /* FirebaseAuthentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B80165529C0E6D8009DAB09 /* FirebaseAuthentication.swift */; };
 		0B80165829C0E7A8009DAB09 /* RootUIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B80165729C0E7A8009DAB09 /* RootUIViewController.swift */; };
@@ -35,6 +36,7 @@
 		0B2FA2F029BF8FA300D9770D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		0B2FA2F129BF911300D9770D /* Righteous-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Righteous-Regular.ttf"; sourceTree = "<group>"; };
 		0B2FA2F329BF922500D9770D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		0B70632029CA4E3900DD52E3 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0B80165029C01072009DAB09 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0B80165529C0E6D8009DAB09 /* FirebaseAuthentication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseAuthentication.swift; sourceTree = "<group>"; };
 		0B80165729C0E7A8009DAB09 /* RootUIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootUIViewController.swift; sourceTree = "<group>"; };
@@ -87,10 +89,25 @@
 			path = Fonts;
 			sourceTree = "<group>";
 		};
+		0B70631E29CA4DEB00DD52E3 /* Launch */ = {
+			isa = PBXGroup;
+			children = (
+				0B70631F29CA4E1A00DD52E3 /* Views */,
+			);
+			path = Launch;
+			sourceTree = "<group>";
+		};
+		0B70631F29CA4E1A00DD52E3 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				0B70632029CA4E3900DD52E3 /* LaunchScreen.storyboard */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		0B80165429C0E5E3009DAB09 /* LoginHelper */ = {
 			isa = PBXGroup;
 			children = (
-				0BF0ECAC29BF8E3C0009DABC /* TerpExchangeApp.swift */,
 				0B80165029C01072009DAB09 /* AppDelegate.swift */,
 				0B80165529C0E6D8009DAB09 /* FirebaseAuthentication.swift */,
 				0B80165729C0E7A8009DAB09 /* RootUIViewController.swift */,
@@ -119,11 +136,13 @@
 			children = (
 				0B2FA2EE29BF8E8900D9770D /* Views */,
 				0B80165429C0E5E3009DAB09 /* LoginHelper */,
+				0B70631E29CA4DEB00DD52E3 /* Launch */,
 				0B2FA2EF29BF8ED500D9770D /* Fonts */,
 				0BF0ECB229BF8E3D0009DABC /* Preview Content */,
 				0B2FA2F329BF922500D9770D /* GoogleService-Info.plist */,
 				0B2FA2F029BF8FA300D9770D /* Info.plist */,
 				0BF0ECB029BF8E3D0009DABC /* Assets.xcassets */,
+				0BF0ECAC29BF8E3C0009DABC /* TerpExchangeApp.swift */,
 			);
 			path = TerpExchange;
 			sourceTree = "<group>";
@@ -208,6 +227,7 @@
 				0BF0ECB429BF8E3D0009DABC /* Preview Assets.xcassets in Resources */,
 				0B2FA2F429BF922500D9770D /* GoogleService-Info.plist in Resources */,
 				0B2FA2F229BF911300D9770D /* Righteous-Regular.ttf in Resources */,
+				0B70632129CA4E3900DD52E3 /* LaunchScreen.storyboard in Resources */,
 				0B1E558429C4E78E00CEAD7D /* SourceSansPro-Black.ttf in Resources */,
 				0BF0ECB129BF8E3D0009DABC /* Assets.xcassets in Resources */,
 			);

@@ -12,7 +12,7 @@ struct HomeView: View {
         NavigationView {
             VStack {
                 AccountView()
-                    .navigationTitle("")
+//                    .navigationTitle("")
             }
         }
     }
