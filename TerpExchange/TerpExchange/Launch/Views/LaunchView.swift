@@ -53,7 +53,7 @@ struct LaunchView: View {
                     counter = 0
                     loops += 1
                     
-                    if loops >= 3 {
+                    if loops >= 2 {
                         showLauchView = false
                     }
                 } else {
