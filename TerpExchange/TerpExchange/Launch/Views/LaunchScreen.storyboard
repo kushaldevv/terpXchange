@@ -69,7 +69,7 @@
     <resources>
         <image name="TerpExchangeLogo-transparent" width="2000" height="1250"/>
         <namedColor name="LaunchBackgroundColor">
-            <color red="0.88235294117647056" green="0.88235294117647056" blue="0.92156862745098034" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>
