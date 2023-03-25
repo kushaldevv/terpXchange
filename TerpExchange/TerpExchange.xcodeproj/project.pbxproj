@@ -16,6 +16,8 @@
 		0B2FA2FB29BF92FE00D9770D /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 0B2FA2FA29BF92FE00D9770D /* FirebaseFirestore */; };
 		0B2FA30629BF9A5200D9770D /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = 0B2FA30529BF9A5200D9770D /* GoogleSignIn */; };
 		0B2FA30829BF9A5200D9770D /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 0B2FA30729BF9A5200D9770D /* GoogleSignInSwift */; };
+		0B55A45C29CCCD9400B61627 /* LaunchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B55A45B29CCCD9400B61627 /* LaunchView.swift */; };
+		0B55A45E29CCCE1600B61627 /* LaunchColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B55A45D29CCCE1600B61627 /* LaunchColor.swift */; };
 		0B70632129CA4E3900DD52E3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0B70632029CA4E3900DD52E3 /* LaunchScreen.storyboard */; };
 		0B80165129C01072009DAB09 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B80165029C01072009DAB09 /* AppDelegate.swift */; };
 		0B80165629C0E6D8009DAB09 /* FirebaseAuthentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B80165529C0E6D8009DAB09 /* FirebaseAuthentication.swift */; };
@@ -40,6 +42,8 @@
 		0B2FA2F029BF8FA300D9770D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		0B2FA2F129BF911300D9770D /* Righteous-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Righteous-Regular.ttf"; sourceTree = "<group>"; };
 		0B2FA2F329BF922500D9770D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		0B55A45B29CCCD9400B61627 /* LaunchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchView.swift; sourceTree = "<group>"; };
+		0B55A45D29CCCE1600B61627 /* LaunchColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchColor.swift; sourceTree = "<group>"; };
 		0B70632029CA4E3900DD52E3 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0B80165029C01072009DAB09 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0B80165529C0E6D8009DAB09 /* FirebaseAuthentication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseAuthentication.swift; sourceTree = "<group>"; };
@@ -113,6 +117,8 @@
 			isa = PBXGroup;
 			children = (
 				0B70632029CA4E3900DD52E3 /* LaunchScreen.storyboard */,
+				0B55A45B29CCCD9400B61627 /* LaunchView.swift */,
+				0B55A45D29CCCE1600B61627 /* LaunchColor.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -253,6 +259,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				0B80165629C0E6D8009DAB09 /* FirebaseAuthentication.swift in Sources */,
+				0B55A45C29CCCD9400B61627 /* LaunchView.swift in Sources */,
+				0B55A45E29CCCE1600B61627 /* LaunchColor.swift in Sources */,
 				0B80165129C01072009DAB09 /* AppDelegate.swift in Sources */,
 				0BF0ECBB29BF8E530009DABC /* AccountOptionsView.swift in Sources */,
 				0B1E558629C4F22C00CEAD7D /* HomeView.swift in Sources */,
@@ -402,6 +410,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -434,6 +443,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (

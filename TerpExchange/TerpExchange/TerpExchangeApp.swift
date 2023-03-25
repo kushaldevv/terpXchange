@@ -14,14 +14,26 @@ struct TerpExchangeApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
     @AppStorage("signIn") var isSignIn = false
     
+    @State private var showLaunchView: Bool = true
+    
     var body: some Scene {
         WindowGroup {
            //AccountOptionsView()
             
-            if isSignIn {
-                UserProfileAccessPage()
-            } else {
-                HomeView()
+            ZStack {
+                if isSignIn {
+                    UserProfileAccessPage()
+                } else {
+                    HomeView()
+                }
+                
+                ZStack {
+                    if showLaunchView {
+                        LaunchView(showLauchView: $showLaunchView)
+                            .transition(.move(edge: .leading))
+                    }
+                }
+                .zIndex(2.0)
             }
         }
     }
