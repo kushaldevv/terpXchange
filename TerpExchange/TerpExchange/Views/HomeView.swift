@@ -59,7 +59,7 @@ struct HomeView: View {
                         GridItem(.flexible(),spacing: 0),
                         GridItem(.flexible(),spacing: 0)
                     ], spacing: 7) {
-                        ForEach(0..<cardsCount) { i in
+                        ForEach(0..<cardsCount, id: \.self) { i in
                             cards[i]
                         }
                     }
