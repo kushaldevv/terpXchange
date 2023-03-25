@@ -22,9 +22,7 @@
 		0B80165129C01072009DAB09 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B80165029C01072009DAB09 /* AppDelegate.swift */; };
 		0B80165629C0E6D8009DAB09 /* FirebaseAuthentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B80165529C0E6D8009DAB09 /* FirebaseAuthentication.swift */; };
 		0B80165829C0E7A8009DAB09 /* RootUIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B80165729C0E7A8009DAB09 /* RootUIViewController.swift */; };
-		0B80165A29C10173009DAB09 /* SignUpAccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B80165929C10173009DAB09 /* SignUpAccountView.swift */; };
 		0B84FFE129C20CB4007B7AAC /* UserProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B84FFE029C20CB4007B7AAC /* UserProfileView.swift */; };
-		0BB28A3629C29BBF00064A29 /* LogInAccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BB28A3529C29BBF00064A29 /* LogInAccountView.swift */; };
 		0BF0ECAD29BF8E3C0009DABC /* TerpExchangeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF0ECAC29BF8E3C0009DABC /* TerpExchangeApp.swift */; };
 		0BF0ECAF29BF8E3C0009DABC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF0ECAE29BF8E3C0009DABC /* ContentView.swift */; };
 		0BF0ECB129BF8E3D0009DABC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0BF0ECB029BF8E3D0009DABC /* Assets.xcassets */; };
@@ -33,7 +31,6 @@
 		2A422F8B29CCC362006BEA5B /* NavbarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A422F8A29CCC362006BEA5B /* NavbarView.swift */; };
 		2A422F8D29CCD398006BEA5B /* ChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A422F8C29CCD398006BEA5B /* ChatView.swift */; };
 		2A422F8F29CCD3CC006BEA5B /* PostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A422F8E29CCD3CC006BEA5B /* PostView.swift */; };
-		2A422F9129CCD431006BEA5B /* AccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A422F9029CCD431006BEA5B /* AccountView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,9 +45,7 @@
 		0B80165029C01072009DAB09 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0B80165529C0E6D8009DAB09 /* FirebaseAuthentication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseAuthentication.swift; sourceTree = "<group>"; };
 		0B80165729C0E7A8009DAB09 /* RootUIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootUIViewController.swift; sourceTree = "<group>"; };
-		0B80165929C10173009DAB09 /* SignUpAccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpAccountView.swift; sourceTree = "<group>"; };
 		0B84FFE029C20CB4007B7AAC /* UserProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileView.swift; sourceTree = "<group>"; };
-		0BB28A3529C29BBF00064A29 /* LogInAccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInAccountView.swift; sourceTree = "<group>"; };
 		0BF0ECA929BF8E3C0009DABC /* TerpExchange.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TerpExchange.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0BF0ECAC29BF8E3C0009DABC /* TerpExchangeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TerpExchangeApp.swift; sourceTree = "<group>"; };
 		0BF0ECAE29BF8E3C0009DABC /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -60,7 +55,6 @@
 		2A422F8A29CCC362006BEA5B /* NavbarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavbarView.swift; sourceTree = "<group>"; };
 		2A422F8C29CCD398006BEA5B /* ChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatView.swift; sourceTree = "<group>"; };
 		2A422F8E29CCD3CC006BEA5B /* PostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostView.swift; sourceTree = "<group>"; };
-		2A422F9029CCD431006BEA5B /* AccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,14 +78,11 @@
 			children = (
 				0BF0ECAE29BF8E3C0009DABC /* ContentView.swift */,
 				0BF0ECBA29BF8E530009DABC /* AccountOptionsView.swift */,
-				0B80165929C10173009DAB09 /* SignUpAccountView.swift */,
 				0B84FFE029C20CB4007B7AAC /* UserProfileView.swift */,
-				0BB28A3529C29BBF00064A29 /* LogInAccountView.swift */,
 				0B1E558529C4F22C00CEAD7D /* HomeView.swift */,
 				2A422F8A29CCC362006BEA5B /* NavbarView.swift */,
 				2A422F8C29CCD398006BEA5B /* ChatView.swift */,
 				2A422F8E29CCD3CC006BEA5B /* PostView.swift */,
-				2A422F9029CCD431006BEA5B /* AccountView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -264,14 +255,11 @@
 				0B80165129C01072009DAB09 /* AppDelegate.swift in Sources */,
 				0BF0ECBB29BF8E530009DABC /* AccountOptionsView.swift in Sources */,
 				0B1E558629C4F22C00CEAD7D /* HomeView.swift in Sources */,
-				2A422F9129CCD431006BEA5B /* AccountView.swift in Sources */,
 				2A422F8D29CCD398006BEA5B /* ChatView.swift in Sources */,
 				2A422F8B29CCC362006BEA5B /* NavbarView.swift in Sources */,
 				0B84FFE129C20CB4007B7AAC /* UserProfileView.swift in Sources */,
 				0B80165829C0E7A8009DAB09 /* RootUIViewController.swift in Sources */,
 				0BF0ECAF29BF8E3C0009DABC /* ContentView.swift in Sources */,
-				0BB28A3629C29BBF00064A29 /* LogInAccountView.swift in Sources */,
-				0B80165A29C10173009DAB09 /* SignUpAccountView.swift in Sources */,
 				2A422F8F29CCD3CC006BEA5B /* PostView.swift in Sources */,
 				0BF0ECAD29BF8E3C0009DABC /* TerpExchangeApp.swift in Sources */,
 			);
