@@ -7,8 +7,6 @@
 
 import SwiftUI
 
-
-
 var cards = [card](repeating: card(), count: 24)
 let cardsCount = cards.count
 

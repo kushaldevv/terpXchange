@@ -11,7 +11,7 @@ import SwiftUI
 let screenSize: CGRect = UIScreen.main.bounds
 let screenWidth = screenSize.width
 let screenHeight = screenSize.height
-let coralPinkColor = Color("coralPink")
+let coralPinkColor = Color("CoralPink")
 let offwhiteColor = Color("offwhite")
 
 struct NavbarView: View {
