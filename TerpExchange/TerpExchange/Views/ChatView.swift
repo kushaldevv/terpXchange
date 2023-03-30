@@ -2,7 +2,7 @@
 //  ChatView.swift
 //  TerpExchange
 //
-//  Created by kushal on 3/23/23.
+//  Created by Leul Mesfin on 3/30/23.
 //
 
 import SwiftUI
