@@ -7,206 +7,206 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2A0FE7BD29B14DF60039E387 /* TerpExchangeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A0FE7BC29B14DF60039E387 /* TerpExchangeApp.swift */; };
-		2A0FE7BF29B14DF60039E387 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A0FE7BE29B14DF60039E387 /* ContentView.swift */; };
-		2A0FE7C129B14DF70039E387 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2A0FE7C029B14DF70039E387 /* Assets.xcassets */; };
-		2A0FE7C429B14DF70039E387 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2A0FE7C329B14DF70039E387 /* Preview Assets.xcassets */; };
-		2A0FE7CE29B14DF70039E387 /* TerpExchangeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A0FE7CD29B14DF70039E387 /* TerpExchangeTests.swift */; };
-		2A0FE7D829B14DF70039E387 /* TerpExchangeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A0FE7D729B14DF70039E387 /* TerpExchangeUITests.swift */; };
-		2A0FE7DA29B14DF70039E387 /* TerpExchangeUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A0FE7D929B14DF70039E387 /* TerpExchangeUITestsLaunchTests.swift */; };
+		0B1E558429C4E78E00CEAD7D /* SourceSansPro-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0B1E558329C4E78E00CEAD7D /* SourceSansPro-Black.ttf */; };
+		0B1E558629C4F22C00CEAD7D /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B1E558529C4F22C00CEAD7D /* HomeView.swift */; };
+		0B2FA2F229BF911300D9770D /* Righteous-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0B2FA2F129BF911300D9770D /* Righteous-Regular.ttf */; };
+		0B2FA2F429BF922500D9770D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0B2FA2F329BF922500D9770D /* GoogleService-Info.plist */; };
+		0B2FA2F729BF92FE00D9770D /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 0B2FA2F629BF92FE00D9770D /* FirebaseAnalytics */; };
+		0B2FA2F929BF92FE00D9770D /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 0B2FA2F829BF92FE00D9770D /* FirebaseAuth */; };
+		0B2FA2FB29BF92FE00D9770D /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 0B2FA2FA29BF92FE00D9770D /* FirebaseFirestore */; };
+		0B2FA30629BF9A5200D9770D /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = 0B2FA30529BF9A5200D9770D /* GoogleSignIn */; };
+		0B2FA30829BF9A5200D9770D /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 0B2FA30729BF9A5200D9770D /* GoogleSignInSwift */; };
+		0B55A45C29CCCD9400B61627 /* LaunchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B55A45B29CCCD9400B61627 /* LaunchView.swift */; };
+		0B55A45E29CCCE1600B61627 /* LaunchColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B55A45D29CCCE1600B61627 /* LaunchColor.swift */; };
+		0B70632129CA4E3900DD52E3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0B70632029CA4E3900DD52E3 /* LaunchScreen.storyboard */; };
+		0B80165129C01072009DAB09 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B80165029C01072009DAB09 /* AppDelegate.swift */; };
+		0B80165629C0E6D8009DAB09 /* FirebaseAuthentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B80165529C0E6D8009DAB09 /* FirebaseAuthentication.swift */; };
+		0B80165829C0E7A8009DAB09 /* RootUIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B80165729C0E7A8009DAB09 /* RootUIViewController.swift */; };
+		0B84FFE129C20CB4007B7AAC /* UserProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B84FFE029C20CB4007B7AAC /* UserProfileView.swift */; };
+		0BF0ECAD29BF8E3C0009DABC /* TerpExchangeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF0ECAC29BF8E3C0009DABC /* TerpExchangeApp.swift */; };
+		0BF0ECAF29BF8E3C0009DABC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF0ECAE29BF8E3C0009DABC /* ContentView.swift */; };
+		0BF0ECB129BF8E3D0009DABC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0BF0ECB029BF8E3D0009DABC /* Assets.xcassets */; };
+		0BF0ECB429BF8E3D0009DABC /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0BF0ECB329BF8E3D0009DABC /* Preview Assets.xcassets */; };
+		0BF0ECBB29BF8E530009DABC /* AccountOptionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF0ECBA29BF8E530009DABC /* AccountOptionsView.swift */; };
+		2A422F8B29CCC362006BEA5B /* NavbarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A422F8A29CCC362006BEA5B /* NavbarView.swift */; };
+		2A422F8D29CCD398006BEA5B /* ChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A422F8C29CCD398006BEA5B /* ChatView.swift */; };
+		2A422F8F29CCD3CC006BEA5B /* PostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A422F8E29CCD3CC006BEA5B /* PostView.swift */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		2A0FE7CA29B14DF70039E387 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 2A0FE7B129B14DF60039E387 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 2A0FE7B829B14DF60039E387;
-			remoteInfo = TerpExchange;
-		};
-		2A0FE7D429B14DF70039E387 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 2A0FE7B129B14DF60039E387 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 2A0FE7B829B14DF60039E387;
-			remoteInfo = TerpExchange;
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXFileReference section */
-		2A0FE7B929B14DF60039E387 /* TerpExchange.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TerpExchange.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		2A0FE7BC29B14DF60039E387 /* TerpExchangeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TerpExchangeApp.swift; sourceTree = "<group>"; };
-		2A0FE7BE29B14DF60039E387 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		2A0FE7C029B14DF70039E387 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		2A0FE7C329B14DF70039E387 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		2A0FE7C929B14DF70039E387 /* TerpExchangeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TerpExchangeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		2A0FE7CD29B14DF70039E387 /* TerpExchangeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TerpExchangeTests.swift; sourceTree = "<group>"; };
-		2A0FE7D329B14DF70039E387 /* TerpExchangeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TerpExchangeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		2A0FE7D729B14DF70039E387 /* TerpExchangeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TerpExchangeUITests.swift; sourceTree = "<group>"; };
-		2A0FE7D929B14DF70039E387 /* TerpExchangeUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TerpExchangeUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		0B1E558329C4E78E00CEAD7D /* SourceSansPro-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSansPro-Black.ttf"; sourceTree = "<group>"; };
+		0B1E558529C4F22C00CEAD7D /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		0B2FA2F029BF8FA300D9770D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		0B2FA2F129BF911300D9770D /* Righteous-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Righteous-Regular.ttf"; sourceTree = "<group>"; };
+		0B2FA2F329BF922500D9770D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		0B55A45B29CCCD9400B61627 /* LaunchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchView.swift; sourceTree = "<group>"; };
+		0B55A45D29CCCE1600B61627 /* LaunchColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchColor.swift; sourceTree = "<group>"; };
+		0B70632029CA4E3900DD52E3 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		0B80165029C01072009DAB09 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		0B80165529C0E6D8009DAB09 /* FirebaseAuthentication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseAuthentication.swift; sourceTree = "<group>"; };
+		0B80165729C0E7A8009DAB09 /* RootUIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootUIViewController.swift; sourceTree = "<group>"; };
+		0B84FFE029C20CB4007B7AAC /* UserProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileView.swift; sourceTree = "<group>"; };
+		0BF0ECA929BF8E3C0009DABC /* TerpExchange.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TerpExchange.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		0BF0ECAC29BF8E3C0009DABC /* TerpExchangeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TerpExchangeApp.swift; sourceTree = "<group>"; };
+		0BF0ECAE29BF8E3C0009DABC /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		0BF0ECB029BF8E3D0009DABC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		0BF0ECB329BF8E3D0009DABC /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		0BF0ECBA29BF8E530009DABC /* AccountOptionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountOptionsView.swift; sourceTree = "<group>"; };
+		2A422F8A29CCC362006BEA5B /* NavbarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavbarView.swift; sourceTree = "<group>"; };
+		2A422F8C29CCD398006BEA5B /* ChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatView.swift; sourceTree = "<group>"; };
+		2A422F8E29CCD3CC006BEA5B /* PostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		2A0FE7B629B14DF60039E387 /* Frameworks */ = {
+		0BF0ECA629BF8E3C0009DABC /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		2A0FE7C629B14DF70039E387 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		2A0FE7D029B14DF70039E387 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
+				0B2FA30829BF9A5200D9770D /* GoogleSignInSwift in Frameworks */,
+				0B2FA2F729BF92FE00D9770D /* FirebaseAnalytics in Frameworks */,
+				0B2FA30629BF9A5200D9770D /* GoogleSignIn in Frameworks */,
+				0B2FA2F929BF92FE00D9770D /* FirebaseAuth in Frameworks */,
+				0B2FA2FB29BF92FE00D9770D /* FirebaseFirestore in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		2A0FE7B029B14DF60039E387 = {
+		0B2FA2EE29BF8E8900D9770D /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				2A0FE7BB29B14DF60039E387 /* TerpExchange */,
-				2A0FE7CC29B14DF70039E387 /* TerpExchangeTests */,
-				2A0FE7D629B14DF70039E387 /* TerpExchangeUITests */,
-				2A0FE7BA29B14DF60039E387 /* Products */,
+				0BF0ECAE29BF8E3C0009DABC /* ContentView.swift */,
+				0BF0ECBA29BF8E530009DABC /* AccountOptionsView.swift */,
+				0B84FFE029C20CB4007B7AAC /* UserProfileView.swift */,
+				0B1E558529C4F22C00CEAD7D /* HomeView.swift */,
+				2A422F8A29CCC362006BEA5B /* NavbarView.swift */,
+				2A422F8C29CCD398006BEA5B /* ChatView.swift */,
+				2A422F8E29CCD3CC006BEA5B /* PostView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		0B2FA2EF29BF8ED500D9770D /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				0B1E558329C4E78E00CEAD7D /* SourceSansPro-Black.ttf */,
+				0B2FA2F129BF911300D9770D /* Righteous-Regular.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		0B70631E29CA4DEB00DD52E3 /* Launch */ = {
+			isa = PBXGroup;
+			children = (
+				0B70631F29CA4E1A00DD52E3 /* Views */,
+			);
+			path = Launch;
+			sourceTree = "<group>";
+		};
+		0B70631F29CA4E1A00DD52E3 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				0B70632029CA4E3900DD52E3 /* LaunchScreen.storyboard */,
+				0B55A45B29CCCD9400B61627 /* LaunchView.swift */,
+				0B55A45D29CCCE1600B61627 /* LaunchColor.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		0B80165429C0E5E3009DAB09 /* LoginHelper */ = {
+			isa = PBXGroup;
+			children = (
+				0B80165029C01072009DAB09 /* AppDelegate.swift */,
+				0B80165529C0E6D8009DAB09 /* FirebaseAuthentication.swift */,
+				0B80165729C0E7A8009DAB09 /* RootUIViewController.swift */,
+			);
+			path = LoginHelper;
+			sourceTree = "<group>";
+		};
+		0BF0ECA029BF8E3C0009DABC = {
+			isa = PBXGroup;
+			children = (
+				0BF0ECAB29BF8E3C0009DABC /* TerpExchange */,
+				0BF0ECAA29BF8E3C0009DABC /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		2A0FE7BA29B14DF60039E387 /* Products */ = {
+		0BF0ECAA29BF8E3C0009DABC /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				2A0FE7B929B14DF60039E387 /* TerpExchange.app */,
-				2A0FE7C929B14DF70039E387 /* TerpExchangeTests.xctest */,
-				2A0FE7D329B14DF70039E387 /* TerpExchangeUITests.xctest */,
+				0BF0ECA929BF8E3C0009DABC /* TerpExchange.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		2A0FE7BB29B14DF60039E387 /* TerpExchange */ = {
+		0BF0ECAB29BF8E3C0009DABC /* TerpExchange */ = {
 			isa = PBXGroup;
 			children = (
-				2A0FE7BC29B14DF60039E387 /* TerpExchangeApp.swift */,
-				2A0FE7BE29B14DF60039E387 /* ContentView.swift */,
-				2A0FE7C029B14DF70039E387 /* Assets.xcassets */,
-				2A0FE7C229B14DF70039E387 /* Preview Content */,
+				0B2FA2EE29BF8E8900D9770D /* Views */,
+				0B80165429C0E5E3009DAB09 /* LoginHelper */,
+				0B70631E29CA4DEB00DD52E3 /* Launch */,
+				0B2FA2EF29BF8ED500D9770D /* Fonts */,
+				0BF0ECB229BF8E3D0009DABC /* Preview Content */,
+				0B2FA2F329BF922500D9770D /* GoogleService-Info.plist */,
+				0B2FA2F029BF8FA300D9770D /* Info.plist */,
+				0BF0ECB029BF8E3D0009DABC /* Assets.xcassets */,
+				0BF0ECAC29BF8E3C0009DABC /* TerpExchangeApp.swift */,
 			);
 			path = TerpExchange;
 			sourceTree = "<group>";
 		};
-		2A0FE7C229B14DF70039E387 /* Preview Content */ = {
+		0BF0ECB229BF8E3D0009DABC /* Preview Content */ = {
 			isa = PBXGroup;
 			children = (
-				2A0FE7C329B14DF70039E387 /* Preview Assets.xcassets */,
+				0BF0ECB329BF8E3D0009DABC /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
-			sourceTree = "<group>";
-		};
-		2A0FE7CC29B14DF70039E387 /* TerpExchangeTests */ = {
-			isa = PBXGroup;
-			children = (
-				2A0FE7CD29B14DF70039E387 /* TerpExchangeTests.swift */,
-			);
-			path = TerpExchangeTests;
-			sourceTree = "<group>";
-		};
-		2A0FE7D629B14DF70039E387 /* TerpExchangeUITests */ = {
-			isa = PBXGroup;
-			children = (
-				2A0FE7D729B14DF70039E387 /* TerpExchangeUITests.swift */,
-				2A0FE7D929B14DF70039E387 /* TerpExchangeUITestsLaunchTests.swift */,
-			);
-			path = TerpExchangeUITests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		2A0FE7B829B14DF60039E387 /* TerpExchange */ = {
+		0BF0ECA829BF8E3C0009DABC /* TerpExchange */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 2A0FE7DD29B14DF70039E387 /* Build configuration list for PBXNativeTarget "TerpExchange" */;
+			buildConfigurationList = 0BF0ECB729BF8E3D0009DABC /* Build configuration list for PBXNativeTarget "TerpExchange" */;
 			buildPhases = (
-				2A0FE7B529B14DF60039E387 /* Sources */,
-				2A0FE7B629B14DF60039E387 /* Frameworks */,
-				2A0FE7B729B14DF60039E387 /* Resources */,
+				0BF0ECA529BF8E3C0009DABC /* Sources */,
+				0BF0ECA629BF8E3C0009DABC /* Frameworks */,
+				0BF0ECA729BF8E3C0009DABC /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = TerpExchange;
+			packageProductDependencies = (
+				0B2FA2F629BF92FE00D9770D /* FirebaseAnalytics */,
+				0B2FA2F829BF92FE00D9770D /* FirebaseAuth */,
+				0B2FA2FA29BF92FE00D9770D /* FirebaseFirestore */,
+				0B2FA30529BF9A5200D9770D /* GoogleSignIn */,
+				0B2FA30729BF9A5200D9770D /* GoogleSignInSwift */,
+			);
 			productName = TerpExchange;
-			productReference = 2A0FE7B929B14DF60039E387 /* TerpExchange.app */;
+			productReference = 0BF0ECA929BF8E3C0009DABC /* TerpExchange.app */;
 			productType = "com.apple.product-type.application";
-		};
-		2A0FE7C829B14DF70039E387 /* TerpExchangeTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 2A0FE7E029B14DF70039E387 /* Build configuration list for PBXNativeTarget "TerpExchangeTests" */;
-			buildPhases = (
-				2A0FE7C529B14DF70039E387 /* Sources */,
-				2A0FE7C629B14DF70039E387 /* Frameworks */,
-				2A0FE7C729B14DF70039E387 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				2A0FE7CB29B14DF70039E387 /* PBXTargetDependency */,
-			);
-			name = TerpExchangeTests;
-			productName = TerpExchangeTests;
-			productReference = 2A0FE7C929B14DF70039E387 /* TerpExchangeTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		2A0FE7D229B14DF70039E387 /* TerpExchangeUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 2A0FE7E329B14DF70039E387 /* Build configuration list for PBXNativeTarget "TerpExchangeUITests" */;
-			buildPhases = (
-				2A0FE7CF29B14DF70039E387 /* Sources */,
-				2A0FE7D029B14DF70039E387 /* Frameworks */,
-				2A0FE7D129B14DF70039E387 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				2A0FE7D529B14DF70039E387 /* PBXTargetDependency */,
-			);
-			name = TerpExchangeUITests;
-			productName = TerpExchangeUITests;
-			productReference = 2A0FE7D329B14DF70039E387 /* TerpExchangeUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		2A0FE7B129B14DF60039E387 /* Project object */ = {
+		0BF0ECA129BF8E3C0009DABC /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1420;
 				LastUpgradeCheck = 1420;
 				TargetAttributes = {
-					2A0FE7B829B14DF60039E387 = {
+					0BF0ECA829BF8E3C0009DABC = {
 						CreatedOnToolsVersion = 14.2;
-					};
-					2A0FE7C829B14DF70039E387 = {
-						CreatedOnToolsVersion = 14.2;
-						TestTargetID = 2A0FE7B829B14DF60039E387;
-					};
-					2A0FE7D229B14DF70039E387 = {
-						CreatedOnToolsVersion = 14.2;
-						TestTargetID = 2A0FE7B829B14DF60039E387;
 					};
 				};
 			};
-			buildConfigurationList = 2A0FE7B429B14DF60039E387 /* Build configuration list for PBXProject "TerpExchange" */;
+			buildConfigurationList = 0BF0ECA429BF8E3C0009DABC /* Build configuration list for PBXProject "TerpExchange" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -214,88 +214,61 @@
 				en,
 				Base,
 			);
-			mainGroup = 2A0FE7B029B14DF60039E387;
-			productRefGroup = 2A0FE7BA29B14DF60039E387 /* Products */;
+			mainGroup = 0BF0ECA029BF8E3C0009DABC;
+			packageReferences = (
+				0B2FA2F529BF92FE00D9770D /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				0B2FA30429BF9A5200D9770D /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */,
+			);
+			productRefGroup = 0BF0ECAA29BF8E3C0009DABC /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				2A0FE7B829B14DF60039E387 /* TerpExchange */,
-				2A0FE7C829B14DF70039E387 /* TerpExchangeTests */,
-				2A0FE7D229B14DF70039E387 /* TerpExchangeUITests */,
+				0BF0ECA829BF8E3C0009DABC /* TerpExchange */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		2A0FE7B729B14DF60039E387 /* Resources */ = {
+		0BF0ECA729BF8E3C0009DABC /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2A0FE7C429B14DF70039E387 /* Preview Assets.xcassets in Resources */,
-				2A0FE7C129B14DF70039E387 /* Assets.xcassets in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		2A0FE7C729B14DF70039E387 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		2A0FE7D129B14DF70039E387 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
+				0BF0ECB429BF8E3D0009DABC /* Preview Assets.xcassets in Resources */,
+				0B2FA2F429BF922500D9770D /* GoogleService-Info.plist in Resources */,
+				0B2FA2F229BF911300D9770D /* Righteous-Regular.ttf in Resources */,
+				0B70632129CA4E3900DD52E3 /* LaunchScreen.storyboard in Resources */,
+				0B1E558429C4E78E00CEAD7D /* SourceSansPro-Black.ttf in Resources */,
+				0BF0ECB129BF8E3D0009DABC /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		2A0FE7B529B14DF60039E387 /* Sources */ = {
+		0BF0ECA529BF8E3C0009DABC /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2A0FE7BF29B14DF60039E387 /* ContentView.swift in Sources */,
-				2A0FE7BD29B14DF60039E387 /* TerpExchangeApp.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		2A0FE7C529B14DF70039E387 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				2A0FE7CE29B14DF70039E387 /* TerpExchangeTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		2A0FE7CF29B14DF70039E387 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				2A0FE7DA29B14DF70039E387 /* TerpExchangeUITestsLaunchTests.swift in Sources */,
-				2A0FE7D829B14DF70039E387 /* TerpExchangeUITests.swift in Sources */,
+				0B80165629C0E6D8009DAB09 /* FirebaseAuthentication.swift in Sources */,
+				0B55A45C29CCCD9400B61627 /* LaunchView.swift in Sources */,
+				0B55A45E29CCCE1600B61627 /* LaunchColor.swift in Sources */,
+				0B80165129C01072009DAB09 /* AppDelegate.swift in Sources */,
+				0BF0ECBB29BF8E530009DABC /* AccountOptionsView.swift in Sources */,
+				0B1E558629C4F22C00CEAD7D /* HomeView.swift in Sources */,
+				2A422F8D29CCD398006BEA5B /* ChatView.swift in Sources */,
+				2A422F8B29CCC362006BEA5B /* NavbarView.swift in Sources */,
+				0B84FFE129C20CB4007B7AAC /* UserProfileView.swift in Sources */,
+				0B80165829C0E7A8009DAB09 /* RootUIViewController.swift in Sources */,
+				0BF0ECAF29BF8E3C0009DABC /* ContentView.swift in Sources */,
+				2A422F8F29CCD3CC006BEA5B /* PostView.swift in Sources */,
+				0BF0ECAD29BF8E3C0009DABC /* TerpExchangeApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
-/* Begin PBXTargetDependency section */
-		2A0FE7CB29B14DF70039E387 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 2A0FE7B829B14DF60039E387 /* TerpExchange */;
-			targetProxy = 2A0FE7CA29B14DF70039E387 /* PBXContainerItemProxy */;
-		};
-		2A0FE7D529B14DF70039E387 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 2A0FE7B829B14DF60039E387 /* TerpExchange */;
-			targetProxy = 2A0FE7D429B14DF70039E387 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
-
 /* Begin XCBuildConfiguration section */
-		2A0FE7DB29B14DF70039E387 /* Debug */ = {
+		0BF0ECB529BF8E3D0009DABC /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -355,7 +328,7 @@
 			};
 			name = Debug;
 		};
-		2A0FE7DC29B14DF70039E387 /* Release */ = {
+		0BF0ECB629BF8E3D0009DABC /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -409,19 +382,23 @@
 			};
 			name = Release;
 		};
-		2A0FE7DE29B14DF70039E387 /* Debug */ = {
+		0BF0ECB829BF8E3D0009DABC /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"TerpExchange/Preview Content\"";
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = TerpExchange/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -429,27 +406,32 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = test.TerpExchange;
+				PRODUCT_BUNDLE_IDENTIFIER = com.SDKRL.TerpExchange;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
-		2A0FE7DF29B14DF70039E387 /* Release */ = {
+		0BF0ECB929BF8E3D0009DABC /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"TerpExchange/Preview Content\"";
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = TerpExchange/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -457,126 +439,84 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = test.TerpExchange;
+				PRODUCT_BUNDLE_IDENTIFIER = com.SDKRL.TerpExchange;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Release;
-		};
-		2A0FE7E129B14DF70039E387 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = test.TerpExchangeTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TerpExchange.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/TerpExchange";
-			};
-			name = Debug;
-		};
-		2A0FE7E229B14DF70039E387 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = test.TerpExchangeTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TerpExchange.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/TerpExchange";
-			};
-			name = Release;
-		};
-		2A0FE7E429B14DF70039E387 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = test.TerpExchangeUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = TerpExchange;
-			};
-			name = Debug;
-		};
-		2A0FE7E529B14DF70039E387 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = test.TerpExchangeUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = TerpExchange;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		2A0FE7B429B14DF60039E387 /* Build configuration list for PBXProject "TerpExchange" */ = {
+		0BF0ECA429BF8E3C0009DABC /* Build configuration list for PBXProject "TerpExchange" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				2A0FE7DB29B14DF70039E387 /* Debug */,
-				2A0FE7DC29B14DF70039E387 /* Release */,
+				0BF0ECB529BF8E3D0009DABC /* Debug */,
+				0BF0ECB629BF8E3D0009DABC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		2A0FE7DD29B14DF70039E387 /* Build configuration list for PBXNativeTarget "TerpExchange" */ = {
+		0BF0ECB729BF8E3D0009DABC /* Build configuration list for PBXNativeTarget "TerpExchange" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				2A0FE7DE29B14DF70039E387 /* Debug */,
-				2A0FE7DF29B14DF70039E387 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		2A0FE7E029B14DF70039E387 /* Build configuration list for PBXNativeTarget "TerpExchangeTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				2A0FE7E129B14DF70039E387 /* Debug */,
-				2A0FE7E229B14DF70039E387 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		2A0FE7E329B14DF70039E387 /* Build configuration list for PBXNativeTarget "TerpExchangeUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				2A0FE7E429B14DF70039E387 /* Debug */,
-				2A0FE7E529B14DF70039E387 /* Release */,
+				0BF0ECB829BF8E3D0009DABC /* Debug */,
+				0BF0ECB929BF8E3D0009DABC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		0B2FA2F529BF92FE00D9770D /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+		0B2FA30429BF9A5200D9770D /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/google/GoogleSignIn-iOS";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		0B2FA2F629BF92FE00D9770D /* FirebaseAnalytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0B2FA2F529BF92FE00D9770D /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalytics;
+		};
+		0B2FA2F829BF92FE00D9770D /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0B2FA2F529BF92FE00D9770D /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		0B2FA2FA29BF92FE00D9770D /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0B2FA2F529BF92FE00D9770D /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
+		0B2FA30529BF9A5200D9770D /* GoogleSignIn */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0B2FA30429BF9A5200D9770D /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
+			productName = GoogleSignIn;
+		};
+		0B2FA30729BF9A5200D9770D /* GoogleSignInSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0B2FA30429BF9A5200D9770D /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
+			productName = GoogleSignInSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
-	rootObject = 2A0FE7B129B14DF60039E387 /* Project object */;
+	rootObject = 0BF0ECA129BF8E3C0009DABC /* Project object */;
 }
