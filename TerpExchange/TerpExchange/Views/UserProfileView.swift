@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+
 func starImageName(for rating: Double, index: Int) -> String {
     let ratingInt = Int(rating.rounded())
     let ratingFraction = rating - Double(ratingInt)
@@ -106,9 +107,6 @@ struct UserProfileView: View {
 //                    .padding(.top, -7)
 //                }
 //            }
-
-            
-            
             
             Spacer().frame(height: 50)
             
@@ -121,10 +119,66 @@ struct UserProfileView: View {
                 .padding(.top, -0)
                 .padding(.leading, 40)
             
-            Spacer()
+            Text("+rep, easy going and fast to respond. Wasn't late to meetup")
+                .frame(maxWidth: 300)
+            HStack {
+                Spacer()
+                Text("See all reviews")
+                    .font(.system(size: 23, weight: .bold))
+                    .foregroundColor(.blue)
+                    .padding(.top, 10)
+                    .padding(.leading, 40)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+            }
+
+            Spacer().frame(height: 50)
+            
+            HStack {
+                Text("Items from this seller")
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .padding(.leading, 20)
+                    .font(.system(size: 23, weight: .bold))
+            }
+            
+//            NavigationView {
+//                NavigationLink(destination: HomeView()) {
+//                    Text("Go to another page")
+//                        .font(.headline)
+//                        .foregroundColor(.blue)
+//                }
+//            }
+            
+            VStack{
+                NavigationView {
+                    ScrollView {
+                        
+                        LazyVGrid(columns: [
+                            GridItem(.flexible(),spacing: 0),
+                            GridItem(.flexible(),spacing: 0),
+                            GridItem(.flexible(),spacing: 0)
+                        ], spacing: 7) {
+                            ForEach(0..<cardsCount, id: \.self) { i in ZStack {
+                                cards[i]
+                                NavigationLink( destination: ItemView())
+                                {
+                                    Image("TerpExchangeLogo-transparent")
+                                        .resizable()
+                                        .frame(width: 160, height: 100)
+                                }
+                            }
+                            }
+                        }
+                    }
+                    .padding(5)
+                }
+                
+                .background(offwhiteColor)
+            }
         }
+        Spacer()
     }
 }
+
 
     
 
