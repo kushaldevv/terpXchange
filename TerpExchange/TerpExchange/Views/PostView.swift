@@ -14,6 +14,7 @@ struct PostView: View {
         @State var categoryField = ""
         @State var descripField = ""
         @State var priceField = ""
+        @State var flag = false
         
         var body: some View {
             NavigationView() {
@@ -24,13 +25,14 @@ struct PostView: View {
                     // Post item header HStack
                     HStack(spacing: 50) {
                         // Back button
-                        NavigationLink(destination: HomeView().navigationBarHidden(true)
+                        NavigationLink(destination: NavbarView().navigationBarHidden(true)
                             .navigationBarTitle(""), label:  {
                                 Image(systemName: "chevron.backward")
                                     .foregroundColor(Color.red)
                                     .font(.system(size: 30, weight: .bold))
                                 .navigationBarHidden(true)
                                 .navigationBarTitle("")
+                                
                         })
                         
                         // Post Item title
@@ -49,7 +51,7 @@ struct PostView: View {
                                     endPoint: .trailing))
                         
                         // Cancel button
-                        NavigationLink(destination: HomeView().navigationBarHidden(true)
+                        NavigationLink(destination: NavbarView().navigationBarHidden(true)
                             .navigationBarTitle(""), label:  {
                             Text("Cancel")
                                 .navigationBarHidden(true)
