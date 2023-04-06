@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import FirebaseAuth
 
 
 func starImageName(for rating: Double, index: Int) -> String {
@@ -23,6 +24,8 @@ func starImageName(for rating: Double, index: Int) -> String {
 struct UserRatingView: View {
     @Binding var rating: Double
     let size: CGFloat
+    let displayName: String
+
     
     var body: some View {
         HStack {
@@ -34,7 +37,7 @@ struct UserRatingView: View {
             
             VStack {
                 HStack {
-                    Text("dasaaaaaa")
+                    Text(displayName)
                     Spacer()
                 }
                 
@@ -69,7 +72,9 @@ struct UserProfileView: View {
             
             
             HStack {
-                UserRatingView(rating: $rating, size: 70)
+//                UserRatingView(rating: $rating, size: 70)
+                UserRatingView(rating: $rating, size: 70, displayName: Auth.auth().currentUser?.displayName ?? "Unknown")
+
                 
                 Text("(69)")
                     .offset(x: -70, y: 12)
@@ -115,38 +120,39 @@ struct UserProfileView: View {
                 .padding(.leading, 20)
                 .font(.system(size: 23, weight: .bold))
             
-            UserRatingView(rating: $rating, size: 50)
+//            UserRatingView(rating: $rating, size: 50)
+            UserRatingView(rating: $rating, size: 70, displayName: Auth.auth().currentUser?.displayName ?? "Unknown")
+
                 .padding(.top, -0)
                 .padding(.leading, 40)
             
             Text("+rep, easy going and fast to respond. Wasn't late to meetup")
                 .frame(maxWidth: 300)
-            HStack {
-                Spacer()
-                Text("See all reviews")
-                    .font(.system(size: 23, weight: .bold))
-                    .foregroundColor(.blue)
-                    .padding(.top, 10)
-                    .padding(.leading, 40)
-                    .frame(maxWidth: .infinity, alignment: .leading)
+            
+            NavigationView {
+                HStack(spacing: 0) {
+//                Spacer()
+                    NavigationLink(destination: ReviewsView()) {
+                        Text("See all reviews")
+                            .font(.system(size: 23, weight: .bold))
+                            .foregroundColor(.blue)
+                            .padding(.leading, 40)
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                    }
+                    
+            }
+                .padding(.top, -85)
             }
 
-            Spacer().frame(height: 50)
+//            Spacer().frame(height: -10)
             
             HStack {
                 Text("Items from this seller")
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .padding(.leading, 20)
+                    .padding(.top, -105)
                     .font(.system(size: 23, weight: .bold))
             }
-            
-//            NavigationView {
-//                NavigationLink(destination: HomeView()) {
-//                    Text("Go to another page")
-//                        .font(.headline)
-//                        .foregroundColor(.blue)
-//                }
-//            }
             
             VStack{
                 NavigationView {
@@ -173,7 +179,7 @@ struct UserProfileView: View {
                 }
                 
                 .background(offwhiteColor)
-            }
+            }.padding(.top, -80)
         }
         Spacer()
     }
