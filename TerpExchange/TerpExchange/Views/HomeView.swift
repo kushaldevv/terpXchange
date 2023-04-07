@@ -6,9 +6,10 @@
 //
 
 import SwiftUI
-
+import UIKit
 var cards = [card](repeating: card(), count: 24)
 let cardsCount = cards.count
+
 
 struct card: View {
     var body: some View {
