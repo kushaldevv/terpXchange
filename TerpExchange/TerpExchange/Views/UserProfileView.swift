@@ -8,7 +8,6 @@
 import SwiftUI
 import FirebaseAuth
 
-
 func starImageName(for rating: Double, index: Int) -> String {
     let ratingInt = Int(rating.rounded())
     let ratingFraction = rating - Double(ratingInt)
@@ -25,7 +24,6 @@ struct UserRatingView: View {
     @Binding var rating: Double
     let size: CGFloat
     let displayName: String
-
     
     var body: some View {
         HStack {
@@ -63,6 +61,9 @@ struct UserRatingView: View {
 
 struct UserProfileView: View {
     @State private var rating = 2.0
+    @StateObject private var firestore = FirestoreDB()
+    @StateObject private var firebaseAuth = FirebaseAuthenticationModel()
+    
     var body: some View {
         VStack {
             Text("Account")
@@ -72,9 +73,10 @@ struct UserProfileView: View {
             
             
             HStack {
-//                UserRatingView(rating: $rating, size: 70)
-                UserRatingView(rating: $rating, size: 70, displayName: Auth.auth().currentUser?.displayName ?? "Unknown")
 
+//                UserRatingView(rating: $rating, size: 70, displayName: Auth.auth().currentUser?.displayName ?? "Unknown")
+                UserRatingView(rating: $rating, size: 70, displayName: firebaseAuth.getCurrentUser()?.displayName ?? "Unknown")
+                
                 
                 Text("(69)")
                     .offset(x: -70, y: 12)
@@ -83,35 +85,6 @@ struct UserProfileView: View {
             .frame(maxWidth: .infinity, alignment: .leading)
             .padding(.top, -17)
             .padding(.leading, 50)
-//            HStack {
-//            Image(systemName:"person.crop.circle.fill")
-//                .resizable()
-//                .frame(width: 70, height: 70)
-//                .clipShape(Circle())
-//                .foregroundColor(.red)
-//
-//                VStack {
-//                    HStack {
-//                        Text("dasaaaaaa")
-//                        Spacer()
-//                    }
-//
-//                    HStack {
-//                        ForEach(1..<6) { index in
-//                            Image(systemName: starImageName(for: rating, index: index))
-//                                .foregroundColor(.yellow)
-//                                .font(.system(size: 20))
-//                                .padding(.trailing, -5)
-//                                .onTapGesture {
-//                                    self.rating = Double(index)
-//                                }
-//                        }
-//                        Text("(69)")
-//                        Spacer()
-//                    }
-//                    .padding(.top, -7)
-//                }
-//            }
             
             Spacer().frame(height: 50)
             
@@ -120,7 +93,7 @@ struct UserProfileView: View {
                 .padding(.leading, 20)
                 .font(.system(size: 23, weight: .bold))
             
-//            UserRatingView(rating: $rating, size: 50)
+            // feature: SHOULD BE FROM REVIEWS, NOT CURRENT USER
             UserRatingView(rating: $rating, size: 70, displayName: Auth.auth().currentUser?.displayName ?? "Unknown")
 
                 .padding(.top, -0)
@@ -143,8 +116,20 @@ struct UserProfileView: View {
             }
                 .padding(.top, -85)
             }
-
-//            Spacer().frame(height: -10)
+            
+//            NavigationView {
+//                HStack(spacing: 0) {
+//                    NavigationLink(destination: TestViewUsers()) {
+//                        Text("Test Another Account")
+//                            .font(.system(size: 23, weight: .bold))
+//                            .foregroundColor(.blue)
+//                            .padding(.leading, 4)
+//                            .frame(maxWidth: .infinity, alignment: .leading)
+//                    }
+//                    
+//            }
+//                .padding(.top, -5)
+//            }
             
             HStack {
                 Text("Items from this seller")

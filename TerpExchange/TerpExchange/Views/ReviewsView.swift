@@ -93,20 +93,8 @@ struct ReviewsList: View {
 struct AddReviewView: View {
     @State private var rating: Double = 3
     @State private var details: String = ""
-    @State private var reviewerUID: String = ""
-    @State private var reviewerName: String = ""
     @State var isReviewPosted = false
-    
-    let usersRef: DocumentReference
-    
-    init() {
-        guard let userId = Auth.auth().currentUser?.uid else {
-            fatalError("User is not signed in")
-        }
-        self.usersRef = Firestore.firestore().collection("users").document(userId)
-        self.reviewerUID = usersRef.documentID
-        self.reviewerName = Auth.auth().currentUser?.displayName ?? "Unknown"
-        }
+    @StateObject private var firestore = FirestoreDB()
     
     var body: some View {
         NavigationView {
@@ -133,18 +121,7 @@ struct AddReviewView: View {
             .navigationBarTitle(Text("Add Review"), displayMode: .inline)
             .navigationBarItems(
                 trailing: Button(action: {
-                    // Save review to database
-                    let reviewerUID = Auth.auth().currentUser?.uid ?? ""
-                    let reviewerName = Auth.auth().currentUser?.displayName ?? "Unknown"
-                    usersRef.updateData(["reviews": FieldValue.arrayUnion([
-                        [
-                            "rating": rating,
-                            "details": details,
-                            "timestamp": Timestamp(),
-                            "reviewerUID": reviewerUID,
-                            "reviewerName": reviewerName
-                        ]
-                    ])])
+                    firestore.addReview(rating: rating, details: details)
                     isReviewPosted = true
                 }) {
                     Text("Save")
@@ -160,7 +137,6 @@ struct AddReviewView: View {
         }
     }
 }
-
 
 struct ReviewsView_Previews: PreviewProvider {
     static var previews: some View {

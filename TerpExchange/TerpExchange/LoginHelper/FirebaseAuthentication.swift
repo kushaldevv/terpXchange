@@ -73,35 +73,34 @@ class FirebaseAuthenticationModel: ObservableObject {
 //                    return
 //                }
                 
-                
                 // Store user ID in Firestore
-                    let db = Firestore.firestore()
-                    let usersRef = db.collection("users").document(user.uid)
-
-                
-                usersRef.getDocument { (document, error) in
-                    if let document = document, document.exists {
-                        // User already exists, do nothing
-                        print("User already exists")
-                    } else {
-                        // User does not exist, create new document
-                        let data: [String: Any] = [
-                            "userId": user.uid,
-                            "displayName": user.displayName ?? "",
-                            "email": user.email ?? "",
-                            "photoURL": user.photoURL?.absoluteString ?? "",
-                            "reviews": []
-                        ]
-
-                        usersRef.setData(data) { error in
-                            if let error = error {
-                                print("Error saving user ID to database: \(error.localizedDescription)")
-                            } else {
-                                print("User ID saved to database")
-                            }
-                        }
-                    }
-                }
+//                let db = Firestore.firestore()
+//                let usersRef = db.collection("users").document(user.uid)
+//
+//
+//                usersRef.getDocument { (document, error) in
+//                    if let document = document, document.exists {
+//                        // User already exists, do nothing
+//                        print("User already exists")
+//                    } else {
+//                        // User does not exist, create new document
+//                        let data: [String: Any] = [
+//                            "userId": user.uid,
+//                            "displayName": user.displayName ?? "",
+//                            "email": user.email ?? "",
+//                            "photoURL": user.photoURL?.absoluteString ?? "",
+//                            "reviews": []
+//                        ]
+//
+//                        usersRef.setData(data) { error in
+//                            if let error = error {
+//                                print("Error saving user ID to database: \(error.localizedDescription)")
+//                            } else {
+//                                print("User ID saved to database")
+//                            }
+//                        }
+//                    }
+//                }
                 
                 
                 print(user)
@@ -111,6 +110,10 @@ class FirebaseAuthenticationModel: ObservableObject {
         }
     }
     
+    func getCurrentUser() -> User? {
+        return Auth.auth().currentUser
+    }
+
 
 }
 
