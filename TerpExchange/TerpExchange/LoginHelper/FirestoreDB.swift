@@ -46,29 +46,6 @@ class FirestoreDB: ObservableObject {
             }
         }
     }
-    
-    func addReview(rating: Double, details: String) {
 
-        if let user = firebaseAuth.getCurrentUser() {
-            
-            let usersRef = db.collection("users").document(user.uid)
-            
-            usersRef.updateData(["reviews": FieldValue.arrayUnion([
-                [
-                    "rating": rating,
-                    "details": details,
-                    "timestamp": Timestamp(),
-                    "reviewerUID": user.uid,
-                    "reviewerName": user.displayName ?? "Unknown"
-                ]
-            ])]) { error in
-                if let error = error {
-                    print("Error adding review to database: \(error.localizedDescription)")
-                } else {
-                    print("Review added to database.")
-                }
-            }
-        }
-    }
 }
 

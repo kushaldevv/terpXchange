@@ -61,7 +61,6 @@ struct UserRatingView: View {
 
 struct UserProfileView: View {
     @State private var rating = 2.0
-    @StateObject private var firestore = FirestoreDB()
     @StateObject private var firebaseAuth = FirebaseAuthenticationModel()
     
     var body: some View {
@@ -74,7 +73,6 @@ struct UserProfileView: View {
             
             HStack {
 
-//                UserRatingView(rating: $rating, size: 70, displayName: Auth.auth().currentUser?.displayName ?? "Unknown")
                 UserRatingView(rating: $rating, size: 70, displayName: firebaseAuth.getCurrentUser()?.displayName ?? "Unknown")
                 
                 

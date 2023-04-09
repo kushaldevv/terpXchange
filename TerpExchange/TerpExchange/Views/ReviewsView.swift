@@ -15,12 +15,12 @@ import FirebaseCore
 struct ReviewsView: View {
 
     @State var isAddingReview = false
-    @State var reviews: [Review] = []
+    @StateObject var reviewsDB = ReviewsDB()
+
 
     var body: some View {
         VStack {
-            ReviewsList(reviews: reviews)
-
+            ReviewsList(reviews: $reviewsDB.reviews)
             
             Button(action: { isAddingReview = true }) {
                 Text("Add a Review")
@@ -35,55 +35,29 @@ struct ReviewsView: View {
                 AddReviewView()
             }
         }
+        .onAppear {
+            reviewsDB.fetchReviews()
+        }
     }
     
 }
 
-struct Review: Identifiable {
-    var id: String
-    var rating: Int
-    var details: String
-    var timestamp: Date
-    var reviewerUID: String
-    var reviewerName: String
-}
-
 struct ReviewsList: View {
-    @State var reviews: [Review] = []
-
+    @Binding var reviews: [Review]
+    
     var body: some View {
-        List(reviews, id: \.id) { review in
-            VStack(alignment: .leading) {
-                Text("\(review.reviewerName) gave it \(review.rating) stars")
-                    .font(.headline)
-                Text(review.details)
-                    .font(.subheadline)
-                Text(review.timestamp, style: .date)
-                    .font(.caption)
-                    .foregroundColor(.gray)
-            }
-        }
-        .onAppear {
-            let db = Firestore.firestore()
-            let userId = Auth.auth().currentUser?.uid ?? ""
-            let userRef = db.collection("users").document(userId)
-
-            userRef.getDocument { (document, error) in
-                if let document = document, document.exists {
-                    let data = document.data()
-                    let reviews = data?["reviews"] as? [[String: Any]] ?? []
-                    for reviewData in reviews {
-                        if let rating = reviewData["rating"] as? Int,
-                           let details = reviewData["details"] as? String,
-                           let timestamp = reviewData["timestamp"] as? Timestamp,
-                           let reviewerUID = reviewData["reviewerUID"] as? String,
-                           let reviewerName = reviewData["reviewerName"] as? String {
-                            let review = Review(id: UUID().uuidString, rating: rating, details: details, timestamp: timestamp.dateValue(), reviewerUID: reviewerUID, reviewerName: reviewerName)
-                            self.reviews.append(review)
-                        }
-                    }
-                } else {
-                    print("Document does not exist")
+        if reviews.isEmpty {
+            Text("No reviews yet.")
+        } else {
+            List(reviews, id: \.id) { review in
+                VStack(alignment: .leading) {
+                    Text("\(review.reviewerName) gave it \(review.rating) stars")
+                        .font(.headline)
+                    Text(review.details)
+                        .font(.subheadline)
+                    Text(review.timestamp, style: .date)
+                        .font(.caption)
+                        .foregroundColor(.gray)
                 }
             }
         }
@@ -94,7 +68,7 @@ struct AddReviewView: View {
     @State private var rating: Double = 3
     @State private var details: String = ""
     @State var isReviewPosted = false
-    @StateObject private var firestore = FirestoreDB()
+    @StateObject private var reviewsDB = ReviewsDB()
     
     var body: some View {
         NavigationView {
@@ -121,7 +95,7 @@ struct AddReviewView: View {
             .navigationBarTitle(Text("Add Review"), displayMode: .inline)
             .navigationBarItems(
                 trailing: Button(action: {
-                    firestore.addReview(rating: rating, details: details)
+                    reviewsDB.addReview(rating: rating, details: details)
                     isReviewPosted = true
                 }) {
                     Text("Save")
