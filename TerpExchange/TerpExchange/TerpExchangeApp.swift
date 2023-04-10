@@ -8,6 +8,7 @@
 import SwiftUI
 import Firebase
 import GoogleSignIn
+import FirebaseAuth
 
 @main
 struct TerpExchangeApp: App {
@@ -44,7 +45,7 @@ struct TerpExchangeApp: App {
         
         var body: some View {
             NavigationStack {
-                UserProfileView()
+                UserProfileView(userId: Auth.auth().currentUser?.displayName ?? "Unknown")
                     .toolbar {
                         ToolbarItem(placement: .navigationBarLeading) {
                             Button(action: {

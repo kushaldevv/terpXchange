@@ -62,6 +62,7 @@ struct UserRatingView: View {
 struct UserProfileView: View {
     @State private var rating = 2.0
     @StateObject private var firebaseAuth = FirebaseAuthenticationModel()
+    var userId: String
     
     var body: some View {
         VStack {
@@ -72,9 +73,8 @@ struct UserProfileView: View {
             
             
             HStack {
-
-                UserRatingView(rating: $rating, size: 70, displayName: firebaseAuth.getCurrentUser()?.displayName ?? "Unknown")
-                
+//                UserRatingView(rating: $rating, size: 70, displayName: firebaseAuth.getCurrentUser()?.displayName ?? "Unknown")
+                UserRatingView(rating: $rating, size: 70, displayName: userId)
                 
                 Text("(69)")
                     .offset(x: -70, y: 12)
@@ -173,6 +173,6 @@ struct UserProfileView: View {
 
 struct UserProfileView_Previews: PreviewProvider {
     static var previews: some View {
-        UserProfileView()
+        UserProfileView(userId: "test")
     }
 }

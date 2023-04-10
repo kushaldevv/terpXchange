@@ -15,7 +15,7 @@ import FirebaseCore
 struct ReviewsView: View {
 
     @State var isAddingReview = false
-    @StateObject var reviewsDB = ReviewsDB()
+    @ObservedObject var reviewsDB = ReviewsDB()
 
 
     var body: some View {
@@ -42,6 +42,28 @@ struct ReviewsView: View {
     
 }
 
+//struct ReviewsList: View {
+//    @Binding var reviews: [Review]
+//
+//    var body: some View {
+//        if reviews.isEmpty {
+//            Text("No reviews yet.")
+//        } else {
+//            List(reviews, id: \.id) { review in
+//                VStack(alignment: .leading) {
+//                    Text("\(review.reviewerName) gave it \(review.rating) stars")
+//                        .font(.headline)
+//                    Text(review.details)
+//                        .font(.subheadline)
+//                    Text(review.timestamp, style: .date)
+//                        .font(.caption)
+//                        .foregroundColor(.gray)
+//                }
+//            }
+//        }
+//    }
+//}
+
 struct ReviewsList: View {
     @Binding var reviews: [Review]
     
@@ -51,8 +73,10 @@ struct ReviewsList: View {
         } else {
             List(reviews, id: \.id) { review in
                 VStack(alignment: .leading) {
-                    Text("\(review.reviewerName) gave it \(review.rating) stars")
-                        .font(.headline)
+                    NavigationLink(destination: UserProfileView(userId: review.reviewerUID)) {
+                        Text("\(review.reviewerName) gave it \(review.rating) stars")
+                            .font(.headline)
+                    }
                     Text(review.details)
                         .font(.subheadline)
                     Text(review.timestamp, style: .date)
@@ -68,7 +92,7 @@ struct AddReviewView: View {
     @State private var rating: Double = 3
     @State private var details: String = ""
     @State var isReviewPosted = false
-    @StateObject private var reviewsDB = ReviewsDB()
+    @ObservedObject private var reviewsDB = ReviewsDB()
     
     var body: some View {
         NavigationView {
@@ -97,6 +121,7 @@ struct AddReviewView: View {
                 trailing: Button(action: {
                     reviewsDB.addReview(rating: rating, details: details)
                     isReviewPosted = true
+                    reviewsDB.fetchReviews()
                 }) {
                     Text("Save")
                 }.alert(isPresented: $isReviewPosted) {
