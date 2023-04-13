@@ -2,44 +2,51 @@
 //  HomeView.swift
 //  TerpExchange
 //
-//  Created by Ryan Abeysinghe on 3/17/23.
+//  Created by kushal on 3/17/23.
 //
 
 import SwiftUI
 
-var cards = [card](repeating: card(), count: 24)
+var cards = [card](repeating: card(), count: 25)
 let cardsCount = cards.count
 
 struct card: View {
     var body: some View {
         RoundedRectangle(cornerRadius: 8)
-            .fill(coralPinkColor)
-            .frame(width: 120, height: 120)
-            .shadow(color: Color.black.opacity(0.15), radius: 8, x: 10, y: 10)
-            .shadow(color: Color.white.opacity(0.7), radius: 8, x: -5, y: -5)
+            .frame(width: 130, height: 130)
+            .background(.thinMaterial)
+            .overlay(
+                Image("TerpExchangeLogo-transparent")
+                    .resizable()
+                    .frame(width: 160, height: 100)
+            )
     }
 }
 
 
 struct HomeView: View {
     @State private var searchText: String = ""
-
+    
     var body: some View {
+        NavigationView {
             VStack{
-                HStack{
-                    Image(systemName: "line.3.horizontal")
-                        .resizable()
-                        .frame(width: 22, height: 18)
-                        .padding(.leading, 20)
-                        .accentColor(coralPinkColor)
-                    Spacer()
-                    Text("TerpExchange")
-                        .padding(.trailing, 140)
-                        .fontWeight(.heavy)
-                        .fontDesign(.rounded)
-                        .foregroundColor(coralPinkColor)
+                ZStack{
+                    HStack{
+                        Image(systemName: "line.3.horizontal")
+                            .resizable()
+                            .frame(width: 22, height: 18)
+                            .offset(x: 20)
+                        
+                        Text("TerpExchange")
+                            .kerning(-1)
+                            .font(.system(size: 25))
+                            .fontWeight(.black)
+//                            .fontDesign(.rounded)
+                            .foregroundColor(Color.red)
+                            .frame(maxWidth: .infinity, alignment: .center)
+                            .offset(x: -20)
+                    }
                 }
-                
                 ScrollView {
                     HStack {
                         Image(systemName: "magnifyingglass")
@@ -47,41 +54,29 @@ struct HomeView: View {
                         TextField("Search item", text: $searchText)
                             .foregroundColor(.black)
                     }
-                        .padding(20)
-                        .overlay(
-                            RoundedRectangle(cornerRadius: 10)
-                                .stroke(Color.gray, lineWidth: 1)
-                                .frame(width: screenWidth - 50, height: 40)
-                        )
+                    .padding(20)
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 10)
+                            .stroke(Color.gray, lineWidth: 1)
+                            .frame(width: screenWidth - 50, height: 40)
+                    )
                     
                     LazyVGrid(columns: [
                         GridItem(.flexible(),spacing: 0),
                         GridItem(.flexible(),spacing: 0),
                         GridItem(.flexible(),spacing: 0)
                     ], spacing: 7) {
-                        ForEach(0..<cardsCount) { i in
-                            cards[i]
+                        ForEach(0..<cardsCount, id: \.self) { i in ZStack {
+                            NavigationLink( destination: ItemView())
+                            {
+                                cards[i]
+                            }
+                        }
                         }
                     }
-//                        VStack {
-//                            ForEach (0..<5) { i in
-//                                HStack{
-//                                    ForEach (0..<3) { j in
-//                                        cards[0]
-//                                    }
-//                                }
-//                            }
-//                        }
                 }
-                    .padding(5)
+                .padding(5)
             }
-            
-            .background(offwhiteColor)
-    }
-}
-
-struct HomeView_Previews: PreviewProvider {
-    static var previews: some View {
-        HomeView()
+        }
     }
 }

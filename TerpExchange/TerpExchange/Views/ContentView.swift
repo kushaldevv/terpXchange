@@ -8,14 +8,29 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var tabSelected: Tab = .house
+    
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+        ZStack {
+            switch tabSelected{
+            case .house:
+                HomeView()
+            case .message:
+                ChatsView()
+            case .camera:
+                PostView()
+            case .person:
+                UserProfileView()
+            }
+            ZStack{
+                VStack {
+                    Spacer()
+                    NavbarView(selectedTab: $tabSelected)
+                        .offset(y: -5)
+                }
+            }
+            .ignoresSafeArea()
         }
-        .padding()
     }
 }
 

@@ -79,19 +79,5 @@ class FirebaseAuthenticationModel: ObservableObject {
             }
         }
     }
-    
-//    func isValidTerpmailAddress(email: String) -> Bool {
-//        let terpmailEmailAddress = "[A-Za-z0-9._%+-]+@terpmail\\.umd\\.edu$"
-//
-//        let terpmailEmailAddressPredicate = NSPredicate(format: "SELF MATCHES %@", terpmailEmailAddress)
-//
-//        guard terpmailEmailAddressPredicate.evaluate(with: email) else {
-//            print("Invalid email address.")
-//
-//            return false
-//        }
-//
-//        return terpmailEmailAddressPredicate.evaluate(with: email)
-//    }
 }
 

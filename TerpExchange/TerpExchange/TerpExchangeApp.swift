@@ -24,9 +24,11 @@ struct TerpExchangeApp: App {
                 if isSignIn {
                     UserProfileAccessPage()
                 } else {
-                    NavbarView()
+//                    NavigationStack{
+                        ContentView()
+//                    }
+                    
                 }
-                
                 ZStack {
                     if showLaunchView {
                         LaunchView(showLauchView: $showLaunchView)
