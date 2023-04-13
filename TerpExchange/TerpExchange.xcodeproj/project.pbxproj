@@ -34,6 +34,10 @@
 		2A46EF1829D4BBBF0084709F /* ItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A46EF1729D4BBBF0084709F /* ItemView.swift */; };
 		2A5B347529E46F5A0080A94C /* DetailedChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A5B347429E46F5A0080A94C /* DetailedChatView.swift */; };
 		2A6E9AA129E7634F0051294C /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A6E9AA029E7634F0051294C /* ImagePicker.swift */; };
+		2AA15DE029E8A869001A1AD9 /* SideMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AA15DDF29E8A869001A1AD9 /* SideMenuView.swift */; };
+		2AA15DE229E8A8EC001A1AD9 /* ReviewsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AA15DE129E8A8EC001A1AD9 /* ReviewsView.swift */; };
+		2AA15DE429E8A92F001A1AD9 /* FirestoreDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AA15DE329E8A92F001A1AD9 /* FirestoreDB.swift */; };
+		2AA15DE629E8A948001A1AD9 /* ReviewsDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AA15DE529E8A948001A1AD9 /* ReviewsDB.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -61,6 +65,10 @@
 		2A46EF1729D4BBBF0084709F /* ItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemView.swift; sourceTree = "<group>"; };
 		2A5B347429E46F5A0080A94C /* DetailedChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailedChatView.swift; sourceTree = "<group>"; };
 		2A6E9AA029E7634F0051294C /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
+		2AA15DDF29E8A869001A1AD9 /* SideMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuView.swift; sourceTree = "<group>"; };
+		2AA15DE129E8A8EC001A1AD9 /* ReviewsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewsView.swift; sourceTree = "<group>"; };
+		2AA15DE329E8A92F001A1AD9 /* FirestoreDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreDB.swift; sourceTree = "<group>"; };
+		2AA15DE529E8A948001A1AD9 /* ReviewsDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewsDB.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +100,8 @@
 				2A422F8E29CCD3CC006BEA5B /* PostView.swift */,
 				2A46EF1729D4BBBF0084709F /* ItemView.swift */,
 				2A6E9AA029E7634F0051294C /* ImagePicker.swift */,
+				2AA15DDF29E8A869001A1AD9 /* SideMenuView.swift */,
+				2AA15DE129E8A8EC001A1AD9 /* ReviewsView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -129,6 +139,8 @@
 				0B80165029C01072009DAB09 /* AppDelegate.swift */,
 				0B80165529C0E6D8009DAB09 /* FirebaseAuthentication.swift */,
 				0B80165729C0E7A8009DAB09 /* RootUIViewController.swift */,
+				2AA15DE329E8A92F001A1AD9 /* FirestoreDB.swift */,
+				2AA15DE529E8A948001A1AD9 /* ReviewsDB.swift */,
 			);
 			path = LoginHelper;
 			sourceTree = "<group>";
@@ -258,7 +270,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2AA15DE429E8A92F001A1AD9 /* FirestoreDB.swift in Sources */,
+				2AA15DE229E8A8EC001A1AD9 /* ReviewsView.swift in Sources */,
 				0B80165629C0E6D8009DAB09 /* FirebaseAuthentication.swift in Sources */,
+				2AA15DE029E8A869001A1AD9 /* SideMenuView.swift in Sources */,
 				0B55A45C29CCCD9400B61627 /* LaunchView.swift in Sources */,
 				0B55A45E29CCCE1600B61627 /* LaunchColor.swift in Sources */,
 				0B80165129C01072009DAB09 /* AppDelegate.swift in Sources */,
@@ -272,6 +287,7 @@
 				0BF0ECAF29BF8E3C0009DABC /* ContentView.swift in Sources */,
 				2A46EF1829D4BBBF0084709F /* ItemView.swift in Sources */,
 				2A6E9AA129E7634F0051294C /* ImagePicker.swift in Sources */,
+				2AA15DE629E8A948001A1AD9 /* ReviewsDB.swift in Sources */,
 				2A422F8F29CCD3CC006BEA5B /* PostView.swift in Sources */,
 				0BF0ECAD29BF8E3C0009DABC /* TerpExchangeApp.swift in Sources */,
 			);
@@ -415,7 +431,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -451,7 +467,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

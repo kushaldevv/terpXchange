@@ -20,7 +20,7 @@ struct ContentView: View {
             case .camera:
                 PostView()
             case .person:
-                UserProfileView()
+                UserProfileView(userId: "test")
             }
             ZStack{
                 VStack {

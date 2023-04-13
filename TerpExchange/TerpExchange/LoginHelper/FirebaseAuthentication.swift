@@ -8,6 +8,7 @@
 import Foundation
 import SwiftUI
 import Firebase
+import FirebaseFirestore
 import GoogleSignIn
 
 class FirebaseAuthenticationModel: ObservableObject {
@@ -56,28 +57,63 @@ class FirebaseAuthenticationModel: ObservableObject {
                 
                 guard let user = res?.user else { return }
                 
-                if !terpmailEmailAddressPredicate.evaluate(with: user.email) {
-                    try? Auth.auth().signOut()
-                    
-                    self.showAlert = true
-                    
-                    user.delete { error in
-                      if let error = error {
-                          print(error.localizedDescription)
-                      } else {
-                        // Accounts that do not end with a "@termail.umd.edu" email address will be deleted.
-                      }
-                    }
-                    
-                    return
-                }
+//                if !terpmailEmailAddressPredicate.evaluate(with: user.email) {
+//                    try? Auth.auth().signOut()
+//
+//                    self.showAlert = true
+//
+//                    user.delete { error in
+//                      if let error = error {
+//                          print(error.localizedDescription)
+//                      } else {
+//                        // Accounts that do not end with a "@termail.umd.edu" email address will be deleted.
+//                      }
+//                    }
+//
+//                    return
+//                }
                 
-
+                // Store user ID in Firestore
+//                let db = Firestore.firestore()
+//                let usersRef = db.collection("users").document(user.uid)
+//
+//
+//                usersRef.getDocument { (document, error) in
+//                    if let document = document, document.exists {
+//                        // User already exists, do nothing
+//                        print("User already exists")
+//                    } else {
+//                        // User does not exist, create new document
+//                        let data: [String: Any] = [
+//                            "userId": user.uid,
+//                            "displayName": user.displayName ?? "",
+//                            "email": user.email ?? "",
+//                            "photoURL": user.photoURL?.absoluteString ?? "",
+//                            "reviews": []
+//                        ]
+//
+//                        usersRef.setData(data) { error in
+//                            if let error = error {
+//                                print("Error saving user ID to database: \(error.localizedDescription)")
+//                            } else {
+//                                print("User ID saved to database")
+//                            }
+//                        }
+//                    }
+//                }
+                
+                
                 print(user)
 
                 UserDefaults.standard.set(true, forKey: "signIn")
             }
         }
     }
+    
+    func getCurrentUser() -> User? {
+        return Auth.auth().currentUser
+    }
+
+
 }
 
