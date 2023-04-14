@@ -7,22 +7,16 @@
 
 import SwiftUI
 
-
-var cards = [card](repeating: card(), count: 25)
-let cardsCount = cards.count
-
-struct card: View {
+struct basicCardView: View{
+    var item: Item
+    
     var body: some View {
-        RoundedRectangle(cornerRadius: 8)
+        item.image
+            .resizable()
             .frame(width: 120, height: 120)
-            .overlay(
-                Image("TerpExchangeLogo-transparent")
-                    .resizable()
-                    .frame(width: 160, height: 100)
-            )
+            .cornerRadius(8)
     }
 }
-
 
 struct HomeView: View {
     @State private var searchText: String = ""
@@ -75,10 +69,10 @@ struct HomeView: View {
                             GridItem(.flexible(),spacing: 0),
                             GridItem(.flexible(),spacing: 0)
                         ], spacing: 7) {
-                            ForEach(0..<cardsCount, id: \.self) { i in ZStack {
+                            ForEach(0..<items.count, id: \.self) { i in ZStack {
                                 NavigationLink( destination: ItemView())
                                 {
-                                    cards[i]
+                                    basicCardView(item: items[i])
                                 }
                             }
                             }
@@ -88,7 +82,6 @@ struct HomeView: View {
                     .padding(5)
                 }
                 .background(offwhiteColor)
-                
                 
                 SideMenu(sideMenuWidth: UIScreen.main.bounds.width/1.5, isMenuOpen: isMenuOpen, toggleMenu: toggleMenu)
                     .edgesIgnoringSafeArea(.all)

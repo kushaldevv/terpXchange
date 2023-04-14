@@ -146,16 +146,16 @@ struct UserProfileView: View {
                             GridItem(.flexible(),spacing: 0),
                             GridItem(.flexible(),spacing: 0)
                         ], spacing: 7) {
-                            ForEach(0..<cardsCount, id: \.self) { i in ZStack {
-                                cards[i]
-                                NavigationLink( destination: ItemView())
-                                {
-                                    Image("TerpExchangeLogo-transparent")
-                                        .resizable()
-                                        .frame(width: 160, height: 100)
-                                }
-                            }
-                            }
+//                            ForEach(0..<cards.count, id: \.self) { i in ZStack {
+//                                cards[i]
+//                                NavigationLink( destination: ItemView())
+//                                {
+//                                    Image("TerpExchangeLogo-transparent")
+//                                        .resizable()
+//                                        .frame(width: 160, height: 100)
+//                                }
+//                            }
+//                            }
                         }
                     }
                     .padding(5)
