@@ -1,4 +1,4 @@
-# TerpExchange Project: Milestone 1
+# TerpExchange Project: Milestone 3
 
 ## Group 20
 - Kushal Devkota
