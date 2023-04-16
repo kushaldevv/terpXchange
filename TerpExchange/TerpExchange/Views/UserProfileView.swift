@@ -86,58 +86,6 @@ struct UserRatingView: View {
     }
 }
 
-
-//struct UserRatingView: View {
-//    @State private var profileImage: UIImage?
-////    @State private var profileURLString: String?
-//    @Binding var rating: Double
-//    let size: CGFloat
-//    let displayName: String // temp is id atm
-//    let userProfileURL: URL?
-//
-//    @State private var otherUser = OtherUsersDB()
-//
-//
-//    var body: some View {
-//        HStack {
-//            Image(systemName:"person.crop.circle.fill")
-//                .resizable()
-//                .frame(width: size, height: size)
-//                .clipShape(Circle())
-//                .foregroundColor(.red)
-//
-//            VStack {
-//                HStack {
-//                    Text(displayName)
-//                    Spacer()
-//                    if let urlString = userProfileURL?.absoluteString {
-//                        Text(urlString)
-//                    }
-//                }
-//
-//                HStack {
-//                    ForEach(1..<6) { index in
-//                        Image(systemName: starImageName(for: rating, index: index))
-//                            .foregroundColor(.yellow)
-//                            .font(.system(size: 20))
-//                            .padding(.trailing, -5)
-//                            .onTapGesture {
-//                                self.rating = Double(index)
-//                            }
-//                    }
-////                    Text("(69)")
-//                    Spacer()
-//                }
-//                .padding(.top, -7)
-//            }
-//        }
-//
-//    }
-//
-//}
-
-
-
 struct UserProfileView: View {
     @State private var rating = 2.0
     @StateObject private var firebaseAuth = FirebaseAuthenticationModel()
@@ -145,6 +93,7 @@ struct UserProfileView: View {
     
     var userName: String
     var userProfileURL: URL?
+    var userId: String
     
     var body: some View {
         VStack {
@@ -153,7 +102,6 @@ struct UserProfileView: View {
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .padding(.leading, 20)
                 .font(.system(size: 34, weight: .bold))
-            
             
             HStack {
 //                UserRatingView(rating: $rating, size: 70, displayName: firebaseAuth.getCurrentUser()?.displayName ?? "Unknown")
@@ -257,6 +205,6 @@ struct UserProfileView: View {
 
 struct UserProfileView_Previews: PreviewProvider {
     static var previews: some View {
-        UserProfileView(userName: "test")
+        UserProfileView(userName: "name placeholder", userId: "id placeholder")
     }
 }
