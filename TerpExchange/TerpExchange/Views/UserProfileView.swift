@@ -26,7 +26,7 @@ struct UserRatingView: View {
     @State private var profileImage: UIImage?
     @Binding var rating: Double
     let size: CGFloat
-    let displayName: String // temp is id atm
+    let displayName: String // now is name atm
     let userProfileURL: URL?
 
     var body: some View {
@@ -44,6 +44,32 @@ struct UserRatingView: View {
                     .clipShape(Circle())
                     .foregroundColor(.red)
             }
+            
+            VStack {
+                HStack {
+                    Text(displayName)
+                    Spacer()
+//                    if let urlString = userProfileURL?.absoluteString { //test to see if urlString displays
+//                        Text(urlString)
+//                    }
+                }
+
+                HStack {
+                    ForEach(1..<6) { index in
+                        Image(systemName: starImageName(for: rating, index: index))
+                            .foregroundColor(.yellow)
+                            .font(.system(size: 20))
+                            .padding(.trailing, -5)
+                            .onTapGesture {
+                                self.rating = Double(index)
+                            }
+                    }
+//                    Text("(69)")
+                    Spacer()
+                }
+                .padding(.top, -7)
+            }
+            
         }
         .onAppear {
             guard let url = userProfileURL else { return }
@@ -117,7 +143,7 @@ struct UserProfileView: View {
     @StateObject private var firebaseAuth = FirebaseAuthenticationModel()
     @StateObject private var otherUser = OtherUsersDB()
     
-    var userId: String
+    var userName: String
     var userProfileURL: URL?
     
     var body: some View {
@@ -131,7 +157,7 @@ struct UserProfileView: View {
             
             HStack {
 //                UserRatingView(rating: $rating, size: 70, displayName: firebaseAuth.getCurrentUser()?.displayName ?? "Unknown")
-                UserRatingView(rating: $rating, size: 70, displayName: userId, userProfileURL: userProfileURL)
+                UserRatingView(rating: $rating, size: 70, displayName: userName, userProfileURL: userProfileURL)
                 
                 Text("(69)")
                     .offset(x: -70, y: 12)
@@ -231,6 +257,6 @@ struct UserProfileView: View {
 
 struct UserProfileView_Previews: PreviewProvider {
     static var previews: some View {
-        UserProfileView(userId: "test")
+        UserProfileView(userName: "test")
     }
 }
