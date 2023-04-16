@@ -115,20 +115,22 @@ struct UserProfileView: View {
             .padding(.top, -17)
             .padding(.leading, 50)
             
-            Spacer().frame(height: 50)
+            Spacer().frame(height: 40)
             
             Text("Reputation")
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .padding(.leading, 20)
                 .font(.system(size: 23, weight: .bold))
             
-            // feature: SHOULD BE FROM REVIEWS, NOT CURRENT USER
-            UserRatingView(rating: $rating, size: 70, displayName: Auth.auth().currentUser?.displayName ?? "Unknown", userProfileURL: Auth.auth().currentUser?.photoURL)
-//            UserRatingView(rating: $rating, size: 70, displayName: Auth.auth().currentUser?.displayName ?? "Unknown")
-
-                .padding(.top, -0)
-                .padding(.leading, 40)
+            HStack {
+                
             
+            // feature: SHOULD BE FROM REVIEWS, NOT CURRENT USER
+            UserRatingView(rating: $rating, size: 50, displayName: Auth.auth().currentUser?.displayName ?? "Unknown", userProfileURL: Auth.auth().currentUser?.photoURL)
+            }
+            .padding(.leading, 50)
+            .padding(.bottom, 10)
+            .padding(.top, 10)
             Text("+rep, easy going and fast to respond. Wasn't late to meetup")
                 .frame(maxWidth: 300)
             
@@ -144,7 +146,7 @@ struct UserProfileView: View {
                     }
                     
             }
-                .padding(.top, -85)
+                .padding(.top, -95)
             }
             
 //            NavigationView {
