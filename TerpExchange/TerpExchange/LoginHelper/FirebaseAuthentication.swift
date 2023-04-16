@@ -74,22 +74,27 @@ class FirebaseAuthenticationModel: ObservableObject {
 //                }
                 
                 // Store user ID in Firestore
-//                let db = Firestore.firestore()
-//                let usersRef = db.collection("users").document(user.uid)
-//
-//
-//                usersRef.getDocument { (document, error) in
-//                    if let document = document, document.exists {
-//                        // User already exists, do nothing
-//                        print("User already exists")
-//                    } else {
+                let db = Firestore.firestore()
+                let usersRef = db.collection("users").document(user.uid)
+
+
+                usersRef.getDocument { (document, error) in
+                    if let document = document, document.exists {
+                        // User already exists, do nothing
+                        print("User already exists")
+                    } else {
+                        
+                        let firestored = FirestoreDB()
+                        firestored.saveUserIdToFirestore()
+                    }
 //                        // User does not exist, create new document
 //                        let data: [String: Any] = [
 //                            "userId": user.uid,
 //                            "displayName": user.displayName ?? "",
 //                            "email": user.email ?? "",
 //                            "photoURL": user.photoURL?.absoluteString ?? "",
-//                            "reviews": []
+//                            "reviews": [],
+//                            "items": []
 //                        ]
 //
 //                        usersRef.setData(data) { error in
@@ -100,7 +105,7 @@ class FirebaseAuthenticationModel: ObservableObject {
 //                            }
 //                        }
 //                    }
-//                }
+                }
                 
                 
                 print(user)
@@ -116,4 +121,3 @@ class FirebaseAuthenticationModel: ObservableObject {
 
 
 }
-

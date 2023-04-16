@@ -39,7 +39,7 @@ struct ReviewsView: View {
             reviewsDB.fetchReviews()
         }
     }
-    
+
 }
 
 //struct ReviewsList: View {
@@ -73,7 +73,7 @@ struct ReviewsList: View {
         } else {
             List(reviews, id: \.id) { review in
                 VStack(alignment: .leading) {
-                    NavigationLink(destination: UserProfileView(userId: review.reviewerUID)) {
+                    NavigationLink(destination: UserProfileView(userId: review.reviewerUID, userProfileURL: review.reviewerPhotoURL)) {
                         Text("\(review.reviewerName) gave it \(review.rating) stars")
                             .font(.headline)
                     }

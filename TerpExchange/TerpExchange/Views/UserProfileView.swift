@@ -20,52 +20,109 @@ func starImageName(for rating: Double, index: Int) -> String {
     }
 }
 
+
+
 struct UserRatingView: View {
+    @State private var profileImage: UIImage?
     @Binding var rating: Double
     let size: CGFloat
-    let displayName: String
-    
+    let displayName: String // temp is id atm
+    let userProfileURL: URL?
+
     var body: some View {
-        HStack {
-            Image(systemName:"person.crop.circle.fill")
-                .resizable()
-                .frame(width: size, height: size)
-                .clipShape(Circle())
-                .foregroundColor(.red)
-            
-            VStack {
-                HStack {
-                    Text(displayName)
-                    Spacer()
-                }
-                
-                HStack {
-                    ForEach(1..<6) { index in
-                        Image(systemName: starImageName(for: rating, index: index))
-                            .foregroundColor(.yellow)
-                            .font(.system(size: 20))
-                            .padding(.trailing, -5)
-                            .onTapGesture {
-                                self.rating = Double(index)
-                            }
-                    }
-//                    Text("(69)")
-                    Spacer()
-                }
-                .padding(.top, -7)
+        Group {
+            if let profileImage = profileImage {
+                Image(uiImage: profileImage)
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: size, height: size)
+                    .clipShape(Circle())
+            } else {
+                Image(systemName:"person.crop.circle.fill")
+                    .resizable()
+                    .frame(width: size, height: size)
+                    .clipShape(Circle())
+                    .foregroundColor(.red)
             }
         }
-        
+        .onAppear {
+            guard let url = userProfileURL else { return }
+            URLSession.shared.dataTask(with: url) { data, response, error in
+                guard let data = data, error == nil else {
+                    print("Error loading image: \(error?.localizedDescription ?? "Unknown error")")
+                    return
+                }
+                DispatchQueue.main.async {
+                    profileImage = UIImage(data: data)
+                }
+            }.resume()
+        }
     }
 }
+
+
+//struct UserRatingView: View {
+//    @State private var profileImage: UIImage?
+////    @State private var profileURLString: String?
+//    @Binding var rating: Double
+//    let size: CGFloat
+//    let displayName: String // temp is id atm
+//    let userProfileURL: URL?
+//
+//    @State private var otherUser = OtherUsersDB()
+//
+//
+//    var body: some View {
+//        HStack {
+//            Image(systemName:"person.crop.circle.fill")
+//                .resizable()
+//                .frame(width: size, height: size)
+//                .clipShape(Circle())
+//                .foregroundColor(.red)
+//
+//            VStack {
+//                HStack {
+//                    Text(displayName)
+//                    Spacer()
+//                    if let urlString = userProfileURL?.absoluteString {
+//                        Text(urlString)
+//                    }
+//                }
+//
+//                HStack {
+//                    ForEach(1..<6) { index in
+//                        Image(systemName: starImageName(for: rating, index: index))
+//                            .foregroundColor(.yellow)
+//                            .font(.system(size: 20))
+//                            .padding(.trailing, -5)
+//                            .onTapGesture {
+//                                self.rating = Double(index)
+//                            }
+//                    }
+////                    Text("(69)")
+//                    Spacer()
+//                }
+//                .padding(.top, -7)
+//            }
+//        }
+//
+//    }
+//
+//}
+
+
 
 struct UserProfileView: View {
     @State private var rating = 2.0
     @StateObject private var firebaseAuth = FirebaseAuthenticationModel()
+    @StateObject private var otherUser = OtherUsersDB()
+    
     var userId: String
+    var userProfileURL: URL?
     
     var body: some View {
         VStack {
+
             Text("Account")
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .padding(.leading, 20)
@@ -74,7 +131,7 @@ struct UserProfileView: View {
             
             HStack {
 //                UserRatingView(rating: $rating, size: 70, displayName: firebaseAuth.getCurrentUser()?.displayName ?? "Unknown")
-                UserRatingView(rating: $rating, size: 70, displayName: userId)
+                UserRatingView(rating: $rating, size: 70, displayName: userId, userProfileURL: userProfileURL)
                 
                 Text("(69)")
                     .offset(x: -70, y: 12)
@@ -92,7 +149,8 @@ struct UserProfileView: View {
                 .font(.system(size: 23, weight: .bold))
             
             // feature: SHOULD BE FROM REVIEWS, NOT CURRENT USER
-            UserRatingView(rating: $rating, size: 70, displayName: Auth.auth().currentUser?.displayName ?? "Unknown")
+            UserRatingView(rating: $rating, size: 70, displayName: Auth.auth().currentUser?.displayName ?? "Unknown", userProfileURL: Auth.auth().currentUser?.photoURL)
+//            UserRatingView(rating: $rating, size: 70, displayName: Auth.auth().currentUser?.displayName ?? "Unknown")
 
                 .padding(.top, -0)
                 .padding(.leading, 40)
@@ -124,7 +182,7 @@ struct UserProfileView: View {
 //                            .padding(.leading, 4)
 //                            .frame(maxWidth: .infinity, alignment: .leading)
 //                    }
-//                    
+//
 //            }
 //                .padding(.top, -5)
 //            }
