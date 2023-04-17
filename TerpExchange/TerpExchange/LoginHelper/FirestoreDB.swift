@@ -32,7 +32,8 @@ class FirestoreDB: ObservableObject {
                         "displayName": user.displayName ?? "",
                         "email": user.email ?? "",
                         "photoURL": user.photoURL?.absoluteString ?? "",
-                        "reviews": []
+                        "reviews": [],
+                        "items": []
                     ]
 
                     usersRef.setData(data) { error in

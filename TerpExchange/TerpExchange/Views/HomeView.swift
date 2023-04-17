@@ -23,7 +23,7 @@ struct card: View {
 
 struct HomeView: View {
     @State private var searchText: String = ""
-
+    
     var body: some View {
             VStack{
                 HStack{

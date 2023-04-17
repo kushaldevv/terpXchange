@@ -16,7 +16,7 @@ struct ReviewsView: View {
 
     @State var isAddingReview = false
     @ObservedObject var reviewsDB = ReviewsDB()
-
+    @ObservedObject var userItemsDB = UserItemsDB()
 
     var body: some View {
         VStack {
@@ -34,6 +34,14 @@ struct ReviewsView: View {
             .sheet(isPresented: $isAddingReview) {
                 AddReviewView()
             }
+            
+            Button(action: {
+                // Call the addItem function
+                userItemsDB.addItem(price: 10.0, description: "Example description", title: "Example title")
+            }) {
+                Text("Add Item")
+            }
+            
         }
         .onAppear {
             reviewsDB.fetchReviews()
@@ -41,28 +49,6 @@ struct ReviewsView: View {
     }
 
 }
-
-//struct ReviewsList: View {
-//    @Binding var reviews: [Review]
-//
-//    var body: some View {
-//        if reviews.isEmpty {
-//            Text("No reviews yet.")
-//        } else {
-//            List(reviews, id: \.id) { review in
-//                VStack(alignment: .leading) {
-//                    Text("\(review.reviewerName) gave it \(review.rating) stars")
-//                        .font(.headline)
-//                    Text(review.details)
-//                        .font(.subheadline)
-//                    Text(review.timestamp, style: .date)
-//                        .font(.caption)
-//                        .foregroundColor(.gray)
-//                }
-//            }
-//        }
-//    }
-//}
 
 struct ReviewsList: View {
     @Binding var reviews: [Review]

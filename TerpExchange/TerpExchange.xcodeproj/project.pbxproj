@@ -32,6 +32,7 @@
 		2A422F8D29CCD398006BEA5B /* ChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A422F8C29CCD398006BEA5B /* ChatView.swift */; };
 		2A422F8F29CCD3CC006BEA5B /* PostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A422F8E29CCD3CC006BEA5B /* PostView.swift */; };
 		6315E52729DF268F00B41EB2 /* TestViewUsers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6315E52629DF268F00B41EB2 /* TestViewUsers.swift */; };
+		633344EA29EC81E900C7A912 /* UserItemsDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 633344E929EC81E900C7A912 /* UserItemsDB.swift */; };
 		6353396D29E2006B0054A878 /* FirestoreDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6353396C29E2006B0054A878 /* FirestoreDB.swift */; };
 		6353396F29E33EC60054A878 /* ReviewsDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6353396E29E33EC50054A878 /* ReviewsDB.swift */; };
 		6353398D29E9E2FA0054A878 /* OtherUsersDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6353398C29E9E2FA0054A878 /* OtherUsersDB.swift */; };
@@ -62,6 +63,7 @@
 		2A422F8C29CCD398006BEA5B /* ChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatView.swift; sourceTree = "<group>"; };
 		2A422F8E29CCD3CC006BEA5B /* PostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostView.swift; sourceTree = "<group>"; };
 		6315E52629DF268F00B41EB2 /* TestViewUsers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewUsers.swift; sourceTree = "<group>"; };
+		633344E929EC81E900C7A912 /* UserItemsDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserItemsDB.swift; sourceTree = "<group>"; };
 		6353396C29E2006B0054A878 /* FirestoreDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreDB.swift; sourceTree = "<group>"; };
 		6353396E29E33EC50054A878 /* ReviewsDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewsDB.swift; sourceTree = "<group>"; };
 		6353398C29E9E2FA0054A878 /* OtherUsersDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherUsersDB.swift; sourceTree = "<group>"; };
@@ -138,6 +140,7 @@
 				0B80165729C0E7A8009DAB09 /* RootUIViewController.swift */,
 				6353396E29E33EC50054A878 /* ReviewsDB.swift */,
 				6353398C29E9E2FA0054A878 /* OtherUsersDB.swift */,
+				633344E929EC81E900C7A912 /* UserItemsDB.swift */,
 			);
 			path = LoginHelper;
 			sourceTree = "<group>";
@@ -278,6 +281,7 @@
 				2A422F8B29CCC362006BEA5B /* NavbarView.swift in Sources */,
 				0B84FFE129C20CB4007B7AAC /* UserProfileView.swift in Sources */,
 				63AC52C029DA81E8002075E2 /* ReviewsView.swift in Sources */,
+				633344EA29EC81E900C7A912 /* UserItemsDB.swift in Sources */,
 				0B80165829C0E7A8009DAB09 /* RootUIViewController.swift in Sources */,
 				6315E52729DF268F00B41EB2 /* TestViewUsers.swift in Sources */,
 				0BF0ECAF29BF8E3C0009DABC /* ContentView.swift in Sources */,
