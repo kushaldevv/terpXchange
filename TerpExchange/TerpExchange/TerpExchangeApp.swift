@@ -23,9 +23,12 @@ struct TerpExchangeApp: App {
             
             ZStack {
                 if isSignIn {
-                    UserProfileAccessPage()
-                } else {
+//                    UserProfileAccessPage()
+//                    HomeView()
                     NavbarView()
+                } else {
+//                    NavbarView()
+                    AccountOptionsView()
                 }
                 
                 ZStack {

@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-
+import FirebaseAuth
 
 let screenSize: CGRect = UIScreen.main.bounds
 let screenWidth = screenSize.width
@@ -36,11 +36,17 @@ struct NavbarView: View {
                         Text("Post")
                     }
                 
-                AccountOptionsView()
+                UserProfileView(userName: Auth.auth().currentUser?.displayName ?? "nametest", userId: "idtest")
                     .tabItem(){
                         Image(systemName: "person.crop.circle.fill")
                         Text("Account")
                     }
+                
+                //                AccountOptionsView()
+                //                    .tabItem(){
+                //                        Image(systemName: "person.crop.circle.fill")
+                //                        Text("Account")
+                //                    }
             }
             .accentColor(coralPinkColor)
         }

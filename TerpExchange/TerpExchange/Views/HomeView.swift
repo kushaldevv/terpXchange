@@ -6,6 +6,8 @@
 //
 
 import SwiftUI
+import FirebaseAuth
+
 
 var cards = [card](repeating: card(), count: 24)
 let cardsCount = cards.count
@@ -24,6 +26,8 @@ struct card: View {
 struct HomeView: View {
     @State private var searchText: String = ""
     
+    @StateObject private var firebaseAuth = FirebaseAuthenticationModel()
+    
     var body: some View {
             VStack{
                 HStack{
@@ -38,6 +42,9 @@ struct HomeView: View {
                         .fontWeight(.heavy)
                         .fontDesign(.rounded)
                         .foregroundColor(coralPinkColor)
+                    
+                    Text(Auth.auth().currentUser?.uid ?? "das")
+                    
                 }
                 
                 ScrollView {
