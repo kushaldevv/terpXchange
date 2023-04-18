@@ -6,21 +6,28 @@
 //
 
 import SwiftUI
+//var items = Array(repeating: Item(userID: "test", image: Image("rubix"), title: "Rubix Cube", description: "Lorem Ipsum", price: 10.50), count: 25)
+
+//let testItem = Item(userID: "test", image: Image("rubix"), title: "Rubix Cube", description: "Lorem Ipsum", price: 10.50)
 
 struct basicCardView: View{
     var item: Item
     
     var body: some View {
-        item.image
-            .resizable()
-            .frame(width: 120, height: 120)
-            .cornerRadius(8)
+        Text(item.title)
+//        item.image
+//            .resizable()
+//            .frame(width: 120, height: 120)
+//            .cornerRadius(8)
     }
 }
 
 struct HomeView: View {
     @State private var searchText: String = ""
     @State private var isMenuOpen = false
+    @State var str = "click"
+    @ObservedObject var itemsDB = ItemsDB()
+
     
     var body: some View {
         NavigationView{
@@ -49,7 +56,7 @@ struct HomeView: View {
                             .fontDesign(.rounded)
                             .foregroundColor(Color.red)
                     }
-                    
+                    Text(userID)
                     ScrollView {
                         HStack {
                             Image(systemName: "magnifyingglass")
@@ -63,16 +70,21 @@ struct HomeView: View {
                                 .stroke(Color.gray, lineWidth: 1)
                                 .frame(width: screenWidth - 50, height: 40)
                         )
-                        
+//                        Button(action: {
+//                            itemsDB.addItem(rating: 4, details:"gwenognwioengoiw")
+//                        }) {
+//                            Text(str)
+//                        }
+
                         LazyVGrid(columns: [
                             GridItem(.flexible(),spacing: 0),
                             GridItem(.flexible(),spacing: 0),
                             GridItem(.flexible(),spacing: 0)
                         ], spacing: 7) {
-                            ForEach(0..<items.count, id: \.self) { i in ZStack {
+                            ForEach(0..<itemsDB.getItems().count, id: \.self) { i in ZStack {
                                 NavigationLink( destination: ItemView())
                                 {
-                                    basicCardView(item: items[i])
+                                    basicCardView(item: itemsDB.getItems()[i])
                                 }
                             }
                             }

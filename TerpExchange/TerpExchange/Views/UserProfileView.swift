@@ -65,106 +65,105 @@ struct UserProfileView: View {
     var userId: String
     
     var body: some View {
-        VStack {
-            Text("Account")
-                .frame(maxWidth: .infinity, alignment: .leading)
-                .padding(.leading, 20)
-                .font(.system(size: 34, weight: .bold))
-            
-            
-            HStack {
-//                UserRatingView(rating: $rating, size: 70, displayName: firebaseAuth.getCurrentUser()?.displayName ?? "Unknown")
-                UserRatingView(rating: $rating, size: 70, displayName: userId)
-                
-                Text("(69)")
-                    .offset(x: -70, y: 12)
-                Spacer()
-            }
-            .frame(maxWidth: .infinity, alignment: .leading)
-            .padding(.top, -17)
-            .padding(.leading, 50)
-            
-            Spacer().frame(height: 50)
-            
-            Text("Reputation")
-                .frame(maxWidth: .infinity, alignment: .leading)
-                .padding(.leading, 20)
-                .font(.system(size: 23, weight: .bold))
-            
-            // feature: SHOULD BE FROM REVIEWS, NOT CURRENT USER
-            UserRatingView(rating: $rating, size: 70, displayName: Auth.auth().currentUser?.displayName ?? "Unknown")
-
-                .padding(.top, -0)
-                .padding(.leading, 40)
-            
-            Text("+rep, easy going and fast to respond. Wasn't late to meetup")
-                .frame(maxWidth: 300)
-            
-            NavigationView {
-                HStack(spacing: 0) {
-//                Spacer()
-                    NavigationLink(destination: ReviewsView()) {
-                        Text("See all reviews")
-                            .font(.system(size: 23, weight: .bold))
-                            .foregroundColor(.blue)
-                            .padding(.leading, 40)
-                            .frame(maxWidth: .infinity, alignment: .leading)
-                    }
-                    
-            }
-                .padding(.top, -85)
-            }
-            
-//            NavigationView {
-//                HStack(spacing: 0) {
-//                    NavigationLink(destination: TestViewUsers()) {
-//                        Text("Test Another Account")
-//                            .font(.system(size: 23, weight: .bold))
-//                            .foregroundColor(.blue)
-//                            .padding(.leading, 4)
-//                            .frame(maxWidth: .infinity, alignment: .leading)
-//                    }
-//                    
-//            }
-//                .padding(.top, -5)
-//            }
-            
-            HStack {
-                Text("Items from this seller")
+        NavigationView {
+            VStack {
+                Text("Account")
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .padding(.leading, 20)
-                    .padding(.top, -105)
+                    .font(.system(size: 34, weight: .bold))
+                
+                
+                HStack {
+    //                UserRatingView(rating: $rating, size: 70, displayName: firebaseAuth.getCurrentUser()?.displayName ?? "Unknown")
+                    UserRatingView(rating: $rating, size: 70, displayName: userId)
+                    
+                    Text("(69)")
+                        .offset(x: -70, y: 12)
+                    Spacer()
+                }
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .padding(.top, -17)
+                .padding(.leading, 50)
+                
+                Spacer().frame(height: 50)
+                
+                Text("Reputation")
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .padding(.leading, 20)
                     .font(.system(size: 23, weight: .bold))
-            }
-            
-            VStack{
-                NavigationView {
-                    ScrollView {
-                        
-                        LazyVGrid(columns: [
-                            GridItem(.flexible(),spacing: 0),
-                            GridItem(.flexible(),spacing: 0),
-                            GridItem(.flexible(),spacing: 0)
-                        ], spacing: 7) {
-//                            ForEach(0..<cards.count, id: \.self) { i in ZStack {
-//                                cards[i]
-//                                NavigationLink( destination: ItemView())
-//                                {
-//                                    Image("TerpExchangeLogo-transparent")
-//                                        .resizable()
-//                                        .frame(width: 160, height: 100)
-//                                }
-//                            }
-//                            }
+                
+                // feature: SHOULD BE FROM REVIEWS, NOT CURRENT USER
+                UserRatingView(rating: $rating, size: 70, displayName: Auth.auth().currentUser?.displayName ?? "Unknown")
+
+                    .padding(.top, -0)
+                    .padding(.leading, 40)
+                
+                Text("+rep, easy going and fast to respond. Wasn't late to meetup")
+                    .frame(maxWidth: 300)
+                
+                    HStack(spacing: 0) {
+    //                Spacer()
+                        NavigationLink(destination: ReviewsView()) {
+                            Text("See all reviews")
+                                .font(.system(size: 23, weight: .bold))
+                                .foregroundColor(.blue)
+                                .padding(.leading, 40)
+                                .frame(maxWidth: .infinity, alignment: .leading)
                         }
-                    }
-                    .padding(5)
+                        
+                }
+                    .padding(.top, -85)
+                
+    //            NavigationView {
+    //                HStack(spacing: 0) {
+    //                    NavigationLink(destination: TestViewUsers()) {
+    //                        Text("Test Another Account")
+    //                            .font(.system(size: 23, weight: .bold))
+    //                            .foregroundColor(.blue)
+    //                            .padding(.leading, 4)
+    //                            .frame(maxWidth: .infinity, alignment: .leading)
+    //                    }
+    //
+    //            }
+    //                .padding(.top, -5)
+    //            }
+                
+                HStack {
+                    Text("Items from this seller")
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .padding(.leading, 20)
+                        .padding(.top, -105)
+                        .font(.system(size: 23, weight: .bold))
                 }
                 
-                .background(offwhiteColor)
-            }.padding(.top, -80)
+    //            VStack{
+    //                NavigationView {
+    //                    ScrollView {
+    //
+    //                        LazyVGrid(columns: [
+    //                            GridItem(.flexible(),spacing: 0),
+    //                            GridItem(.flexible(),spacing: 0),
+    //                            GridItem(.flexible(),spacing: 0)
+    //                        ], spacing: 7) {
+    ////                            ForEach(0..<cards.count, id: \.self) { i in ZStack {
+    ////                                cards[i]
+    ////                                NavigationLink( destination: ItemView())
+    ////                                {
+    ////                                    Image("TerpExchangeLogo-transparent")
+    ////                                        .resizable()
+    ////                                        .frame(width: 160, height: 100)
+    ////                                }
+    ////                            }
+    ////                            }
+    //                        }
+    //                    }
+    //                    .padding(5)
+    //                }
+    //
+    //                .background(offwhiteColor)
+    //            }.padding(.top, -80)
+            }
         }
-        Spacer()
     }
 }
 

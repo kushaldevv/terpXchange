@@ -6,22 +6,26 @@
 //
 
 import SwiftUI
+import Firebase
+import FirebaseFirestore
+import FirebaseAuth
+
+let userID = Auth.auth().currentUser?.uid ?? "mhBd9Q7zeuM0RJM4jn3zJlmeBDu1"
 
 struct ContentView: View {
     @State private var tabSelected: Tab = .house
-    
+
     var body: some View {
         ZStack {
             switch tabSelected{
             case .house:
                 HomeView()
             case .message:
-                ChatsView()
+                ChatView()
             case .camera:
                 PostView()
             case .person:
-                HomeView()
-//                UserProfileView(userId: "test")
+                UserProfileView(userId: userID)
             }
             ZStack{
                 VStack {
