@@ -57,7 +57,7 @@ class ReviewsDB: ObservableObject {
         if let user = firebaseAuth.getCurrentUser() {
             let usersRef = db.collection("users").document(user.uid)
             
-            usersRef.getDocument { (document, error) in
+            usersRef.addSnapshotListener { (document, error) in
                 if let document = document, document.exists {
                     
                     let data = document.data()

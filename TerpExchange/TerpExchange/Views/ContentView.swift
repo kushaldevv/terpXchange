@@ -6,16 +6,34 @@
 //
 
 import SwiftUI
+import Firebase
+import FirebaseFirestore
+import FirebaseAuth
 
 struct ContentView: View {
+    @State private var tabSelected: Tab = .house
+
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+        ZStack {
+            switch tabSelected{
+            case .house:
+                HomeView()
+            case .message:
+                ChatView()
+            case .camera:
+                PostView()
+            case .person:
+                UserProfileView(userName: "userName ContentView", userId: userID)
+            }
+            ZStack{
+                VStack {
+                    Spacer()
+                    NavbarView(selectedTab: $tabSelected)
+                        .offset(y: -5)
+                }
+            }
+            .ignoresSafeArea()
         }
-        .padding()
     }
 }
 
@@ -24,5 +42,3 @@ struct ContentView_Previews: PreviewProvider {
         ContentView()
     }
 }
-
-// another comment

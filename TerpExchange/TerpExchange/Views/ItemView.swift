@@ -14,7 +14,7 @@ struct ItemView: View {
                 VStack (alignment: .leading) {
                     ZStack {
                         TabView {
-                            Image("google")
+                            Image("rubix")
                                 .resizable()
                             Image("google")
                                 .resizable()
@@ -31,7 +31,7 @@ struct ItemView: View {
                         Text("Rubix Cube")
                             .font(.system(size: 24))
                             .fontWeight(.bold)
-                            .fontDesign(.rounded)
+//                            .fontDesign(.rounded)
                         Text("$30")
                             .foregroundColor(.pink)
                         Text("Sold by John Smith")
@@ -39,9 +39,9 @@ struct ItemView: View {
                         Text("Description:")
                         Text("Selling a Rubix Cube. It comes with some mini wine glasses and a mni wine bottle.")
                         HStack {
-                                NavigationLink("Chat", destination: ChatView()).padding(5)
-                                        .frame(width:100, height:25)
-                            .border(.black)
+//                            NavigationLink("Chat", destination: ChatsView()).padding(5)
+//                                .frame(width:100, height:25)
+//                                .border(.black)
                             Button {
                                 
                             } label: {
@@ -65,3 +65,4 @@ struct ItemView_Previews: PreviewProvider {
         ItemView()
     }
 }
+
