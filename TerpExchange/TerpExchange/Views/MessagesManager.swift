@@ -37,20 +37,23 @@ class MessagesManager: ObservableObject {
         }
     }
     
-    func sendMessage(fromID: String, messageID: String, text: String) {
-        let chatDocRef = db.collection("chats").document(messageID)
-            chatDocRef.updateData(["messages": FieldValue.arrayUnion([
-                [
-                    "fromID": fromID,
-                    "text": text,
-                    "timestamp": Timestamp(),
-                ]
-            ])]) { error in
-                if let error = error {
-                    print("Error adding message to database: \(error.localizedDescription)")
-                } else {
-                    print("message added to database.")
-                }
-            }
-    }
+    func sendMessage(messageID: String, text: String) {
+         let chatDocRef = db.collection("chats").document(messageID)
+             chatDocRef.updateData([
+                 "recentText": text,
+                 "recentTextTime": Timestamp(),
+                 "messages": FieldValue.arrayUnion([
+                 [
+                     "fromID": userID,
+                     "text": text,
+                     "timestamp": Timestamp(),
+                 ]
+             ])]) { error in
+                 if let error = error {
+                     print("Error adding message to database: \(error.localizedDescription)")
+                 } else {
+                     print("message added to database.")
+                 }
+             }
+     }
 }

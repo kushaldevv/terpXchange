@@ -14,25 +14,27 @@ struct ContentView: View {
     @State private var tabSelected: Tab = .house
 
     var body: some View {
-        ZStack {
-            switch tabSelected{
-            case .house:
-                HomeView()
-            case .message:
-                ChatView()
-            case .camera:
-                PostView()
-            case .person:
-                UserProfileView(userName: "userName ContentView", userId: userID)
-            }
-            ZStack{
-                VStack {
-                    Spacer()
-                    NavbarView(selectedTab: $tabSelected)
-                        .offset(y: -5)
+        NavigationView() {
+            ZStack {
+                switch tabSelected{
+                case .house:
+                    HomeView()
+                case .message:
+                    ChatView()
+                case .camera:
+                    PostView()
+                case .person:
+                    UserProfileView(userName: "userName ContentView", userId: userID)
                 }
+                ZStack{
+                    VStack {
+                        Spacer()
+                        NavbarView(selectedTab: $tabSelected)
+                            .offset(y: -5)
+                    }
+                }
+                .ignoresSafeArea()
             }
-            .ignoresSafeArea()
         }
     }
 }

@@ -96,89 +96,77 @@ struct UserProfileView: View {
     var userId: String
     
     var body: some View {
-        NavigationView {
-        VStack {
-            
-            Text("Account")
-                .frame(maxWidth: .infinity, alignment: .leading)
-                .padding(.leading, 20)
-                .font(.system(size: 34, weight: .bold))
-            
-            HStack {
-                
-                UserRatingView(rating: $rating, size: 70, displayName: userName, userProfileURL: userProfileURL)
-                
-                Text("(69)")
-                    .offset(x: -70, y: 12)
-                Spacer()
-            }
-            .frame(maxWidth: .infinity, alignment: .leading)
-            .padding(.top, -17)
-            .padding(.leading, 50)
-            
-            Spacer().frame(height: 40)
-            
-            Text("Reputation")
-                .frame(maxWidth: .infinity, alignment: .leading)
-                .padding(.leading, 20)
-                .font(.system(size: 23, weight: .bold))
-            
-            HStack {
-                
-                
-                // feature: SHOULD BE FROM REVIEWS, NOT CURRENT USER
-                UserRatingView(rating: $rating, size: 50, displayName: Auth.auth().currentUser?.displayName ?? "Unknown", userProfileURL: Auth.auth().currentUser?.photoURL)
-            }
-            .padding(.leading, 50)
-            .padding(.bottom, 10)
-            .padding(.top, 10)
-            Text("+rep, easy going and fast to respond. Wasn't late to meetup")
-                .frame(maxWidth: 300)
-            
-            
-            HStack(spacing: 0) {
-                //                Spacer()
-                NavigationLink(destination: ReviewsView()) {
-                    Text("See all reviews")
-                        .font(.system(size: 23, weight: .bold))
-                        .foregroundColor(.blue)
-                        .padding(.leading, 40)
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                }
-                
-            }
-            .padding(.top, -95)
-            
-            //            NavigationView {
-            //                HStack(spacing: 0) {
-            //                    NavigationLink(destination: TestViewUsers()) {
-            //                        Text("Test Another Account")
-            //                            .font(.system(size: 23, weight: .bold))
-            //                            .foregroundColor(.blue)
-            //                            .padding(.leading, 4)
-            //                            .frame(maxWidth: .infinity, alignment: .leading)
-            //                    }
-            //
-            //            }
-            //                .padding(.top, -5)
-            //            }
-            
-            HStack {
-                Text("Items from this seller")
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                    .padding(.leading, 20)
-                    .padding(.top, -105)
-                    .font(.system(size: 23, weight: .bold))
-            }
-            
-            VStack{
-                ScrollView {
 
-                    LazyVGrid(columns: [
-                        GridItem(.flexible(),spacing: 0),
-                        GridItem(.flexible(),spacing: 0),
-                        GridItem(.flexible(),spacing: 0)
-                    ], spacing: 7) {
+    VStack {
+        
+        Text("Account")
+            .frame(maxWidth: .infinity, alignment: .leading)
+            .padding(.leading, 20)
+            .font(.system(size: 34, weight: .bold))
+        
+        HStack {
+            
+            UserRatingView(rating: $rating, size: 70, displayName: userName, userProfileURL: userProfileURL)
+            
+            Text(userId)
+            
+            Text("(69)")
+                .offset(x: -70, y: 12)
+            Spacer()
+        }
+        .frame(maxWidth: .infinity, alignment: .leading)
+        .padding(.top, -17)
+        .padding(.leading, 50)
+        
+        Spacer().frame(height: 40)
+        
+        Text("Reputation")
+            .frame(maxWidth: .infinity, alignment: .leading)
+            .padding(.leading, 20)
+            .font(.system(size: 23, weight: .bold))
+        
+        HStack {
+            
+            
+            // feature: SHOULD BE FROM REVIEWS, NOT CURRENT USER
+            UserRatingView(rating: $rating, size: 50, displayName: Auth.auth().currentUser?.displayName ?? "Unknown", userProfileURL: Auth.auth().currentUser?.photoURL)
+        }
+        .padding(.leading, 50)
+        .padding(.bottom, 10)
+        .padding(.top, 10)
+        Text("+rep, easy going and fast to respond. Wasn't late to meetup")
+            .frame(maxWidth: 300)
+        
+        
+        HStack(spacing: 0) {
+            //                Spacer()
+            NavigationLink(destination: ReviewsView(currUserId: userId)) {
+                Text("See all reviews")
+                    .font(.system(size: 23, weight: .bold))
+                    .foregroundColor(.blue)
+                    .padding(.leading, 40)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+            }
+            
+        }
+        .padding(.top, -95)
+        
+        HStack {
+            Text("Items from this seller")
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .padding(.leading, 20)
+                .padding(.top, -105)
+                .font(.system(size: 23, weight: .bold))
+        }
+        
+        VStack{
+            ScrollView {
+
+                LazyVGrid(columns: [
+                    GridItem(.flexible(),spacing: 0),
+                    GridItem(.flexible(),spacing: 0),
+                    GridItem(.flexible(),spacing: 0)
+                ], spacing: 7) {
 //                        ForEach(0..<cardsCount, id: \.self) { i in ZStack {
 //                            cards[i]
 //                            NavigationLink( destination: ItemView())
@@ -189,14 +177,14 @@ struct UserProfileView: View {
 //                            }
 //                        }
 //                        }
-                    }
                 }
-                .padding(5)
+            }
+            .padding(5)
 
-                .background(offwhiteColor)
-            }.padding(.top, -80)
-        }
+            .background(offwhiteColor)
+        }.padding(.top, -80)
     }
+
     }
 }
 

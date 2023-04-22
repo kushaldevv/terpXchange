@@ -67,11 +67,11 @@ struct ChatView: View {
                     TextField("Type something", text: $messageText)
                         .padding()
                         .onSubmit {
-                            messagesManager.sendMessage(fromID: userID, messageID: messageID, text: messageText)
+                            messagesManager.sendMessage(messageID: messageID, text: messageText)
                             messageText = ""
                         }
                     Button {
-                        messagesManager.sendMessage(fromID: userID, messageID: messageID, text: messageText)
+                        messagesManager.sendMessage(messageID: messageID, text: messageText)
                         messageText = ""
                     } label: {
                         Image(systemName: "paperplane.fill")

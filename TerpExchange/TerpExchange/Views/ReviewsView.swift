@@ -17,8 +17,10 @@ struct ReviewsView: View {
     @State var isAddingReview = false
     @ObservedObject var reviewsDB = ReviewsDB()
     @ObservedObject var userItemsDB = UserItemsDB()
+    let currUserId: String
 
     var body: some View {
+
         VStack {
             ReviewsList(reviews: $reviewsDB.reviews)
             
@@ -35,17 +37,12 @@ struct ReviewsView: View {
                 AddReviewView()
             }
             
-            Button(action: {
-                // Call the addItem function
-                userItemsDB.addItem(price: 10.0, description: "Example description", title: "Example title")
-            }) {
-                Text("Add Item")
-            }
-            
         }
+        .navigationBarTitle(Text("Reviews"))
         .onAppear {
-            reviewsDB.fetchReviews()
+            reviewsDB.fetchReviews(userid: currUserId)
         }
+
     }
 
 }
@@ -63,6 +60,7 @@ struct ReviewsList: View {
                         Text("\(review.reviewerName) gave it \(review.rating) stars")
                             .font(.headline)
                     }
+                    .navigationBarTitle(Text("Back"), displayMode: .inline)
                     Text(review.details)
                         .font(.subheadline)
                     Text(review.timestamp, style: .date)
@@ -81,50 +79,48 @@ struct AddReviewView: View {
     @ObservedObject private var reviewsDB = ReviewsDB()
     
     var body: some View {
-        NavigationView {
-            Form {
-                Section(header: Text("Rating")) {
-                    HStack {
-                        Text("Select a rating:")
-                        Spacer()
-                        Stepper(value: $rating, in: 1...5, step: 1) {
-                            Text("\(Int(rating))")
-                                .foregroundColor(.black)
-                                .frame(width: 30, height: 30)
-                                .background(Color.yellow)
-                                .cornerRadius(15)
-                        }
+        Form {
+            Section(header: Text("Rating")) {
+                HStack {
+                    Text("Select a rating:")
+                    Spacer()
+                    Stepper(value: $rating, in: 1...5, step: 1) {
+                        Text("\(Int(rating))")
+                            .foregroundColor(.black)
+                            .frame(width: 30, height: 30)
+                            .background(Color.yellow)
+                            .cornerRadius(15)
                     }
                 }
-                Section(header: Text("Review")) {
-                    TextEditor(text: $details)
-                        .frame(minHeight: 100)
-                        .padding(.vertical, 8)
-                }
             }
-            .navigationBarTitle(Text("Add Review"), displayMode: .inline)
-            .navigationBarItems(
-                trailing: Button(action: {
-                    reviewsDB.addReview(rating: rating, details: details)
-                    isReviewPosted = true
-                    reviewsDB.fetchReviews()
-                }) {
-                    Text("Save")
-                }.alert(isPresented: $isReviewPosted) {
-                    Alert(
-                        title: Text("Review Posted!"),
-                        dismissButton: .default(Text("OK"))
-                    )
-                }
-                .padding()
-
-            )
+            Section(header: Text("Review")) {
+                TextEditor(text: $details)
+                    .frame(minHeight: 100)
+                    .padding(.vertical, 8)
+            }
         }
+        .navigationBarTitle(Text("Add Review"), displayMode: .inline)
+        .navigationBarItems(
+            trailing: Button(action: {
+                reviewsDB.addReview(rating: rating, details: details)
+                isReviewPosted = true
+            }) {
+                Text("Save")
+            }.alert(isPresented: $isReviewPosted) {
+                Alert(
+                    title: Text("Review Posted!"),
+                    dismissButton: .default(Text("OK"))
+                )
+            }
+            .padding()
+
+        )
+
     }
 }
 
 struct ReviewsView_Previews: PreviewProvider {
     static var previews: some View {
-        ReviewsView()
+        ReviewsView(currUserId: "currUserId")
     }
 }

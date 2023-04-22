@@ -53,9 +53,8 @@ class ReviewsDB: ObservableObject {
         }
     }
     
-    func fetchReviews() {
-        if let user = firebaseAuth.getCurrentUser() {
-            let usersRef = db.collection("users").document(user.uid)
+    func fetchReviews(userid: String) {
+            let usersRef = db.collection("users").document(userid)
             
             usersRef.addSnapshotListener { (document, error) in
                 if let document = document, document.exists {
@@ -80,7 +79,7 @@ class ReviewsDB: ObservableObject {
                     print("Document does not exist")
                 }
             }
-        }
+        
     }
     
 }
