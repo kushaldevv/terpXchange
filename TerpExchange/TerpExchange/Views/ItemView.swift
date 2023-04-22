@@ -8,6 +8,13 @@
 import SwiftUI
 
 struct ItemView: View {
+    
+    @EnvironmentObject private var appData: AppData
+    
+    init() {
+        appData.hideNavbar()
+    }
+    
     var body: some View {
         NavigationView {
             ScrollView {

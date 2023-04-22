@@ -15,7 +15,7 @@ class MessagesManager: ObservableObject {
     init(chatID: String){
         getMessages(chatID: chatID)
     }
-    
+
     func getMessages(chatID : String) {
         db.collection("chats").document(chatID).addSnapshotListener { (document, error) in
             if let document = document, document.exists {
@@ -27,7 +27,6 @@ class MessagesManager: ObservableObject {
                                 timestamp: timestamp.dateValue()
                         )
                     }
-                    print("messagesData done")
                 } else{
                     print("messagesData error")
                 }
@@ -37,11 +36,14 @@ class MessagesManager: ObservableObject {
         }
     }
     
-    func sendMessage(fromID: String, messageID: String, text: String) {
+    func sendMessage(messageID: String, text: String) {
         let chatDocRef = db.collection("chats").document(messageID)
-            chatDocRef.updateData(["messages": FieldValue.arrayUnion([
+            chatDocRef.updateData([
+                "recentText": text,
+                "recentTextTime": Timestamp(),
+                "messages": FieldValue.arrayUnion([
                 [
-                    "fromID": fromID,
+                    "fromID": userID,
                     "text": text,
                     "timestamp": Timestamp(),
                 ]

@@ -24,6 +24,7 @@ enum Tab: String, CaseIterable {
 struct NavbarView: View {
     @Binding var selectedTab: Tab
     @State private var scaleEffect : Tab = .house
+    @State var validTabs: [Tab] = [.house, .message, .camera, .person]
     
     private var fillImage: String {
         selectedTab.rawValue + ".fill"
@@ -43,35 +44,36 @@ struct NavbarView: View {
     }
     
     var body: some View {
-        HStack {
-            ForEach(Tab.allCases, id: \.rawValue) { tab in
-                Spacer()
-                VStack{
-                    Image(systemName: selectedTab == tab ? fillImage: tab.rawValue)
-                        .scaleEffect(tab == scaleEffect ? 1.25 : 1.0)
-                        .foregroundColor(tab == selectedTab ? Color.red : .gray)
-                        .font(.system(size: 20))
-                    
-                    Text(tabName(tab: tab))
-                        .fontWeight(.heavy)
-                        .font(.system(size: 14))
-                        .offset(y: 3)
-                        .foregroundColor(tab == selectedTab ? Color.red : .gray)
-                }
-                .onTapGesture {
-                    selectedTab = tab
-                    withAnimation(.easeInOut(duration: 0.1)) {
-                        scaleEffect = tab
+        if (validTabs.contains(selectedTab)) {
+            HStack {
+                ForEach(Tab.allCases, id: \.rawValue) { tab in
+                    Spacer()
+                    VStack{
+                        Image(systemName: selectedTab == tab ? fillImage: tab.rawValue)
+                            .scaleEffect(tab == scaleEffect ? 1.25 : 1.0)
+                            .foregroundColor(tab == selectedTab ? Color.red : .gray)
+                            .font(.system(size: 20))
+                        
+                        Text(tabName(tab: tab))
+                            .fontWeight(.heavy)
+                            .font(.system(size: 14))
+                            .offset(y: 3)
+                            .foregroundColor(tab == selectedTab ? Color.red : .gray)
                     }
+                    .onTapGesture {
+                        selectedTab = tab
+                        withAnimation(.easeInOut(duration: 0.1)) {
+                            scaleEffect = tab
+                        }
+                    }
+                    Spacer()
                 }
-                Spacer()
             }
+            .frame(width: nil, height: 60)
+            .background(.thinMaterial)
+            .cornerRadius(20)
+            .padding(9)
         }
-        .frame(width: nil, height: 60)
-        .background(.thinMaterial)
-        .cornerRadius(20)
-        .padding(9)
-        
     }
 }
 

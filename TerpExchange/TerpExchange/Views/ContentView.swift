@@ -6,14 +6,22 @@
 //
 
 import SwiftUI
-import Firebase
-import FirebaseFirestore
-import FirebaseAuth
 
-let userID = Auth.auth().currentUser?.uid ?? "mhBd9Q7zeuM0RJM4jn3zJlmeBDu1"
+class AppData: ObservableObject {
+    @Published var navBarHidden: Bool = false
+    
+    func hideNavbar () {
+        navBarHidden = true
+    }
+    
+    func showNavbar() {
+        navBarHidden = false
+    }
+}
 
 struct ContentView: View {
-    @State private var tabSelected: Tab = .house
+    @StateObject private var appData = AppData()
+    @State private var tabSelected: Tab = .message
 
     var body: some View {
         ZStack {
@@ -21,7 +29,7 @@ struct ContentView: View {
             case .house:
                 HomeView()
             case .message:
-                ChatView()
+                ChatsView()
             case .camera:
                 PostView()
             case .person:

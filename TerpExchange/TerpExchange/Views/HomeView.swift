@@ -27,7 +27,6 @@ struct HomeView: View {
     @State private var isMenuOpen = false
     @State var str = "click"
     @ObservedObject var itemsDB = ItemsDB()
-
     
     var body: some View {
         NavigationView{
@@ -56,7 +55,12 @@ struct HomeView: View {
                             .fontDesign(.rounded)
                             .foregroundColor(Color.red)
                     }
-                    Text(userID)
+//                    Image(uiImage: UIImage(getpic()))
+//                        .resizable()
+//                        .aspectRatio(contentMode: .fit)
+//                        .frame(width: 100, height: 100)
+//                        .clipShape(Circle())
+
                     ScrollView {
                         HStack {
                             Image(systemName: "magnifyingglass")

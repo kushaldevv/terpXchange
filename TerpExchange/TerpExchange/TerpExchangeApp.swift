@@ -9,6 +9,8 @@ import SwiftUI
 import Firebase
 import GoogleSignIn
 
+
+
 @main
 struct TerpExchangeApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
