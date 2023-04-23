@@ -17,7 +17,7 @@ struct TestViewUsers: View {
     
     var body: some View {
         VStack {
-//            UserRatingView(rating: $rating, size: 70, displayName: Auth.auth().currentUser?.displayName ?? "Unknown")
+
         }
     }
 }

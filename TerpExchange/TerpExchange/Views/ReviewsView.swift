@@ -56,7 +56,7 @@ struct ReviewsList: View {
         } else {
             List(reviews, id: \.id) { review in
                 VStack(alignment: .leading) {
-                    NavigationLink(destination: UserProfileView(userName: review.reviewerName, userProfileURL: review.reviewerPhotoURL, userId: review.reviewerUID)) {
+                    NavigationLink(destination: UserProfileView(userName: review.reviewerName, userId: review.reviewerUID, userProfileURL: review.reviewerPhotoURL)) {
                         Text("\(review.reviewerName) gave it \(review.rating) stars")
                             .font(.headline)
                     }

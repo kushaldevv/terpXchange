@@ -45,7 +45,7 @@ struct TerpExchangeApp: App {
         
         var body: some View {
             NavigationStack {
-                UserProfileView(userName: Auth.auth().currentUser?.displayName ?? "Unknown", userId: Auth.auth().currentUser?.uid ?? "unknown id")
+                UserProfileView(userName: username, userId: userID, userProfileURL: userPhotoURL)
                     .toolbar {
                         ToolbarItem(placement: .navigationBarLeading) {
                             Button(action: {

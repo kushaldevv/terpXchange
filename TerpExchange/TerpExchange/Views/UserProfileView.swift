@@ -92,8 +92,9 @@ struct UserProfileView: View {
     @StateObject private var otherUser = OtherUsersDB()
     
     var userName: String
-    var userProfileURL: URL?
     var userId: String
+    var userProfileURL: URL?
+
     
     var body: some View {
 
@@ -129,7 +130,7 @@ struct UserProfileView: View {
             
             
             // feature: SHOULD BE FROM REVIEWS, NOT CURRENT USER
-            UserRatingView(rating: $rating, size: 50, displayName: Auth.auth().currentUser?.displayName ?? "Unknown", userProfileURL: Auth.auth().currentUser?.photoURL)
+            UserRatingView(rating: $rating, size: 50, displayName: userID, userProfileURL: userPhotoURL)
         }
         .padding(.leading, 50)
         .padding(.bottom, 10)
@@ -169,6 +170,7 @@ struct UserProfileView: View {
                 ], spacing: 7) {
 //                        ForEach(0..<cardsCount, id: \.self) { i in ZStack {
 //                            cards[i]
+//
 //                            NavigationLink( destination: ItemView())
 //                            {
 //                                Image("TerpExchangeLogo-transparent")

@@ -88,7 +88,6 @@ struct HomeView: View {
 //                                }
 //                            }
 //                            }
-                            
                         }
                     }
                     .padding(5)
@@ -104,5 +103,12 @@ struct HomeView: View {
     
     func toggleMenu() {
         isMenuOpen.toggle()
+    }
+}
+
+
+struct HomeView_Previews: PreviewProvider {
+    static var previews: some View {
+        HomeView()
     }
 }
