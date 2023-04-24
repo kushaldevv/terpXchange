@@ -17,18 +17,40 @@ let placeholder = URL(string: "https://lh3.googleusercontent.com/a/AGNmyxZfOmqFA
 let userPhotoURL = Auth.auth().currentUser?.photoURL ?? placeholder
 
 func getName(id: String) -> String {
-    return "test"
-}
- 
-func getPFP (id: String) -> URL{
-    var output = ""
+    var output = "hi"
     let userDocRef = db.collection("users").document(id)
+    
     userDocRef.getDocument { (document, error) in
         if let document = document, document.exists {
-             output = document.get("photoURL") as? String ?? ""
-        } else {
+            let data = document.data()
+            output = data?["displayName"] as? String ?? "error"
+//            print(output)
+        }
+        else {
             print("Document does not exist")
         }
     }
+    return output
+}
+
+func getPFP (id: String) -> URL{
+    var output = ""
+    db.collection("users").document(id).getDocument { (document, error) in
+        if let document = document, document.exists {
+            if let photoURL = document.get("photoURL") as? String {
+                output = photoURL
+            } else {
+                print("photoURL field not found")
+            }
+        } else {
+            print("Document not found")
+        }
+    }
+//    print(output)
     return URL(string: output) ?? placeholder!
 }
+
+
+
+    
+

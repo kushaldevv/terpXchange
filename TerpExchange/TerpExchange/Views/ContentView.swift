@@ -20,17 +20,19 @@ struct ContentView: View {
                 case .house:
                     HomeView()
                 case .message:
-                    ChatView()
+                    ChatsView()
                 case .camera:
                     PostView()
                 case .person:
+//                    AccountOptionsPage()
                     UserProfileView(userName: username, userId: userID, userProfileURL: userPhotoURL)
                 }
-                ZStack{
+                ZStack {
                     VStack {
                         Spacer()
                         NavbarView(selectedTab: $tabSelected)
                             .offset(y: -5)
+//                            .padding(.vertical, 50)
                     }
                 }
                 .ignoresSafeArea()

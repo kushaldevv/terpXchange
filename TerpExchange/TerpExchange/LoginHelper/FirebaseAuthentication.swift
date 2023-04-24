@@ -77,7 +77,6 @@ class FirebaseAuthenticationModel: ObservableObject {
                 let db = Firestore.firestore()
                 let usersRef = db.collection("users").document(user.uid)
 
-
                 usersRef.getDocument { (document, error) in
                     if let document = document, document.exists {
                         // User already exists, do nothing

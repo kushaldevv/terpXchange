@@ -20,8 +20,6 @@ func starImageName(for rating: Double, index: Int) -> String {
     }
 }
 
-
-
 struct UserRatingView: View {
     @State private var profileImage: UIImage?
     @Binding var rating: Double
@@ -49,9 +47,6 @@ struct UserRatingView: View {
                 HStack {
                     Text(displayName)
                     Spacer()
-//                    if let urlString = userProfileURL?.absoluteString { //test to see if urlString displays
-//                        Text(urlString)
-//                    }
                 }
 
                 HStack {
@@ -106,10 +101,7 @@ struct UserProfileView: View {
             .font(.system(size: 34, weight: .bold))
         
         HStack {
-            
             UserRatingView(rating: $rating, size: 70, displayName: userName, userProfileURL: userProfileURL)
-            
-            Text(userId)
             
             Text("(69)")
                 .offset(x: -70, y: 12)
@@ -191,7 +183,6 @@ struct UserProfileView: View {
 }
 
 
-    
 
 struct UserProfileView_Previews: PreviewProvider {
     static var previews: some View {

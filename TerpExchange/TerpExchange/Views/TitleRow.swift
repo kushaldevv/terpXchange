@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct TitleRow: View {
-    var name = "Bhuvan"
-    var imageUrl = URL(string: "https://lh3.googleusercontent.com/a/AGNmyxb4y29rd5Rbmaz-IFYX83KKcyZW5J4QyX_bNmg=s96-c")
+    var name : String
+    var imageUrl : URL
     var itemImage = Image("rubix")
     
     var body: some View {
@@ -41,8 +41,8 @@ struct TitleRow: View {
     }
 }
 
-struct TitleRow_Previews: PreviewProvider {
-    static var previews: some View {
-        TitleRow()
-    }
-}
+//struct TitleRow_Previews: PreviewProvider {
+//    static var previews: some View {
+//        TitleRow()
+//    }
+//}

@@ -8,7 +8,8 @@
 import SwiftUI
 import Firebase
 import GoogleSignIn
-import FirebaseAuth
+
+
 
 @main
 struct TerpExchangeApp: App {
@@ -23,11 +24,15 @@ struct TerpExchangeApp: App {
             
             ZStack {
                 if isSignIn {
+//                    UserProfileAccessPage()
                     ContentView()
                 } else {
-                    AccountOptionsView()
+//                    NavigationStack{
+//                        ContentView()
+                    AccountOptionsPage()
+//                    }
+                    
                 }
-                
                 ZStack {
                     if showLaunchView {
                         LaunchView(showLauchView: $showLaunchView)
@@ -66,4 +71,8 @@ struct TerpExchangeApp: App {
         }
     }
 }
+
+
+
+
 

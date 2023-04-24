@@ -38,16 +38,20 @@ struct messageBubble: View {
 
 
 struct ChatView: View {
-    var messageID = "uniqueID"
-    @StateObject var messagesManager = MessagesManager(chatID: "uniqueID")
+    var messageID : String
+    var name: String
+    var pfp : String
+    @ObservedObject var messagesManager = MessagesManager(chatID: "uniqueID")
     @State var messageText = ""
     
     var body: some View {
-        NavigationView{
+//        NavigationView{
             VStack {
                 VStack{
-                    TitleRow()
+                    TitleRow(name: name, imageUrl: URL(string: pfp)!)
                         .background(Color("CoralPink"))
+                        .offset(y: -10)
+                        .padding(.bottom, -10)
                     
                     ScrollView {
                         ForEach(messagesManager.messages, id: \.id) { message in
@@ -57,6 +61,7 @@ struct ChatView: View {
                         }
 
                     }
+                    .frame(width: screenWidth)
                     .padding(.top, 10)
                     .padding(.bottom, 40)
                     .background(Color.white)
@@ -87,7 +92,8 @@ struct ChatView: View {
                 .padding(.vertical, -35)
 //                .offset(y: -60)
             }
-        }
+//        }
+        
     }
 }
 
@@ -97,11 +103,11 @@ func displayDate(date: Date) -> String{
     } else {
         dateFormatter.dateFormat = "MM/dd/yyyy"
     }
-    return dateFormatter.string(from: Date())
+    return dateFormatter.string(from: date)
 }
 
 struct ChatView_Previews: PreviewProvider {
     static var previews: some View {
-        ChatView()
+        ChatView(messageID: "uniqueID", name: "David Do", pfp: "https://lh3.googleusercontent.com/a/AGNmyxZfOmqFAxm7HuQonfZV8H6qjBM3RX7TpJr-h-nq=s192-c-rg-br100")
     }
 }

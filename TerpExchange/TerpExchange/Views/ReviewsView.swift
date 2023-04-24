@@ -21,28 +21,31 @@ struct ReviewsView: View {
 
     var body: some View {
 
-        VStack {
-            ReviewsList(reviews: $reviewsDB.reviews)
             
-            Button(action: { isAddingReview = true }) {
-                Text("Add a Review")
-                    .font(.headline)
-                    .foregroundColor(.white)
-                    .padding(.vertical, 10)
-                    .padding(.horizontal, 20)
-                    .background(Color.blue)
-                    .cornerRadius(5)
+            VStack {
+                ReviewsList(reviews: $reviewsDB.reviews)
+                
+                Button(action: { isAddingReview = true }) {
+                    Text("Add a Review")
+                        .font(.headline)
+                        .foregroundColor(.white)
+                        .padding(.vertical, 10)
+                        .padding(.horizontal, 20)
+                        .background(Color.blue)
+                        .cornerRadius(5)
+                }
+                .sheet(isPresented: $isAddingReview) {
+                    AddReviewView()
+                }
+                
             }
-            .sheet(isPresented: $isAddingReview) {
-                AddReviewView()
+//            .navigationBarTitle(Text("Reviews"))
+            .onAppear {
+                reviewsDB.fetchReviews(userid: currUserId)
             }
             
-        }
-        .navigationBarTitle(Text("Reviews"))
-        .onAppear {
-            reviewsDB.fetchReviews(userid: currUserId)
-        }
-
+        
+        
     }
 
 }
@@ -79,43 +82,49 @@ struct AddReviewView: View {
     @ObservedObject private var reviewsDB = ReviewsDB()
     
     var body: some View {
-        Form {
-            Section(header: Text("Rating")) {
-                HStack {
-                    Text("Select a rating:")
-                    Spacer()
-                    Stepper(value: $rating, in: 1...5, step: 1) {
-                        Text("\(Int(rating))")
-                            .foregroundColor(.black)
-                            .frame(width: 30, height: 30)
-                            .background(Color.yellow)
-                            .cornerRadius(15)
+        
+        NavigationView {
+            
+            
+            Form {
+                Section(header: Text("Rating")) {
+                    HStack {
+                        Text("Select a rating:")
+                        Spacer()
+                        Stepper(value: $rating, in: 1...5, step: 1) {
+                            Text("\(Int(rating))")
+                                .foregroundColor(.black)
+                                .frame(width: 30, height: 30)
+                                .background(Color.yellow)
+                                .cornerRadius(15)
+                        }
                     }
                 }
+                Section(header: Text("Review")) {
+                    TextEditor(text: $details)
+                        .frame(minHeight: 100)
+                        .padding(.vertical, 8)
+                }
             }
-            Section(header: Text("Review")) {
-                TextEditor(text: $details)
-                    .frame(minHeight: 100)
-                    .padding(.vertical, 8)
-            }
+            .navigationBarTitle(Text("Add Review"), displayMode: .inline)
+            .navigationBarItems(
+                trailing: Button(action: {
+                    reviewsDB.addReview(rating: rating, details: details)
+                    isReviewPosted = true
+                }) {
+                    Text("Save")
+                        .foregroundColor(.blue) // add foreground color
+                }.alert(isPresented: $isReviewPosted) {
+                    Alert(
+                        title: Text("Review Posted!"),
+                        dismissButton: .default(Text("OK"))
+                    )
+                }
+                //            .padding()
+                
+            )
+            
         }
-        .navigationBarTitle(Text("Add Review"), displayMode: .inline)
-        .navigationBarItems(
-            trailing: Button(action: {
-                reviewsDB.addReview(rating: rating, details: details)
-                isReviewPosted = true
-            }) {
-                Text("Save")
-            }.alert(isPresented: $isReviewPosted) {
-                Alert(
-                    title: Text("Review Posted!"),
-                    dismissButton: .default(Text("OK"))
-                )
-            }
-            .padding()
-
-        )
-
     }
 }
 
