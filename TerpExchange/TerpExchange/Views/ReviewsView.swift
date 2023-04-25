@@ -23,6 +23,8 @@ struct ReviewsView: View {
 
             
             VStack {
+                Text("\(reviewsDB.numberOfReviews(userId: userID)) reviews")
+                Text("\(reviewsDB.averageRating(userId: userID)) rating")
                 ReviewsList(reviews: $reviewsDB.reviews)
                 
                 Button(action: { isAddingReview = true }) {

@@ -9,11 +9,12 @@ import SwiftUI
 import FirebaseAuth
 
 func starImageName(for rating: Double, index: Int) -> String {
-    let ratingInt = Int(rating.rounded())
+    let ratingInt = Int(rating)
     let ratingFraction = rating - Double(ratingInt)
-    if index <= ratingInt {
+    print(index)
+    if index < ratingInt {
         return "star.fill"
-    } else if index == ratingInt + 1 && ratingFraction > 0 {
+    } else if index == ratingInt && ratingFraction >= 0.5 {
         return "star.leadinghalf.fill"
     } else {
         return "star"
@@ -50,7 +51,7 @@ struct UserRatingView: View {
                 }
 
                 HStack {
-                    ForEach(1..<6) { index in
+                    ForEach(0..<5) { index in
                         Image(systemName: starImageName(for: rating, index: index))
                             .foregroundColor(.yellow)
                             .font(.system(size: 20))
@@ -82,14 +83,13 @@ struct UserRatingView: View {
 }
 
 struct UserProfileView: View {
-    @State private var rating = 2.0
+    @State private var rating = 4.5
     @StateObject private var firebaseAuth = FirebaseAuthenticationModel()
     @StateObject private var otherUser = OtherUsersDB()
     
     var userName: String
     var userId: String
     var userProfileURL: URL?
-
     
     var body: some View {
 
