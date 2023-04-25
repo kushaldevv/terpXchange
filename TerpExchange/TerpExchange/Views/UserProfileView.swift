@@ -105,8 +105,9 @@ struct UserProfileView: View {
             HStack {
                 
                 UserRatingView(rating: (reviewDB.averageRating(userId: userID)), size: 70, displayName: userName, userProfileURL: userProfileURL)
-                Text("\(reviewDB.numberOfReviews(userId: userID)) reviews")
-                Text("(69)")
+                Text("\(reviewDB.numberOfReviews(userId: userId)) reviews")
+//                Text("(69)")
+                Text(userId)
                     .offset(x: -70, y: 12)
                 Spacer()
             }
@@ -125,7 +126,7 @@ struct UserProfileView: View {
                 
                 
                 // feature: SHOULD BE FROM REVIEWS, NOT CURRENT USER
-                UserRatingView(rating: (reviewDB.averageRating(userId: userID)), size: 50, displayName: userID, userProfileURL: userPhotoURL)
+                UserRatingView(rating: (reviewDB.averageRating(userId: userId)), size: 50, displayName: userID, userProfileURL: userPhotoURL)
             }
             .padding(.leading, 50)
             .padding(.bottom, 10)
@@ -182,7 +183,7 @@ struct UserProfileView: View {
             }.padding(.top, -80)
         }
         .onAppear() {
-            reviewDB.fetchReviews(userid: userID)
+            reviewDB.fetchReviews(userid: userId)
 
         }
     }
