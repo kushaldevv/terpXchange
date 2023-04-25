@@ -8,16 +8,16 @@
 import SwiftUI
 
 struct ItemView: View {
-    
-    @EnvironmentObject private var appData: AppData
-    
-    init() {
-        appData.hideNavbar()
-    }
-    
+    @Environment(\.presentationMode) var presentationMode
+
     var body: some View {
         NavigationView {
             ScrollView {
+                Button(action: {
+                    self.presentationMode.wrappedValue.dismiss()
+                }, label: {
+                    Text("Go Back to FirstView")
+                })
                 VStack (alignment: .leading) {
                     ZStack {
                         TabView {

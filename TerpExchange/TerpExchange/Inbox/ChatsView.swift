@@ -54,7 +54,9 @@ struct chatPreview: View {
 struct ChatsView: View {
     @StateObject var inboxManager = InboxManager()
     @State var text = "Inbox"
-    
+    @State private var showSecondView = false
+    @State private var currChat : Chat = Chat(messageID: "uniqddueID", name: "Test", pfp: "x", recentText: "x", recentTextDate: Date())
+
     var body: some View {
         NavigationView{
             VStack(spacing: 0){
@@ -66,7 +68,10 @@ struct ChatsView: View {
                     .padding(.bottom, 20)
                 List{
                     ForEach(inboxManager.chats, id: \.id){ chat in
-                        NavigationLink(destination: ChatView(messageID: chat.messageID, name: chat.name, pfp: chat.pfp)){
+                        Button(action: {
+                            self.currChat = chat
+                            self.showSecondView = true
+                        }) {
                             chatPreview(chat: chat)
                         }
                     }
@@ -76,9 +81,12 @@ struct ChatsView: View {
                 .navigationBarHidden(true)
                 .navigationTitle("Inbox")
             }
+            .fullScreenCover(isPresented: $showSecondView,content: {
+                ChatView(messageID: self.$currChat.messageID, name: self.$currChat.name, pfp: self.$currChat.pfp)
+            })
         }
     }
-    
+
     func removeChat(at offsets: IndexSet){
 //        chats.remove(atOffsets: offsets)
     }

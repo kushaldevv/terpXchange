@@ -44,6 +44,7 @@ struct ContentView: View {
             }
             .ignoresSafeArea()
         }
+        
     }
 }
 

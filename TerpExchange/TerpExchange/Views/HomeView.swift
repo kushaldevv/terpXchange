@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-//var items = Array(repeating: Item(userID: "test", image: Image("rubix"), title: "Rubix Cube", description: "Lorem Ipsum", price: 10.50), count: 25)
+var items = Array(repeating: Item(userID: "test", image: Image("rubix"), title: "Rubix Cube", description: "Lorem Ipsum", price: 10.50), count: 25)
 
 //let testItem = Item(userID: "test", image: Image("rubix"), title: "Rubix Cube", description: "Lorem Ipsum", price: 10.50)
 
@@ -27,6 +27,8 @@ struct HomeView: View {
     @State private var isMenuOpen = false
     @State var str = "click"
     @ObservedObject var itemsDB = ItemsDB()
+    
+    @State private var showSecondView = false
     
     var body: some View {
         NavigationView{
@@ -85,14 +87,19 @@ struct HomeView: View {
                             GridItem(.flexible(),spacing: 0),
                             GridItem(.flexible(),spacing: 0)
                         ], spacing: 7) {
-                            ForEach(0..<itemsDB.getItems().count, id: \.self) { i in ZStack {
-                                NavigationLink( destination: ItemView())
-                                {
-                                    basicCardView(item: itemsDB.getItems()[i])
+//                            ForEach(0..<itemsDB.getItems().count, id: \.self) { i in ZStack {
+//                                NavigationLink( destination: ItemView())
+//                                {
+//                                    basicCardView(item: itemsDB.getItems()[i])
+//                                }
+//                            }
+//                            }
+                            Image("rubix")
+                                .resizable()
+                                .frame(width: 100, height: 100)
+                                .onTapGesture {
+                                    showSecondView = true
                                 }
-                            }
-                            }
-                            
                         }
                     }
                     .padding(5)
@@ -103,6 +110,9 @@ struct HomeView: View {
                     .edgesIgnoringSafeArea(.all)
                 
             }
+            .fullScreenCover(isPresented: $showSecondView, content: {
+                ItemView()
+            })
         }
     }
     

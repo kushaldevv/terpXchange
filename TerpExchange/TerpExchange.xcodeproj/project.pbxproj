@@ -33,8 +33,10 @@
 		2A422F8D29CCD398006BEA5B /* ChatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A422F8C29CCD398006BEA5B /* ChatsView.swift */; };
 		2A422F8F29CCD3CC006BEA5B /* PostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A422F8E29CCD3CC006BEA5B /* PostView.swift */; };
 		2A46EF1829D4BBBF0084709F /* ItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A46EF1729D4BBBF0084709F /* ItemView.swift */; };
+		2A57F25A29F4893E008C9A0F /* FakeNavigationLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A57F25929F4893E008C9A0F /* FakeNavigationLink.swift */; };
 		2A5A3AE429EF12EC00D5F0FA /* InboxManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A5A3AE329EF12EC00D5F0FA /* InboxManager.swift */; };
 		2A5A3AE629EF20F200D5F0FA /* Manager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A5A3AE529EF20F200D5F0FA /* Manager.swift */; };
+		2A5AB36629F7469C00C995AE /* PhotoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A5AB36529F7469C00C995AE /* PhotoManager.swift */; };
 		2A5B347529E46F5A0080A94C /* DetailedChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A5B347429E46F5A0080A94C /* DetailedChatView.swift */; };
 		2A6E9AA129E7634F0051294C /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A6E9AA029E7634F0051294C /* ImagePicker.swift */; };
 		2AA15DE029E8A869001A1AD9 /* SideMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AA15DDF29E8A869001A1AD9 /* SideMenuView.swift */; };
@@ -72,8 +74,10 @@
 		2A422F8C29CCD398006BEA5B /* ChatsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatsView.swift; sourceTree = "<group>"; };
 		2A422F8E29CCD3CC006BEA5B /* PostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostView.swift; sourceTree = "<group>"; };
 		2A46EF1729D4BBBF0084709F /* ItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemView.swift; sourceTree = "<group>"; };
+		2A57F25929F4893E008C9A0F /* FakeNavigationLink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeNavigationLink.swift; sourceTree = "<group>"; };
 		2A5A3AE329EF12EC00D5F0FA /* InboxManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InboxManager.swift; sourceTree = "<group>"; };
 		2A5A3AE529EF20F200D5F0FA /* Manager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Manager.swift; sourceTree = "<group>"; };
+		2A5AB36529F7469C00C995AE /* PhotoManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoManager.swift; sourceTree = "<group>"; };
 		2A5B347429E46F5A0080A94C /* DetailedChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailedChatView.swift; sourceTree = "<group>"; };
 		2A6E9AA029E7634F0051294C /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		2AA15DDF29E8A869001A1AD9 /* SideMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuView.swift; sourceTree = "<group>"; };
@@ -106,7 +110,6 @@
 		0B2FA2EE29BF8E8900D9770D /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				2AE61FBB29EE2818002A861F /* Inbox */,
 				0BF0ECAE29BF8E3C0009DABC /* ContentView.swift */,
 				0BF0ECBA29BF8E530009DABC /* AccountOptionsView.swift */,
 				0B84FFE029C20CB4007B7AAC /* UserProfileView.swift */,
@@ -118,6 +121,7 @@
 				2A6E9AA029E7634F0051294C /* ImagePicker.swift */,
 				2AA15DDF29E8A869001A1AD9 /* SideMenuView.swift */,
 				2AA15DE129E8A8EC001A1AD9 /* ReviewsView.swift */,
+				2A57F25929F4893E008C9A0F /* FakeNavigationLink.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -182,10 +186,12 @@
 		0BF0ECAB29BF8E3C0009DABC /* TerpExchange */ = {
 			isa = PBXGroup;
 			children = (
-				2A5A3AE529EF20F200D5F0FA /* Manager.swift */,
-				0B2FA2EE29BF8E8900D9770D /* Views */,
-				0B80165429C0E5E3009DAB09 /* LoginHelper */,
 				0B70631E29CA4DEB00DD52E3 /* Launch */,
+				0B80165429C0E5E3009DAB09 /* LoginHelper */,
+				2AE61FBB29EE2818002A861F /* Inbox */,
+				2A5A3AE529EF20F200D5F0FA /* Manager.swift */,
+				2A5AB36529F7469C00C995AE /* PhotoManager.swift */,
+				0B2FA2EE29BF8E8900D9770D /* Views */,
 				0B2FA2EF29BF8ED500D9770D /* Fonts */,
 				0BF0ECB229BF8E3D0009DABC /* Preview Content */,
 				0B2FA2F329BF922500D9770D /* GoogleService-Info.plist */,
@@ -309,6 +315,7 @@
 				2AE61FC129EE3455002A861F /* ChatView.swift in Sources */,
 				2AA15DE029E8A869001A1AD9 /* SideMenuView.swift in Sources */,
 				2A412B9729E9C8B3003F12F8 /* Item.swift in Sources */,
+				2A57F25A29F4893E008C9A0F /* FakeNavigationLink.swift in Sources */,
 				2AE61FC329EE34D7002A861F /* Message.swift in Sources */,
 				0B55A45C29CCCD9400B61627 /* LaunchView.swift in Sources */,
 				0B55A45E29CCCE1600B61627 /* LaunchColor.swift in Sources */,
@@ -319,6 +326,7 @@
 				2AE61FC529EE46F5002A861F /* MessagesManager.swift in Sources */,
 				0B1E558629C4F22C00CEAD7D /* HomeView.swift in Sources */,
 				2A422F8D29CCD398006BEA5B /* ChatsView.swift in Sources */,
+				2A5AB36629F7469C00C995AE /* PhotoManager.swift in Sources */,
 				2A422F8B29CCC362006BEA5B /* NavbarView.swift in Sources */,
 				0B84FFE129C20CB4007B7AAC /* UserProfileView.swift in Sources */,
 				0B80165829C0E7A8009DAB09 /* RootUIViewController.swift in Sources */,
