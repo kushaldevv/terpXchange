@@ -26,6 +26,9 @@ class ReviewsDB: ObservableObject {
     
     let db = Firestore.firestore()
     @Published var reviews: [Review] = []
+    @Published var averageRating: Double = 0
+    @Published var numberOfReviews: Int = 0
+//    @ObservedObject var reviewsDB = ReviewsDB()
     
     func addReview(rating: Double, details: String) {
 
@@ -47,10 +50,15 @@ class ReviewsDB: ObservableObject {
                     print("Error adding review to database: \(error.localizedDescription)")
                 } else {
                     print("Review added to database.")
+//                    let numberOfReviews = self.reviews.count + 1
+//                    let currentAvgRating = self.reviewsDB.averageRating(userId: user.uid)
+//                    let newAvgRating = ((currentAvgRating * Double(self.reviews.count)) + rating) / Double(numberOfReviews)
+//                    usersRef.updateData(["avgRating": newAvgRating, "numberOfRatings": numberOfReviews])
                     self.reviews.append(Review(id: UUID().uuidString, rating: Int(rating), details: details, timestamp: Date(), reviewerUID: user.uid, reviewerName: user.displayName ?? "Unknown", reviewerPhotoURL: user.photoURL))
                 }
             }
         }
+        
     }
     
     func fetchReviews(userid: String) {
@@ -82,7 +90,6 @@ class ReviewsDB: ObservableObject {
     }
     
     func averageRating(userId: String) -> Double {
-        fetchReviews(userid: userId)
         if reviews.isEmpty {
             return 0
         } else {
@@ -93,7 +100,6 @@ class ReviewsDB: ObservableObject {
     }
 
     func numberOfReviews(userId: String) -> Int {
-        fetchReviews(userid: userId)
         return reviews.count
     }
     

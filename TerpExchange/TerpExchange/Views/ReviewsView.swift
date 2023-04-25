@@ -18,14 +18,16 @@ struct ReviewsView: View {
     @ObservedObject var reviewsDB = ReviewsDB()
     @ObservedObject var userItemsDB = UserItemsDB()
     let currUserId: String
+    @State var reviewArray = [Review]()
 
     var body: some View {
 
             
             VStack {
-                Text("\(reviewsDB.numberOfReviews(userId: userID)) reviews")
-                Text("\(reviewsDB.averageRating(userId: userID)) rating")
-                ReviewsList(reviews: $reviewsDB.reviews)
+//                Text("\(reviewsDB.numberOfReviews(userId: userID)) reviews")
+//                Text("\(reviewsDB.averageRating(userId: userID)) rating")
+//                ReviewsList(reviews: $reviewsDB.reviews)
+                ReviewsList(reviews: $reviewArray)
                 
                 Button(action: { isAddingReview = true }) {
                     Text("Add a Review")
@@ -43,7 +45,7 @@ struct ReviewsView: View {
             }
 //            .navigationBarTitle(Text("Reviews"))
             .onAppear {
-                reviewsDB.fetchReviews(userid: currUserId)
+//                reviewsDB.fetchReviews(userid: currUserId)
             }
             
         
@@ -132,6 +134,10 @@ struct AddReviewView: View {
 
 struct ReviewsView_Previews: PreviewProvider {
     static var previews: some View {
-        ReviewsView(currUserId: "currUserId")
+        ReviewsView(currUserId: "user123",
+                    reviewArray: [Review(id: "review1", rating: 4, details: "Great experience!", timestamp: Date(), reviewerUID: "user456", reviewerName: "John", reviewerPhotoURL: URL(string: "https://example.com/john.jpg"))
+        ])
+
+//        ReviewsView(currUserId: "currUserId", reviewArray: [Review])
     }
 }
