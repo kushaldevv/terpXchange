@@ -91,8 +91,6 @@ struct UserProfileView: View {
     var userId: String
     var userProfileURL: URL?
     
-//    var rating =
-    
     var body: some View {
 
         VStack {
@@ -105,9 +103,8 @@ struct UserProfileView: View {
             HStack {
                 
                 UserRatingView(rating: (reviewDB.averageRating(userId: userID)), size: 70, displayName: userName, userProfileURL: userProfileURL)
-                Text("\(reviewDB.numberOfReviews(userId: userId)) reviews")
-//                Text("(69)")
-                Text(userId)
+
+                Text("(\(reviewDB.numberOfReviews(userId: userId)))")
                     .offset(x: -70, y: 12)
                 Spacer()
             }
@@ -123,20 +120,40 @@ struct UserProfileView: View {
                 .font(.system(size: 23, weight: .bold))
             
             HStack {
-                
-                
                 // feature: SHOULD BE FROM REVIEWS, NOT CURRENT USER
-                UserRatingView(rating: (reviewDB.averageRating(userId: userId)), size: 50, displayName: userID, userProfileURL: userPhotoURL)
+                if(reviewDB.reviews.isEmpty) {
+//                    Text("empty")
+//                    UserRatingView(rating: (reviewDB.averageRating(userId: userID)), size: 70, displayName: userName, userProfileURL: userProfileURL)
+                } else {
+//                    Text("nope")
+//                    Text("\(reviewDB.reviews[0].reviewerPhotoURL?.absoluteString ?? "No photo URL found")")
+
+
+                    UserRatingView(rating: Double((reviewDB.reviews[0].rating)), size: 50, displayName: reviewDB.reviews[0].reviewerName, userProfileURL: reviewDB.reviews[0].reviewerPhotoURL)
+                        .padding(.bottom, 200)
+                }
+
+                
             }
-            .padding(.leading, 50)
-            .padding(.bottom, 10)
-            .padding(.top, 10)
-            Text("+rep, easy going and fast to respond. Wasn't late to meetup")
-                .frame(maxWidth: 300)
+            .padding(.leading, 20)
+            .padding(.bottom, -190)
+            .padding(.top, 0)
             
-            
-            HStack(spacing: 0) {
-                //                Spacer()
+            if(reviewDB.reviews.isEmpty) {
+//                Text("")
+//                    .frame(maxWidth: 300)
+                
+                NavigationLink(destination: ReviewsView(currUserId: userId, reviewArray: reviewDB.reviews)) {
+                    Text("User has no Reviews")
+                        .font(.system(size: 23, weight: .bold))
+                        .foregroundColor(.blue)
+                        .padding(.leading, 40)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                }
+            } else {
+                Text(reviewDB.reviews[0].details)
+                    .frame(maxWidth: 300)
+                
                 NavigationLink(destination: ReviewsView(currUserId: userId, reviewArray: reviewDB.reviews)) {
                     Text("See all reviews")
                         .font(.system(size: 23, weight: .bold))
@@ -144,15 +161,13 @@ struct UserProfileView: View {
                         .padding(.leading, 40)
                         .frame(maxWidth: .infinity, alignment: .leading)
                 }
-                
             }
-            .padding(.top, -95)
             
             HStack {
                 Text("Items from this seller")
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .padding(.leading, 20)
-                    .padding(.top, -105)
+                    .padding(.top, 15)
                     .font(.system(size: 23, weight: .bold))
             }
             
@@ -180,7 +195,7 @@ struct UserProfileView: View {
                 .padding(5)
 
                 .background(offwhiteColor)
-            }.padding(.top, -80)
+            }.padding(.top, 100)
         }
         .onAppear() {
             reviewDB.fetchReviews(userid: userId)

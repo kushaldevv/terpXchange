@@ -30,11 +30,24 @@ class ReviewsDB: ObservableObject {
     @Published var numberOfReviews: Int = 0
 //    @ObservedObject var reviewsDB = ReviewsDB()
     
-    func addReview(rating: Double, details: String) {
+    func addReview(rating: Double, details: String, theCurrUserID: String, currArr: [Review]) -> Bool {
 
         if let user = firebaseAuth.getCurrentUser() {
             
-            let usersRef = db.collection("users").document(user.uid)
+            // Check if user has already posted a review for this item
+            if currArr.contains(where: { $0.reviewerUID == userID }) {
+                print("User has already posted a review for this item.")
+                return false
+            }
+
+            
+            let usersRef = db.collection("users").document(theCurrUserID)
+            
+            // Check if reviewer is same as user who posted item
+            if theCurrUserID == userID {
+                print("Cannot post a review for your own item.")
+                return false
+            }
             
             usersRef.updateData(["reviews": FieldValue.arrayUnion([
                 [
@@ -50,15 +63,12 @@ class ReviewsDB: ObservableObject {
                     print("Error adding review to database: \(error.localizedDescription)")
                 } else {
                     print("Review added to database.")
-//                    let numberOfReviews = self.reviews.count + 1
-//                    let currentAvgRating = self.reviewsDB.averageRating(userId: user.uid)
-//                    let newAvgRating = ((currentAvgRating * Double(self.reviews.count)) + rating) / Double(numberOfReviews)
-//                    usersRef.updateData(["avgRating": newAvgRating, "numberOfRatings": numberOfReviews])
                     self.reviews.append(Review(id: UUID().uuidString, rating: Int(rating), details: details, timestamp: Date(), reviewerUID: user.uid, reviewerName: user.displayName ?? "Unknown", reviewerPhotoURL: user.photoURL))
+
                 }
             }
         }
-        
+        return true
     }
     
     func fetchReviews(userid: String) {

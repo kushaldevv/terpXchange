@@ -61,9 +61,9 @@ struct ChatView: View {
                         }
 
                     }
-                    .frame(width: screenWidth)
-                    .padding(.top, 10)
-                    .padding(.bottom, 40)
+//                    .frame(width: screenWidth)
+//                    .padding(.top, 10)
+//                    .padding(.bottom, 40)
                     .background(Color.white)
                     .cornerRadius(20)
                 }

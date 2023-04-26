@@ -39,13 +39,13 @@ struct ReviewsView: View {
                         .cornerRadius(5)
                 }
                 .sheet(isPresented: $isAddingReview) {
-                    AddReviewView()
+                    AddReviewView(theCurrUserID: currUserId, currArr: reviewArray)
                 }
                 
             }
 //            .navigationBarTitle(Text("Reviews"))
             .onAppear {
-//                reviewsDB.fetchReviews(userid: currUserId)
+                reviewsDB.fetchReviews(userid: currUserId)
             }
             
         
@@ -84,7 +84,10 @@ struct AddReviewView: View {
     @State private var details: String = ""
     @State var isReviewPosted = false
     @ObservedObject private var reviewsDB = ReviewsDB()
-    
+    @State private var isErrorPosted = false
+
+    var theCurrUserID: String
+    var currArr: [Review]
     var body: some View {
         
         NavigationView {
@@ -111,22 +114,42 @@ struct AddReviewView: View {
                 }
             }
             .navigationBarTitle(Text("Add Review"), displayMode: .inline)
-            .navigationBarItems(
-                trailing: Button(action: {
-                    reviewsDB.addReview(rating: rating, details: details)
-                    isReviewPosted = true
+            .navigationBarItems(trailing:
+                Button(action: {
+                let isReviewAdded = reviewsDB.addReview(rating: rating, details: details, theCurrUserID: theCurrUserID, currArr: currArr)
+                    if isReviewAdded {
+                        isReviewPosted = true
+                    } else {
+                        isErrorPosted = true
+                    }
                 }) {
                     Text("Save")
-                        .foregroundColor(.blue) // add foreground color
-                }.alert(isPresented: $isReviewPosted) {
-                    Alert(
-                        title: Text("Review Posted!"),
-                        dismissButton: .default(Text("OK"))
-                    )
+                        .foregroundColor(.blue)
                 }
-                //            .padding()
-                
+                .alert(isPresented: $isReviewPosted) {
+                    Alert(title: Text("Review Posted!"), dismissButton: .default(Text("OK")))
+                }
+                .alert(isPresented: $isErrorPosted) {
+                    Alert(title: Text("No Self / Duplicate Reviews"), dismissButton: .default(Text("OK")))
+                }
             )
+//            .navigationBarTitle(Text("Add Review"), displayMode: .inline)
+//            .navigationBarItems(
+//                trailing: Button(action: {
+//                    reviewsDB.addReview(rating: rating, details: details)
+//                    isReviewPosted = true
+//                }) {
+//                    Text("Save")
+//                        .foregroundColor(.blue) // add foreground color
+//                }.alert(isPresented: $isReviewPosted) {
+//                    Alert(
+//                        title: Text("Review Posted!"),
+//                        dismissButton: .default(Text("OK"))
+//                    )
+//                }
+//                //            .padding()
+//
+//            )
             
         }
     }
