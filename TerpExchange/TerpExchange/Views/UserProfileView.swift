@@ -85,7 +85,7 @@ struct UserProfileView: View {
 
     @StateObject private var firebaseAuth = FirebaseAuthenticationModel()
     @StateObject private var otherUser = OtherUsersDB()
-    @ObservedObject var reviewDB = ReviewsDB()
+    @StateObject var reviewDB: ReviewsDB = ReviewsDB(useridd: "mhBd9Q7zeuM0RJM4jn3zJlmeBDu1")
     
     var userName: String
     var userId: String
@@ -143,7 +143,7 @@ struct UserProfileView: View {
 //                Text("")
 //                    .frame(maxWidth: 300)
                 
-                NavigationLink(destination: ReviewsView(currUserId: userId, reviewArray: reviewDB.reviews)) {
+                NavigationLink(destination: ReviewsView(currUserId: userId)) {
                     Text("User has no Reviews")
                         .font(.system(size: 23, weight: .bold))
                         .foregroundColor(.blue)
@@ -154,7 +154,7 @@ struct UserProfileView: View {
                 Text(reviewDB.reviews[0].details)
                     .frame(maxWidth: 300)
                 
-                NavigationLink(destination: ReviewsView(currUserId: userId, reviewArray: reviewDB.reviews)) {
+                NavigationLink(destination: ReviewsView(currUserId: userId)) {
                     Text("See all reviews")
                         .font(.system(size: 23, weight: .bold))
                         .foregroundColor(.blue)

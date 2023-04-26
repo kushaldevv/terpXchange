@@ -13,21 +13,24 @@ import FirebaseFirestore
 import FirebaseCore
 
 struct ReviewsView: View {
-
-    @State var isAddingReview = false
-    @ObservedObject var reviewsDB = ReviewsDB()
-    @ObservedObject var userItemsDB = UserItemsDB()
     let currUserId: String
+    @State var isAddingReview = false
+    @StateObject var reviewsDB: ReviewsDB
+    @ObservedObject var userItemsDB = UserItemsDB()
+    
     @State var reviewArray = [Review]()
+    
+    init(currUserId: String) {
+        self.currUserId = currUserId
+        self._reviewsDB = StateObject(wrappedValue: ReviewsDB(useridd: currUserId))
+    }
 
     var body: some View {
 
             
             VStack {
-//                Text("\(reviewsDB.numberOfReviews(userId: userID)) reviews")
-//                Text("\(reviewsDB.averageRating(userId: userID)) rating")
-//                ReviewsList(reviews: $reviewsDB.reviews)
-                ReviewsList(reviews: $reviewArray)
+                ReviewsList(reviews: $reviewsDB.reviews)
+//                ReviewsList(reviews: $reviewArray)
                 
                 Button(action: { isAddingReview = true }) {
                     Text("Add a Review")
@@ -39,17 +42,15 @@ struct ReviewsView: View {
                         .cornerRadius(5)
                 }
                 .sheet(isPresented: $isAddingReview) {
-                    AddReviewView(theCurrUserID: currUserId, currArr: reviewArray)
+//                    AddReviewView(theCurrUserID: currUserId, currArr: $reviewsDB.reviews)
+                    AddReviewView(theCurrUserID: currUserId, currArr: $reviewsDB.reviews)
+
                 }
                 
             }
-//            .navigationBarTitle(Text("Reviews"))
             .onAppear {
                 reviewsDB.fetchReviews(userid: currUserId)
             }
-            
-        
-        
     }
 
 }
@@ -82,17 +83,23 @@ struct ReviewsList: View {
 struct AddReviewView: View {
     @State private var rating: Double = 3
     @State private var details: String = ""
-    @State var isReviewPosted = false
-    @ObservedObject private var reviewsDB = ReviewsDB()
-    @State private var isErrorPosted = false
+    @StateObject var reviewsDB: ReviewsDB
+
+    @State private var isPosted = false
+
+    @State private var responseText = "Review Posted"
 
     var theCurrUserID: String
-    var currArr: [Review]
+    @Binding var currArr: [Review]
+    
+    init(theCurrUserID: String, currArr: Binding<[Review]>) {
+        self.theCurrUserID = theCurrUserID
+        self._reviewsDB = StateObject(wrappedValue: ReviewsDB(useridd: theCurrUserID))
+        self._currArr = currArr
+    }
+    
     var body: some View {
-        
-        NavigationView {
-            
-            
+        VStack {
             Form {
                 Section(header: Text("Rating")) {
                     HStack {
@@ -113,54 +120,108 @@ struct AddReviewView: View {
                         .padding(.vertical, 8)
                 }
             }
-            .navigationBarTitle(Text("Add Review"), displayMode: .inline)
-            .navigationBarItems(trailing:
-                Button(action: {
-                let isReviewAdded = reviewsDB.addReview(rating: rating, details: details, theCurrUserID: theCurrUserID, currArr: currArr)
-                    if isReviewAdded {
-                        isReviewPosted = true
-                    } else {
-                        isErrorPosted = true
-                    }
-                }) {
-                    Text("Save")
-                        .foregroundColor(.blue)
-                }
-                .alert(isPresented: $isReviewPosted) {
-                    Alert(title: Text("Review Posted!"), dismissButton: .default(Text("OK")))
-                }
-                .alert(isPresented: $isErrorPosted) {
-                    Alert(title: Text("No Self / Duplicate Reviews"), dismissButton: .default(Text("OK")))
-                }
-            )
-//            .navigationBarTitle(Text("Add Review"), displayMode: .inline)
-//            .navigationBarItems(
-//                trailing: Button(action: {
-//                    reviewsDB.addReview(rating: rating, details: details)
-//                    isReviewPosted = true
-//                }) {
-//                    Text("Save")
-//                        .foregroundColor(.blue) // add foreground color
-//                }.alert(isPresented: $isReviewPosted) {
-//                    Alert(
-//                        title: Text("Review Posted!"),
-//                        dismissButton: .default(Text("OK"))
-//                    )
-//                }
-//                //            .padding()
-//
-//            )
             
+            Button(action: {
+                let isReviewAdded = reviewsDB.addReview(rating: rating, details: details, theCurrUserID: theCurrUserID, currArr: currArr)
+                isPosted = true
+                if !isReviewAdded {
+                    responseText = "No Self / Duplicate Reviews"
+                } else {
+                    responseText = "Review Posted!"
+                    reviewsDB.fetchReviews(userid: theCurrUserID)
+                }
+            }) {
+                Text("Save")
+                    .foregroundColor(.blue)
+            }
+            .alert(isPresented: $isPosted) {
+                Alert(title: Text(responseText), dismissButton: .default(Text("OK")
+//                                                                         , action: {
+//                    reviewsDB.fetchReviews(userid: theCurrUserID)
+//                }
+                                                                        ))
+            }
+            .disabled(rating == 0)
         }
     }
 }
 
-struct ReviewsView_Previews: PreviewProvider {
-    static var previews: some View {
-        ReviewsView(currUserId: "user123",
-                    reviewArray: [Review(id: "review1", rating: 4, details: "Great experience!", timestamp: Date(), reviewerUID: "user456", reviewerName: "John", reviewerPhotoURL: URL(string: "https://example.com/john.jpg"))
-        ])
 
-//        ReviewsView(currUserId: "currUserId", reviewArray: [Review])
-    }
-}
+//struct AddReviewView: View {
+//    @State private var rating: Double = 3
+//    @State private var details: String = ""
+//    @ObservedObject private var reviewsDB = ReviewsDB()
+//
+//    @State private var isPosted = false
+//
+//    @State private var responseText = "Review Posted"
+//
+//    var theCurrUserID: String
+//    @Binding var currArr: [Review]
+//    var body: some View {
+//
+//        NavigationView {
+//            Form {
+//                Section(header: Text("Rating")) {
+//                    HStack {
+//                        Text("Select a rating:")
+//                        Spacer()
+//                        Stepper(value: $rating, in: 1...5, step: 1) {
+//                            Text("\(Int(rating))")
+//                                .foregroundColor(.black)
+//                                .frame(width: 30, height: 30)
+//                                .background(Color.yellow)
+//                                .cornerRadius(15)
+//                        }
+//                    }
+//                }
+//                Section(header: Text("Review")) {
+//                    TextEditor(text: $details)
+//                        .frame(minHeight: 100)
+//                        .padding(.vertical, 8)
+//                }
+//            }
+//            .navigationBarTitle(Text("Add Review"), displayMode: .inline)
+//            .navigationBarItems(trailing:
+//                Button(action: {
+//                let isReviewAdded = reviewsDB.addReview(rating: rating, details: details, theCurrUserID: theCurrUserID, currArr: currArr)
+//                isPosted = true
+//                    if !isReviewAdded {
+//                        responseText = "No Self / Duplicate Reviews"
+//                    } else {
+//                        responseText = "Review Posted!"
+//                    }
+//                }) {
+//                    Text("Save")
+//                        .foregroundColor(.blue)
+//                }
+//                .alert(isPresented: $isPosted) {
+//                       Alert(title: Text(responseText), dismissButton: .default(Text("OK"), action: {
+//                           reviewsDB.fetchReviews(userid: theCurrUserID)
+//                       }))
+//                   }
+//                   .disabled(rating == 0)
+////                .alert(isPresented: $isPosted) {
+////                    Alert(title: Text(responseText), dismissButton: .default(Text("OK")))
+////                }
+////                .disabled(rating == 0)
+//            )
+//        }
+//        .onDisappear {
+//                    if responseText == "Review Posted!" {
+//                        // update reviewArray with the new review
+//                        reviewsDB.fetchReviews(userid: theCurrUserID)
+//                    }
+//                }
+//    }
+//}
+
+//struct ReviewsView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        ReviewsView(currUserId: "user123",
+//                    reviewArray: [Review(id: "review1", rating: 4, details: "Great experience!", timestamp: Date(), reviewerUID: "user456", reviewerName: "John", reviewerPhotoURL: URL(string: "https://example.com/john.jpg"))
+//        ])
+//
+////        ReviewsView(currUserId: "currUserId", reviewArray: [Review])
+//    }
+//}

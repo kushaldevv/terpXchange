@@ -30,6 +30,11 @@ class ReviewsDB: ObservableObject {
     @Published var numberOfReviews: Int = 0
 //    @ObservedObject var reviewsDB = ReviewsDB()
     
+    
+    init(useridd: String) {
+        fetchReviews(userid: useridd)
+    }
+    
     func addReview(rating: Double, details: String, theCurrUserID: String, currArr: [Review]) -> Bool {
 
         if let user = firebaseAuth.getCurrentUser() {
@@ -40,7 +45,6 @@ class ReviewsDB: ObservableObject {
                 return false
             }
 
-            
             let usersRef = db.collection("users").document(theCurrUserID)
             
             // Check if reviewer is same as user who posted item
@@ -48,7 +52,7 @@ class ReviewsDB: ObservableObject {
                 print("Cannot post a review for your own item.")
                 return false
             }
-            
+
             usersRef.updateData(["reviews": FieldValue.arrayUnion([
                 [
                     "rating": rating,
@@ -64,7 +68,7 @@ class ReviewsDB: ObservableObject {
                 } else {
                     print("Review added to database.")
                     self.reviews.append(Review(id: UUID().uuidString, rating: Int(rating), details: details, timestamp: Date(), reviewerUID: user.uid, reviewerName: user.displayName ?? "Unknown", reviewerPhotoURL: user.photoURL))
-
+                    self.fetchReviews(userid: theCurrUserID)
                 }
             }
         }
@@ -73,10 +77,10 @@ class ReviewsDB: ObservableObject {
     
     func fetchReviews(userid: String) {
         let usersRef = db.collection("users").document(userid)
-        
+
         usersRef.addSnapshotListener { (document, error) in
             if let document = document, document.exists {
-                
+
                 let data = document.data()
                 let reviews = data?["reviews"] as? [[String: Any]] ?? []
                 self.reviews = []
@@ -98,6 +102,36 @@ class ReviewsDB: ObservableObject {
             }
         }
     }
+    
+//    func fetchReviews(userid: String) {
+//        let usersRef = db.collection("users").document(userid)
+//        
+//        usersRef.addSnapshotListener { (document, error) in
+//            if let document = document, document.exists {
+//                
+//                let data = document.data()
+//                let reviews = data?["reviews"] as? [[String: Any]] ?? []
+//                self.reviews = []
+//                for reviewData in reviews {
+//                    if let rating = reviewData["rating"] as? Int,
+//                       let details = reviewData["details"] as? String,
+//                       let timestamp = reviewData["timestamp"] as? Timestamp,
+//                       let reviewerUID = reviewData["reviewerUID"] as? String,
+//                       let reviewerName = reviewData["reviewerName"] as? String,
+//                       let reviewerPhotoURLString = reviewData["reviewerPhotoURL"] as? String,
+//                       let reviewerPhotoURL = URL(string: reviewerPhotoURLString) {
+//                        let review = Review(id: UUID().uuidString, rating: rating, details: details, timestamp: timestamp.dateValue(), reviewerUID: reviewerUID, reviewerName: reviewerName, reviewerPhotoURL: reviewerPhotoURL)
+//                        self.reviews.append(review)
+//                    }
+//                }
+//                self.reviewArray = self.reviews // Update reviewArray here
+//            }
+//            else {
+//                print("Document does not exist")
+//            }
+//        }
+//    }
+
     
     func averageRating(userId: String) -> Double {
         if reviews.isEmpty {
