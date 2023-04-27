@@ -15,10 +15,10 @@ struct basicCardView: View{
     
     var body: some View {
         Text(item.title)
-//        item.image
-//            .resizable()
-//            .frame(width: 120, height: 120)
-//            .cornerRadius(8)
+        //        item.image
+        //            .resizable()
+        //            .frame(width: 120, height: 120)
+        //            .cornerRadius(8)
     }
 }
 
@@ -57,12 +57,12 @@ struct HomeView: View {
                             .fontDesign(.rounded)
                             .foregroundColor(Color.red)
                     }
-//                    Image(uiImage: UIImage(getpic()))
-//                        .resizable()
-//                        .aspectRatio(contentMode: .fit)
-//                        .frame(width: 100, height: 100)
-//                        .clipShape(Circle())
-
+                    //                    Image(uiImage: UIImage(getpic()))
+                    //                        .resizable()
+                    //                        .aspectRatio(contentMode: .fit)
+                    //                        .frame(width: 100, height: 100)
+                    //                        .clipShape(Circle())
+                    
                     ScrollView {
                         HStack {
                             Image(systemName: "magnifyingglass")
@@ -76,30 +76,24 @@ struct HomeView: View {
                                 .stroke(Color.gray, lineWidth: 1)
                                 .frame(width: screenWidth - 50, height: 40)
                         )
-//                        Button(action: {
-//                            itemsDB.addItem(rating: 4, details:"gwenognwioengoiw")
-//                        }) {
-//                            Text(str)
-//                        }
-
+                        //                        Button(action: {
+                        //                            itemsDB.addItem(rating: 4, details:"gwenognwioengoiw")
+                        //                        }) {
+                        //                            Text(str)
+                        //                        }
+                        
                         LazyVGrid(columns: [
                             GridItem(.flexible(),spacing: 0),
                             GridItem(.flexible(),spacing: 0),
                             GridItem(.flexible(),spacing: 0)
                         ], spacing: 7) {
-//                            ForEach(0..<itemsDB.getItems().count, id: \.self) { i in ZStack {
-//                                NavigationLink( destination: ItemView())
-//                                {
-//                                    basicCardView(item: itemsDB.getItems()[i])
-//                                }
-//                            }
-//                            }
-                            Image("rubix")
-                                .resizable()
-                                .frame(width: 100, height: 100)
-                                .onTapGesture {
-                                    showSecondView = true
+                            ForEach(0..<itemsDB.getItems().count, id: \.self) { i in ZStack {
+                                NavigationLink( destination: ItemView())
+                                {
+                                    basicCardView(item: itemsDB.getItems()[i])
                                 }
+                            }
+                            }
                         }
                     }
                     .padding(5)

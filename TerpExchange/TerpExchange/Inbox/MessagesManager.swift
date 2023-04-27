@@ -49,8 +49,10 @@ class MessagesManager: ObservableObject {
     
     func sendMessage(messageID: String, text: String) {
         let chatDocRef = db.collection("chats").document(messageID)
+        let recentText = text.starts(with: "https://firebasestorage.googleapis.com:443/v0/b/terpexchange-ab6a8.appspot.com") ? "Image" : text
+        
         chatDocRef.updateData([
-            "recentText": text,
+            "recentText": recentText,
             "recentTextTime": Timestamp(),
             "messages": FieldValue.arrayUnion([
                 [

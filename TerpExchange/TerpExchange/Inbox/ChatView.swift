@@ -14,10 +14,20 @@ struct messageBubble: View {
     var body: some View {
         VStack(alignment: message.fromID == userID ? .trailing : .leading) {
             HStack {
-                Text(message.text)
-                    .padding()
-                    .background(message.fromID == userID ? Color("CoralPink"): Color.gray)
-                    .cornerRadius(30)
+                if message.text.starts(with: "https://firebasestorage.googleapis.com:443/v0/b/terpexchange-ab6a8.appspot.com") {
+                    AsyncImage(url: URL(string: message.text)) { image in
+                        image.resizable()
+                    } placeholder: {
+                        ProgressView()
+                    }
+                    .frame(width: 200, height: 200)
+                    .cornerRadius(20)
+                } else{
+                    Text(message.text)
+                        .padding()
+                        .background(message.fromID == userID ? Color("CoralPink"): Color.gray)
+                        .cornerRadius(30)
+                }
             }
             .frame(maxWidth: 300, alignment: message.fromID == userID ? .trailing: .leading)
             .onTapGesture {
@@ -41,8 +51,20 @@ struct ChatView: View {
     @Binding var messageID : String
     @Binding var name: String
     @Binding var pfp : String
-    @StateObject var messagesManager = MessagesManager(chatID: "uniqueID")
-    @State var messageText = ""
+    @StateObject var messagesManager : MessagesManager
+    @StateObject var photoManager = PhotoManager()
+
+    init(messageID: Binding<String>, name: Binding<String>, pfp: Binding<String>) {
+        self._messageID = messageID
+        self._name = name
+        self._pfp = pfp
+        self._messagesManager = StateObject(wrappedValue: MessagesManager(chatID: messageID.wrappedValue))
+    }
+    
+    @State private var messageText = ""
+    @State private var selectPhoto = false
+    @State private var selectedImage = UIImage()
+    @State private var showImageAlert = false
     
     var body: some View {
         VStack {
@@ -68,7 +90,6 @@ struct ChatView: View {
                         ForEach(messagesManager.messages, id: \.id) { message in
                             messageBubble(message : message)
                         }
-                        
                     }
                     .frame(width: screenWidth)
                     .padding(.top, 10)
@@ -84,27 +105,69 @@ struct ChatView: View {
             }
             .background(Color("CoralPink"))
             HStack {
+                Button {
+                    selectPhoto = true
+                } label: {
+                    Image(systemName: "photo.fill")
+                        .foregroundColor(Color("CoralPink"))
+                }
+                .font(.system(size: 26))
+                .padding(.leading, 10)
+                
                 TextField("Type something", text: $messageText)
                     .padding()
                     .onSubmit {
-                        messagesManager.sendMessage(messageID: messageID, text: messageText)
-                        messageText = ""
+                        submitMessage()
                     }
                 Button {
-                    messagesManager.sendMessage(messageID: messageID, text: messageText)
-                    messageText = ""
+                    submitMessage()
                 } label: {
                     Image(systemName: "paperplane.fill")
                         .foregroundColor(Color("CoralPink"))
                 }
                 .font(.system(size: 26))
-                .padding(.horizontal, 10)
+                .padding(.trailing, 10)
             }
             .background(Color.gray.opacity(0.1))
             .cornerRadius(10)
             .padding(.horizontal)
             .background(Color.white)
             .padding(.vertical, -35)
+        }
+        .sheet(isPresented: $selectPhoto) {
+            ImagePicker(sourceType: .photoLibrary, selectedImage: $selectedImage)
+                .onDisappear{
+                   showImageAlert = true
+                }
+        }
+        .alert(isPresented: $showImageAlert) {
+            Alert(title: Text("Send Image"),
+                  message: Text("Are you sure you want to send the image?"),
+                  primaryButton: .default(Text("OK"), action: {
+                    let path = "chats/" + messageID
+                    let resizedImage = selectedImage.aspectFittedToHeight(200)
+                    
+                    photoManager.upload(path: path, image: resizedImage) { imageURL in
+                        if let imageURL = imageURL {
+                            messagesManager.sendMessage(messageID: messageID, text: imageURL)
+                        } else {
+                            print ("error getting imageURL")
+                        }
+                    }
+//                    let imageURL = photoManager.upload(path: path, image: resizedImage)
+//                    if imageURL != "error"{
+//                        messagesManager.sendMessage(messageID: messageID, text: imageURL)
+//                    }
+                  }),
+                  secondaryButton: .default(Text("Cancel"))
+            )
+        }
+    }
+    
+    func submitMessage(){
+        if messageText.count > 0 {
+            messagesManager.sendMessage(messageID: messageID, text: messageText)
+            messageText = ""
         }
     }
 }

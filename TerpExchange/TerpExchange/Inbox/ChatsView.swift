@@ -55,7 +55,7 @@ struct ChatsView: View {
     @StateObject var inboxManager = InboxManager()
     @State var text = "Inbox"
     @State private var showSecondView = false
-    @State private var currChat : Chat = Chat(messageID: "uniqddueID", name: "Test", pfp: "x", recentText: "x", recentTextDate: Date())
+    @State private var currChat : Chat = Chat(messageID: "uniqueID", name: "Test", pfp: "x", recentText: "x", recentTextDate: Date())
 
     var body: some View {
         NavigationView{
