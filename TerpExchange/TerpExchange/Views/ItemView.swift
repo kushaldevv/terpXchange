@@ -8,13 +8,21 @@
 import SwiftUI
 
 struct ItemView: View {
+    @Environment(\.presentationMode) var presentationMode
+    @Binding var item: Item
+
     var body: some View {
         NavigationView {
             ScrollView {
+                Button(action: {
+                    self.presentationMode.wrappedValue.dismiss()
+                }, label: {
+                    Text("Go Back to FirstView")
+                })
                 VStack (alignment: .leading) {
                     ZStack {
                         TabView {
-                            Image("rubix")
+                            item.image
                                 .resizable()
                             Image("google")
                                 .resizable()
@@ -28,16 +36,16 @@ struct ItemView: View {
                         
                     }
                     Group {
-                        Text("Rubix Cube")
+                        Text(String(item.title))
                             .font(.system(size: 24))
                             .fontWeight(.bold)
 //                            .fontDesign(.rounded)
-                        Text("$30")
+                        Text(String(item.price))
                             .foregroundColor(.pink)
-                        Text("Sold by John Smith")
+                        Text("Sold by " + item.userID)
                         Text("Category: Games\n")
                         Text("Description:")
-                        Text("Selling a Rubix Cube. It comes with some mini wine glasses and a mni wine bottle.")
+                        Text(String(item.description))
                         HStack {
 //                            NavigationLink("Chat", destination: ChatsView()).padding(5)
 //                                .frame(width:100, height:25)
@@ -60,9 +68,9 @@ struct ItemView: View {
     }
 }
 
-struct ItemView_Previews: PreviewProvider {
-    static var previews: some View {
-        ItemView()
-    }
-}
+//struct ItemView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        ItemView()
+//    }
+//}
 

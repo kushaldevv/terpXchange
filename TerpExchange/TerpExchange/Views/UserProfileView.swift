@@ -85,14 +85,16 @@ struct UserProfileView: View {
 
     @StateObject private var firebaseAuth = FirebaseAuthenticationModel()
     @StateObject private var otherUser = OtherUsersDB()
+    @StateObject var itemsDB = UserItemsDB()
+    @State private var showSecondView = false
     @StateObject var reviewDB: ReviewsDB = ReviewsDB(useridd: "mhBd9Q7zeuM0RJM4jn3zJlmeBDu1")
+    @State private var chosenItem = Item(userID: "", image: Image(systemName: "photo"), title: "", description: "", price: 0.0)
     
     var userName: String
     var userId: String
     var userProfileURL: URL?
     
     var body: some View {
-
         VStack {
             
             Text("Account")
@@ -179,28 +181,31 @@ struct UserProfileView: View {
                         GridItem(.flexible(),spacing: 0),
                         GridItem(.flexible(),spacing: 0)
                     ], spacing: 7) {
-    //                        ForEach(0..<cardsCount, id: \.self) { i in ZStack {
-    //                            cards[i]
-    //
-    //                            NavigationLink( destination: ItemView())
-    //                            {
-    //                                Image("TerpExchangeLogo-transparent")
-    //                                    .resizable()
-    //                                    .frame(width: 160, height: 100)
-    //                            }
-    //                        }
-    //                        }
+                        ForEach(itemsDB.specificItems.sorted(by: {$0.timestamp > $1.timestamp}), id: \.id) {item in
+                            item.image
+                                .resizable()
+                                .frame(width: 100, height: 100)
+                                .onTapGesture {
+                                    chosenItem = item
+                                    showSecondView = true
+                                    print(chosenItem.id)
+                                    
+                                }
+                        }
                     }
                 }
                 .padding(5)
 
-                .background(offwhiteColor)
-            }.padding(.top, 100)
+            }
         }
         .onAppear() {
             reviewDB.fetchReviews(userid: userId)
+            itemsDB.fetchSpecificUserItems(userid: userId)
 
         }
+        .fullScreenCover(isPresented: $showSecondView, content: {
+            ItemView(item: $chosenItem)
+        })
     }
 }
 

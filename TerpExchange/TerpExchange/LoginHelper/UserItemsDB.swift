@@ -11,10 +11,11 @@ import Firebase
 import FirebaseFirestore
 
 class Item {
-    let id: UUID
+    
+    var id: UUID
     let userID: String
     let image: Image
-    let timestamp:  Date
+    var timestamp:  Date
     let title: String
     let description: String
     let price: Double
@@ -28,6 +29,14 @@ class Item {
         self.price = price
         self.timestamp = Date() // Provide an initial value for the `timestamp` property
     }
+    
+    func updateID(id: UUID) {
+        self.id = id
+    }
+    
+    func updateTimestamp(timestamp: Date) {
+        self.timestamp = timestamp
+    }
 }
 
 class UserItemsDB: ObservableObject {
@@ -36,10 +45,11 @@ class UserItemsDB: ObservableObject {
     
     let db = Firestore.firestore()
     @Published var userItems: [Item] = []
+    @Published var specificItems: [Item] = []
     
     
     func addItem(price: Double, description: String, title: String) {
-            
+        
         if let user = firebaseAuth.getCurrentUser() {
             
             let usersRef = db.collection("users").document(user.uid)
@@ -65,6 +75,62 @@ class UserItemsDB: ObservableObject {
             }
         }
     }
-
+    
+    func fetchItems(){
+        self.userItems = []
+        db.collection("users").getDocuments { snapshot, error in
+            if let error = error {
+                print("Error getting documents: \(error.localizedDescription)")
+            } else {
+                for document in snapshot!.documents {
+                    let data = document.data()
+                    if let items = data["items"] as? [[String: Any]] {
+                        for item in items {
+                            let description = item["description"] as? String ?? ""
+                            let price = item["price"] as? Double ?? 0.0
+                            let id = item["id"] as? UUID ?? UUID()
+                            let timestamp = item["timestamp"] as? Timestamp
+                            let title = item["title"] as? String ?? ""
+                            let userID = item["userID"] as? String ?? ""
+                            let curr = Item(userID: userID, image: Image(systemName: "photo"), title: title, description: description, price: price)
+                            curr.updateID(id: id)
+                            curr.updateTimestamp(timestamp: timestamp?.dateValue() ?? Date())
+                            self.userItems.append(curr)
+                        }
+                    }
+                }
+            }
+            
+        }
+    }
+    
+    func fetchSpecificUserItems(userid: String){
+        let usersRef = db.collection("users").document(userid)
+        
+        usersRef.addSnapshotListener { (document, error) in
+            if let document = document, document.exists {
+                
+                let data = document.data()
+                let items = data?["items"] as? [[String: Any]] ?? []
+                self.specificItems = []
+                for item in items {
+                    let description = item["description"] as? String ?? ""
+                    let price = item["price"] as? Double ?? 0.0
+                    let id = item["id"] as? UUID ?? UUID()
+                    let timestamp = item["timestamp"] as? Timestamp
+                    let title = item["title"] as? String ?? ""
+                    let userID = item["userID"] as? String ?? ""
+                    let curr = Item(userID: userID, image: Image(systemName: "photo"), title: title, description: description, price: price)
+                    curr.updateID(id: id)
+                    curr.updateTimestamp(timestamp: timestamp?.dateValue() ?? Date())
+                    self.specificItems.append(curr)
+                }
+            }
+            else {
+                print("Document does not exist")
+            }
+        }
+    }
     
 }
+

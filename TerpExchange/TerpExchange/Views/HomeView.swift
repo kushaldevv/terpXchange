@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-//var items = Array(repeating: Item(userID: "test", image: Image("rubix"), title: "Rubix Cube", description: "Lorem Ipsum", price: 10.50), count: 25)
+var items = Array(repeating: Item(userID: "test", image: Image("rubix"), title: "Rubix Cube", description: "Lorem Ipsum", price: 10.50), count: 25)
 
 //let testItem = Item(userID: "test", image: Image("rubix"), title: "Rubix Cube", description: "Lorem Ipsum", price: 10.50)
 
@@ -26,11 +26,13 @@ struct HomeView: View {
     @State private var searchText: String = ""
     @State private var isMenuOpen = false
     @State var str = "click"
-    @ObservedObject var itemsDB = UserItemsDB()
-
+    @StateObject var itemsDB = UserItemsDB()
+    
+    @State private var showSecondView = false
+    @State private var chosenItem = Item(userID: "", image: Image(systemName: "photo"), title: "", description: "", price: 0.0)
     
     var body: some View {
-        NavigationView{
+        NavigationView {
             ZStack {
                 VStack {
                     HStack {
@@ -56,7 +58,12 @@ struct HomeView: View {
                             .fontDesign(.rounded)
                             .foregroundColor(Color.red)
                     }
-                    Text(userID)
+//                    Image(uiImage: UIImage(getpic()))
+//                        .resizable()
+//                        .aspectRatio(contentMode: .fit)
+//                        .frame(width: 100, height: 100)
+//                        .clipShape(Circle())
+
                     ScrollView {
                         HStack {
                             Image(systemName: "magnifyingglass")
@@ -81,34 +88,40 @@ struct HomeView: View {
                             GridItem(.flexible(),spacing: 0),
                             GridItem(.flexible(),spacing: 0)
                         ], spacing: 7) {
-//                            ForEach(0..<itemsDB.getItems().count, id: \.self) { i in ZStack {
-//                                NavigationLink( destination: ItemView())
-//                                {
-//                                    basicCardView(item: itemsDB.getItems()[i])
-//                                }
-//                            }
-//                            }
+                            
+                            ForEach(itemsDB.userItems.sorted(by: {$0.timestamp > $1.timestamp}), id: \.id) {item in
+                                item.image
+                                    .resizable()
+                                    .frame(width: 100, height: 100)
+                                    .onTapGesture {
+                                        chosenItem = item
+                                        showSecondView = true
+                                        print(chosenItem.id)
+                                        
+                                    }
+                            }
+                            
                         }
                     }
                     .padding(5)
                 }
                 .background(offwhiteColor)
                 
-                SideMenu(sideMenuWidth: UIScreen.main.bounds.width/1.5, isMenuOpen: isMenuOpen, toggleMenu: toggleMenu)
-                    .edgesIgnoringSafeArea(.all)
-                
             }
+            .onAppear() {
+                itemsDB.fetchItems()
+            }
+            .fullScreenCover(isPresented: $showSecondView, content: {
+                ItemView(item: $chosenItem)
+            })
         }
+        
+        SideMenu(sideMenuWidth: UIScreen.main.bounds.width/1.4, isMenuOpen: isMenuOpen, toggleMenu: toggleMenu)
+            .edgesIgnoringSafeArea(.all)
+            .zIndex(isMenuOpen ? 1 : 0)
     }
     
     func toggleMenu() {
         isMenuOpen.toggle()
-    }
-}
-
-
-struct HomeView_Previews: PreviewProvider {
-    static var previews: some View {
-        HomeView()
     }
 }

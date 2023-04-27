@@ -4,6 +4,7 @@ struct ImagePicker: UIViewControllerRepresentable {
     @Environment(\.presentationMode) private var presentationMode
     var sourceType: UIImagePickerController.SourceType = .photoLibrary
     @Binding var selectedImage: UIImage
+    @Binding var selectedImages: [UIImage]
 
     func makeUIViewController(context: UIViewControllerRepresentableContext<ImagePicker>) -> UIImagePickerController {
 
@@ -36,8 +37,10 @@ struct ImagePicker: UIViewControllerRepresentable {
             if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
                 parent.selectedImage = image
             }
-
-            parent.presentationMode.wrappedValue.dismiss()
+            if parent.selectedImages.count < 6 {
+                parent.selectedImages.append(parent.selectedImage)
+                parent.presentationMode.wrappedValue.dismiss()
+            }
         }
 
     }
