@@ -65,6 +65,7 @@ struct ChatView: View {
     @State private var selectPhoto = false
     @State private var selectedImage = UIImage()
     @State private var showImageAlert = false
+    @State private var selectedImages: [UIImage] = []
     
     var body: some View {
         VStack {
@@ -135,9 +136,11 @@ struct ChatView: View {
             .padding(.vertical, -35)
         }
         .sheet(isPresented: $selectPhoto) {
-            ImagePicker(sourceType: .photoLibrary, selectedImage: $selectedImage)
+            ImagePicker(sourceType: .photoLibrary, selectedImage: $selectedImage, selectedImages: $selectedImages)
                 .onDisappear{
-                   showImageAlert = true
+                    if selectedImage != UIImage() {
+                        showImageAlert = true
+                    }
                 }
         }
         .alert(isPresented: $showImageAlert) {
@@ -154,10 +157,6 @@ struct ChatView: View {
                             print ("error getting imageURL")
                         }
                     }
-//                    let imageURL = photoManager.upload(path: path, image: resizedImage)
-//                    if imageURL != "error"{
-//                        messagesManager.sendMessage(messageID: messageID, text: imageURL)
-//                    }
                   }),
                   secondaryButton: .default(Text("Cancel"))
             )
