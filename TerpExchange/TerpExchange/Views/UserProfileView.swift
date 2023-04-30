@@ -89,6 +89,7 @@ struct UserProfileView: View {
     @State private var showSecondView = false
     @StateObject var reviewDB: ReviewsDB = ReviewsDB(useridd: "mhBd9Q7zeuM0RJM4jn3zJlmeBDu1")
     @State private var chosenItem = Item(userID: "", image: [], title: "", description: "", price: 0.0)
+    @State private var tabSelected: Tab = .person
     
     var userName: String
     var userId: String
@@ -97,12 +98,13 @@ struct UserProfileView: View {
     var body: some View {
         VStack {
             
-            Button(action: {
-               firebaseAuth.signOutGoogleAccount()
-           }, label: {
-               Text("Logout")
-           })
-
+            if(userId == userID) {
+                Button(action: {
+                   firebaseAuth.signOutGoogleAccount()
+                   }, label: {
+                       Text("Logout")
+                   })
+            }
             
             Text("Account")
                 .frame(maxWidth: .infinity, alignment: .leading)
@@ -131,11 +133,8 @@ struct UserProfileView: View {
             HStack {
                 // feature: SHOULD BE FROM REVIEWS, NOT CURRENT USER
                 if(reviewDB.reviews.isEmpty) {
-//                    Text("empty")
-//                    UserRatingView(rating: (reviewDB.averageRating(userId: userID)), size: 70, displayName: userName, userProfileURL: userProfileURL)
+
                 } else {
-//                    Text("nope")
-//                    Text("\(reviewDB.reviews[0].reviewerPhotoURL?.absoluteString ?? "No photo URL found")")
 
 
                     UserRatingView(rating: Double((reviewDB.reviews[0].rating)), size: 50, displayName: reviewDB.reviews[0].reviewerName, userProfileURL: reviewDB.reviews[0].reviewerPhotoURL)
@@ -210,6 +209,8 @@ struct UserProfileView: View {
                 .padding(5)
 
             }
+            
+
         }
         .onAppear() {
             reviewDB.fetchReviews(userid: userId)

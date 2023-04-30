@@ -15,9 +15,9 @@ import FirebaseAuth
 
 let db = Firestore.firestore()
 var userID = Auth.auth().currentUser?.uid ?? "mhBd9Q7zeuM0RJM4jn3zJlmeBDu1"
-let username = Auth.auth().currentUser?.displayName ?? "Unknown"
+var username = Auth.auth().currentUser?.displayName ?? "Unknown"
 let placeholder = URL(string: "https://firebasestorage.googleapis.com/v0/b/terpexchange-ab6a8.appspot.com/o/chats%2FuniqueID%2FIMG_2021.png?alt=media&token=f16d80b0-db5d-4738-974b-a2e64610b5ad")
-let userPhotoURL = Auth.auth().currentUser?.photoURL ?? placeholder
+var userPhotoURL = Auth.auth().currentUser?.photoURL ?? placeholder
 
 //func getName(id: String) -> String {
 //    var output = "hi"

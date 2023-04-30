@@ -14,6 +14,7 @@ import GoogleSignIn
 class FirebaseAuthenticationModel: ObservableObject {
 
     @Published var showAlert: Bool = false
+    let placeholder = URL(string: "https://firebasestorage.googleapis.com/v0/b/terpexchange-ab6a8.appspot.com/o/chats%2FuniqueID%2FIMG_2021.png?alt=media&token=f16d80b0-db5d-4738-974b-a2e64610b5ad")
     
     func getCurrentUser() -> User? {
         return Auth.auth().currentUser
@@ -21,6 +22,14 @@ class FirebaseAuthenticationModel: ObservableObject {
     
     func updateCurrentUser() -> String {
         return Auth.auth().currentUser?.uid ?? ""
+    }
+    
+    func updateCurrentUsername() -> String {
+        return Auth.auth().currentUser?.displayName ?? ""
+    }
+    
+    func updateCurrentUserPFP() -> URL {
+        return Auth.auth().currentUser?.photoURL ?? placeholder!
     }
     
     func signInGoogleAccount() {
@@ -64,21 +73,21 @@ class FirebaseAuthenticationModel: ObservableObject {
                 
                 guard let user = res?.user else { return }
                 
-                if !terpmailEmailAddressPredicate.evaluate(with: user.email) {
-                    try? Auth.auth().signOut()
-
-                    self.showAlert = true
-
-                    user.delete { error in
-                      if let error = error {
-                          print(error.localizedDescription)
-                      } else {
-                        // Accounts that do not end with a "@termail.umd.edu" email address will be deleted.
-                      }
-                    }
-
-                    return
-                }
+//                if !terpmailEmailAddressPredicate.evaluate(with: user.email) {
+//                    try? Auth.auth().signOut()
+//
+//                    self.showAlert = true
+//
+//                    user.delete { error in
+//                      if let error = error {
+//                          print(error.localizedDescription)
+//                      } else {
+//                        // Accounts that do not end with a "@termail.umd.edu" email address will be deleted.
+//                      }
+//                    }
+//
+//                    return
+//                }
                 
                 // Store user ID in Firestore
                 let db = Firestore.firestore()
@@ -99,6 +108,8 @@ class FirebaseAuthenticationModel: ObservableObject {
                 
                 // Update User Accounts after logging out so accounts are all unique for each user
                 userID = self.updateCurrentUser()
+                username = self.updateCurrentUsername()
+                userPhotoURL = self.updateCurrentUserPFP()
                 
                 print(userID)
             }
