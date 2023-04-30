@@ -9,31 +9,22 @@ import SwiftUI
 import Firebase
 import GoogleSignIn
 
-
-
 @main
 struct TerpExchangeApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
-    @AppStorage("signIn") var isSignIn = false
+    @AppStorage("signIn") var accountSignedIn = false
     
     @State private var showLaunchView: Bool = true
-    
+
     var body: some Scene {
         WindowGroup {
-           //AccountOptionsView()
-            
             ZStack {
-                if isSignIn {
-//                    AccountOptionsPage()
-//                    UserProfileAccessPage()
-                    ContentView()
+                if accountSignedIn {
+                   ContentView()
                 } else {
-//                    NavigationStack{
-//                        ContentView()
-                    AccountOptionsPage()
-//                    }
-                    
+                    AccountOptionsView()
                 }
+                
                 ZStack {
                     if showLaunchView {
                         LaunchView(showLauchView: $showLaunchView)
@@ -44,36 +35,4 @@ struct TerpExchangeApp: App {
             }
         }
     }
-    
-    /* Temporary Back Button for User Profile */
-    struct UserProfileAccessPage: View {
-        @AppStorage("signIn") var isSignIn = false
-        
-        var body: some View {
-            NavigationStack {
-                UserProfileView(userName: username, userId: userID, userProfileURL: userPhotoURL)
-                    .toolbar {
-                        ToolbarItem(placement: .navigationBarLeading) {
-                            Button(action: {
-                                try? Auth.auth().signOut()
-                                GIDSignIn.sharedInstance.signOut()
-                                withAnimation(.easeInOut) {
-                                    isSignIn = false
-                                }
-                            
-                            }, label: {
-                                HStack {
-                                    Image(systemName: "chevron.backward")
-                                }
-                            })
-                        }
-                    }
-            }
-        }
-    }
 }
-
-
-
-
-

@@ -97,6 +97,13 @@ struct UserProfileView: View {
     var body: some View {
         VStack {
             
+            Button(action: {
+               firebaseAuth.signOutGoogleAccount()
+           }, label: {
+               Text("Logout")
+           })
+
+            
             Text("Account")
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .padding(.leading, 20)
