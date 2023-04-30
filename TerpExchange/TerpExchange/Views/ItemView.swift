@@ -22,8 +22,11 @@ struct ItemView: View {
                 VStack (alignment: .leading) {
                     ZStack {
                         TabView {
-                            item.image
-                                .resizable()
+                            AsyncImage(url: URL(string: item.image[0])) { image in
+                                image.resizable()
+                            } placeholder: {
+                                ProgressView()
+                            }
                             Image("google")
                                 .resizable()
                             
@@ -73,4 +76,8 @@ struct ItemView: View {
 //        ItemView()
 //    }
 //}
+
+
+
+
 

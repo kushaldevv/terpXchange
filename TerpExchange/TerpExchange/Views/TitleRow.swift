@@ -25,7 +25,7 @@ struct TitleRow: View {
             
             VStack(alignment: .leading) {
                 Text(name)
-                    .font(.system(size: 25))
+                    .font(.system(size:18))
                     .bold()
 
             }

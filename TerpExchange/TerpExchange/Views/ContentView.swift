@@ -6,38 +6,45 @@
 //
 
 import SwiftUI
-import Firebase
-import FirebaseFirestore
-import FirebaseAuth
+
+class AppData: ObservableObject {
+    @Published var navBarHidden: Bool = false
+    
+    func hideNavbar () {
+        navBarHidden = true
+    }
+    
+    func showNavbar() {
+        navBarHidden = false
+    }
+}
 
 struct ContentView: View {
-    @State private var tabSelected: Tab = .house
+    @StateObject private var appData = AppData()
+    @State private var tabSelected: Tab = .message
 
     var body: some View {
-        NavigationView() {
-            ZStack {
-                switch tabSelected{
-                case .house:
-                    HomeView()
-                case .message:
-                    ChatsView()
-                case .camera:
-                    PostView()
-                case .person:
-//                    AccountOptionsPage()
-                    UserProfileView(userName: username, userId: userID, userProfileURL: userPhotoURL)
-                }
-                ZStack {
-                    VStack {
-                        Spacer()
-                        NavbarView(selectedTab: $tabSelected)
-                            .offset(y: -5)
-//                            .padding(.vertical, 50)
-                    }
-                }
-                .ignoresSafeArea()
+        ZStack {
+            switch tabSelected{
+            case .house:
+                HomeView()
+            case .message:
+                ChatsView()
+            case .camera:
+                PostView()
+            case .person:
+                UserProfileView(userName: username, userId: userID, userProfileURL: userPhotoURL)
             }
+            ZStack{
+                VStack {
+                    Spacer()
+                    NavbarView(selectedTab: $tabSelected)
+                        .offset(y: -5)
+                }
+            }
+            .ignoresSafeArea()
         }
+        
     }
 }
 

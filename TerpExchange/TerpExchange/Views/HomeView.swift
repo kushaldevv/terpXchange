@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-var items = Array(repeating: Item(userID: "test", image: Image("rubix"), title: "Rubix Cube", description: "Lorem Ipsum", price: 10.50), count: 25)
+//var items = Array(repeating: Item(userID: "test", image: Image("rubix"), title: "Rubix Cube", description: "Lorem Ipsum", price: 10.50), count: 25)
 
 //let testItem = Item(userID: "test", image: Image("rubix"), title: "Rubix Cube", description: "Lorem Ipsum", price: 10.50)
 
@@ -29,7 +29,7 @@ struct HomeView: View {
     @StateObject var itemsDB = UserItemsDB()
     
     @State private var showSecondView = false
-    @State private var chosenItem = Item(userID: "", image: Image(systemName: "photo"), title: "", description: "", price: 0.0)
+    @State private var chosenItem = Item(userID: "", image: [], title: "", description: "", price: 0.0)
     
     var body: some View {
         NavigationView {
@@ -90,15 +90,21 @@ struct HomeView: View {
                         ], spacing: 7) {
                             
                             ForEach(itemsDB.userItems.sorted(by: {$0.timestamp > $1.timestamp}), id: \.id) {item in
-                                item.image
-                                    .resizable()
-                                    .frame(width: 100, height: 100)
+                                ForEach(item.image, id: \.self) {imageURL in
+                                    AsyncImage(url: URL(string: imageURL)) { image in
+                                        image.resizable()
+                                    } placeholder: {
+                                        ProgressView()
+                                    }
+                                    .cornerRadius(10)
+                                    .frame(width: 118, height: 118)
                                     .onTapGesture {
                                         chosenItem = item
                                         showSecondView = true
                                         print(chosenItem.id)
                                         
                                     }
+                                }
                             }
                             
                         }
@@ -125,3 +131,4 @@ struct HomeView: View {
         isMenuOpen.toggle()
     }
 }
+

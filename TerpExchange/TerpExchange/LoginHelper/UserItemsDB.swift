@@ -14,13 +14,13 @@ class Item {
     
     var id: UUID
     let userID: String
-    let image: Image
+    let image: [String]
     var timestamp:  Date
     let title: String
     let description: String
     let price: Double
     
-    init(userID: String, image: Image, title: String, description: String, price: Double) {
+    init(userID: String, image: [String], title: String, description: String, price: Double) {
         self.id = UUID()
         self.userID = userID
         self.image = image
@@ -48,7 +48,7 @@ class UserItemsDB: ObservableObject {
     @Published var specificItems: [Item] = []
     
     
-    func addItem(price: Double, description: String, title: String) {
+    func addItem(price: Double, description: String, title: String, images: [String]) {
         
         if let user = firebaseAuth.getCurrentUser() {
             
@@ -61,7 +61,8 @@ class UserItemsDB: ObservableObject {
                     "title": title,
                     "description": description,
                     "price": price,
-                    "timestamp": Timestamp()
+                    "timestamp": Timestamp(),
+                    "image": images
                 ]
             ])]) { error in
                 if let error = error {
@@ -69,8 +70,8 @@ class UserItemsDB: ObservableObject {
                 } else {
                     print("Item added to database.")
                     
-                    let newItem = Item(userID: user.uid, image: Image(systemName: "photo"), title: title, description: description, price: price)
-                    self.userItems.append(newItem)
+                    //let newItem = Item(userID: user.uid, image: Image(systemName: "photo"), title: title, description: description, price: price)
+                    //self.userItems.append(newItem)
                 }
             }
         }
@@ -92,7 +93,8 @@ class UserItemsDB: ObservableObject {
                             let timestamp = item["timestamp"] as? Timestamp
                             let title = item["title"] as? String ?? ""
                             let userID = item["userID"] as? String ?? ""
-                            let curr = Item(userID: userID, image: Image(systemName: "photo"), title: title, description: description, price: price)
+                            let images = item["image"] as? [String] ?? []
+                            let curr = Item(userID: userID, image: images, title: title, description: description, price: price)
                             curr.updateID(id: id)
                             curr.updateTimestamp(timestamp: timestamp?.dateValue() ?? Date())
                             self.userItems.append(curr)
@@ -119,8 +121,8 @@ class UserItemsDB: ObservableObject {
                     let id = item["id"] as? UUID ?? UUID()
                     let timestamp = item["timestamp"] as? Timestamp
                     let title = item["title"] as? String ?? ""
-                    let userID = item["userID"] as? String ?? ""
-                    let curr = Item(userID: userID, image: Image(systemName: "photo"), title: title, description: description, price: price)
+                    let images = item["image"] as? [String] ?? []
+                    let curr = Item(userID: userID, image: images, title: title, description: description, price: price)
                     curr.updateID(id: id)
                     curr.updateTimestamp(timestamp: timestamp?.dateValue() ?? Date())
                     self.specificItems.append(curr)
@@ -133,4 +135,5 @@ class UserItemsDB: ObservableObject {
     }
     
 }
+
 

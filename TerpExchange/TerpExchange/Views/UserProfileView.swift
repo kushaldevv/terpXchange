@@ -88,7 +88,7 @@ struct UserProfileView: View {
     @StateObject var itemsDB = UserItemsDB()
     @State private var showSecondView = false
     @StateObject var reviewDB: ReviewsDB = ReviewsDB(useridd: "mhBd9Q7zeuM0RJM4jn3zJlmeBDu1")
-    @State private var chosenItem = Item(userID: "", image: Image(systemName: "photo"), title: "", description: "", price: 0.0)
+    @State private var chosenItem = Item(userID: "", image: [], title: "", description: "", price: 0.0)
     
     var userName: String
     var userId: String
@@ -182,15 +182,21 @@ struct UserProfileView: View {
                         GridItem(.flexible(),spacing: 0)
                     ], spacing: 7) {
                         ForEach(itemsDB.specificItems.sorted(by: {$0.timestamp > $1.timestamp}), id: \.id) {item in
-                            item.image
-                                .resizable()
-                                .frame(width: 100, height: 100)
+                            ForEach(item.image, id: \.self) {imageURL in
+                                AsyncImage(url: URL(string: imageURL)) { image in
+                                    image.resizable()
+                                } placeholder: {
+                                    ProgressView()
+                                }
+                                .cornerRadius(10)
+                                .frame(width: 118, height: 118)
                                 .onTapGesture {
                                     chosenItem = item
                                     showSecondView = true
                                     print(chosenItem.id)
                                     
                                 }
+                            }
                         }
                     }
                 }

@@ -21,7 +21,7 @@ struct PostView: View {
     @State var showDetails = false
     @State var idx = 0
     @ObservedObject var itemsDB = UserItemsDB()
-    @ObservedObject var photoManager = PhotoManager()
+    @StateObject var photoManager = PhotoManager()
     
     var body: some View {
         NavigationView {
@@ -139,20 +139,25 @@ struct PostView: View {
                         .position(x: 185, y: 85)
                     
                     // Post button
+                    
                     Button {
-                        itemsDB.addItem(price: Double(self.priceField) ?? 0.0, description: self.descripField, title: self.titleField)
+                        //itemsDB.addItem(price: Double(self.priceField) ?? 0.0, description: self.descripField, title: self.titleField)
+                        var imagesURLs : [String] = []
                         let path = "users/" + userID
-                        let resizedImage = selectedImage.aspectFittedToHeight(200)
                         
-                        photoManager.upload(path: path, image: resizedImage)
-                        { imageURL in
-                            if let imageURL = imageURL {
-                                // itemsDB.addItem()
-                            } else {
-                                print ("error getting imageURL")
+                        //ForEach(selectedImages, id: \.self) { image in
+                            
+                            let resizedImage = selectedImages[0].aspectFittedToHeight(200)
+                            photoManager.upload(path: path, image: resizedImage) { imageURL in
+                                if let imageURL = imageURL {
+                                    imagesURLs.append(imageURL)
+                                    itemsDB.addItem(price: Double(self.priceField) ?? 0.0, description: self.descripField, title: self.titleField, images: imagesURLs)
+                                } else {
+                                    print ("error getting imageURL")
+                                }
                             }
+                        //}
                         }
-                    }
                 label:
                     {
                         Text("Post")
@@ -176,3 +181,4 @@ struct PostView_Previews: PreviewProvider {
         PostView()
     }
 }
+
