@@ -48,16 +48,19 @@ struct messageBubble: View {
 
 struct ChatView: View {
     @Environment(\.presentationMode) var presentationMode
-    @Binding var messageID : String
     @Binding var name: String
     @Binding var pfp : String
-    @StateObject var messagesManager : MessagesManager
+    @Binding var messageID: String
+    @Binding var itemImage: String
+    @StateObject var messagesManager: MessagesManager
     @StateObject var photoManager = PhotoManager()
+    @StateObject var itemsDB = UserItemsDB()
 
-    init(messageID: Binding<String>, name: Binding<String>, pfp: Binding<String>) {
+    init(messageID: Binding<String>, name: Binding<String>, pfp: Binding<String>, itemImage: Binding<String>) {
         self._messageID = messageID
         self._name = name
         self._pfp = pfp
+        self._itemImage = itemImage
         self._messagesManager = StateObject(wrappedValue: MessagesManager(chatID: messageID.wrappedValue))
     }
     
@@ -66,6 +69,7 @@ struct ChatView: View {
     @State private var selectedImage = UIImage()
     @State private var showImageAlert = false
     @State private var selectedImages: [UIImage] = []
+    
     
     var body: some View {
         VStack {
@@ -81,10 +85,21 @@ struct ChatView: View {
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .offset(x: 20)
                 
-                TitleRow(name: name, imageUrl: URL(string: pfp)!)
-                    .background(Color("CoralPink"))
-                    .offset(y: -10)
-                    .padding(.bottom, -10)
+                let startIndex = messageID.index(messageID.startIndex, offsetBy: 28)
+                let endIndex = messageID.index(messageID.startIndex, offsetBy: 55)
+                let sellerID = String(messageID[startIndex...endIndex])
+                
+                if let currItem = itemsDB.fetchItem(userid: sellerID, itemid: String(messageID.suffix(36))) {
+                    TitleRow(name: name, imageUrl: URL(string: pfp)!, itemImage: URL(string: itemImage)!, item: Item(id: currItem.id, userID: sellerID, image: currItem.image, title: currItem.title, description: currItem.description, price: currItem.price))
+                        .background(Color("CoralPink"))
+                        .offset(y: -10)
+                        .padding(.bottom, -10)
+                }
+//                let currItem = itemsDB.fetchItem(userid: sellerID, itemid: String(messageID.suffix(36)))
+//                TitleRow(name: name, imageUrl: URL(string: pfp)!, itemImage: URL(string: itemImage)!, item: Item(id: currItem?.id, userID: currItem?.userID, image: currItem?.image, title: currItem?.title, description: currItem?.description, price: currItem?.price))
+//                    .background(Color("CoralPink"))
+//                    .offset(y: -10)
+//                    .padding(.bottom, -10)
                 
                 ScrollViewReader { proxy in
                     ScrollView {

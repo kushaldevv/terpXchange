@@ -19,9 +19,11 @@ class MessagesManager: ObservableObject {
     @Published private(set) var lastMessageId: UUID = UUID()
     
     let db = Firestore.firestore()
+    var chatID = ""
     
     init(chatID: String){
         getMessages(chatID: chatID)
+        self.chatID = chatID
     }
     
     func getMessages(chatID : String) {

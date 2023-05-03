@@ -11,8 +11,7 @@ import Firebase
 import FirebaseFirestore
 
 class Item {
-    
-    var id: UUID
+    var id: String
     let userID: String
     let image: [String]
     var timestamp:  Date
@@ -20,8 +19,8 @@ class Item {
     let description: String
     let price: Double
     
-    init(userID: String, image: [String], title: String, description: String, price: Double) {
-        self.id = UUID()
+    init(id: String, userID: String, image: [String], title: String, description: String, price: Double) {
+        self.id = id
         self.userID = userID
         self.image = image
         self.title = title
@@ -30,9 +29,9 @@ class Item {
         self.timestamp = Date() // Provide an initial value for the `timestamp` property
     }
     
-    func updateID(id: UUID) {
-        self.id = id
-    }
+//    func updateID(id: UUID) {
+//        self.id = id
+//    }
     
     func updateTimestamp(timestamp: Date) {
         self.timestamp = timestamp
@@ -49,11 +48,9 @@ class UserItemsDB: ObservableObject {
     
     
     func addItem(price: Double, description: String, title: String, images: [String]) {
-        
         if let user = firebaseAuth.getCurrentUser() {
-            
             let usersRef = db.collection("users").document(user.uid)
-            
+            print("ARE YOU HERE")
             usersRef.updateData(["items": FieldValue.arrayUnion([
                 [
                     "id": UUID().uuidString,
@@ -89,13 +86,13 @@ class UserItemsDB: ObservableObject {
                         for item in items {
                             let description = item["description"] as? String ?? ""
                             let price = item["price"] as? Double ?? 0.0
-                            let id = item["id"] as? UUID ?? UUID()
+                            let id = item["id"] as? String ?? UUID().uuidString
                             let timestamp = item["timestamp"] as? Timestamp
                             let title = item["title"] as? String ?? ""
                             let userID = item["userID"] as? String ?? ""
                             let images = item["image"] as? [String] ?? []
-                            let curr = Item(userID: userID, image: images, title: title, description: description, price: price)
-                            curr.updateID(id: id)
+                            let curr = Item(id: id, userID: userID, image: images, title: title, description: description, price: price)
+//                            curr.updateID(id: id)
                             curr.updateTimestamp(timestamp: timestamp?.dateValue() ?? Date())
                             self.userItems.append(curr)
                         }
@@ -118,20 +115,30 @@ class UserItemsDB: ObservableObject {
                 for item in items {
                     let description = item["description"] as? String ?? ""
                     let price = item["price"] as? Double ?? 0.0
-                    let id = item["id"] as? UUID ?? UUID()
+                    let id = item["id"] as? String ?? UUID().uuidString
                     let timestamp = item["timestamp"] as? Timestamp
                     let title = item["title"] as? String ?? ""
                     let images = item["image"] as? [String] ?? []
-                    let curr = Item(userID: userID, image: images, title: title, description: description, price: price)
-                    curr.updateID(id: id)
+                    let curr = Item(id: id, userID: userID, image: images, title: title, description: description, price: price)
                     curr.updateTimestamp(timestamp: timestamp?.dateValue() ?? Date())
                     self.specificItems.append(curr)
                 }
             }
             else {
+                print(userid)
                 print("Document does not exist")
             }
         }
+    }
+    
+    func fetchItem(userid: String, itemid: String) -> Item?{
+        fetchSpecificUserItems(userid: userid)
+        for item in specificItems {
+            if item.id == itemid {
+                return item
+            }
+        }
+        return nil
     }
     
 }

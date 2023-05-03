@@ -82,12 +82,13 @@ struct SideMenu: View {
     var body: some View {
         ZStack {
             // Dimmed Background View
+            
             GeometryReader { _ in
                 EmptyView()
             }
-            .background(Color.red.opacity(0.15))
+            .background(.thinMaterial)
             .opacity(self.isMenuOpen ? 1 : 0)
-            .animation(Animation.easeIn.delay(0.25))
+            .animation(.easeInOut)
             .onTapGesture {
                 self.toggleMenu()
             }

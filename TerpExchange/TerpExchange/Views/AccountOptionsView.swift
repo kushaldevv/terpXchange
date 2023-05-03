@@ -45,10 +45,11 @@ struct AccountOptionsPage: View {
                     .padding(.bottom, 30)
                 
                 Button {
-                    firebaseAuth.signUpWithGoogle()
-                } label: {
-                    GoogleLoginButton(image: Image("google"), text: Text("Continue with Google"))
-                }
+                                    firebaseAuth.signInGoogleAccount()
+                                } label: {
+                                    GoogleLoginButton(image: Image("google"), text: Text("Continue with Google"))
+                                }
+
                 
                 Spacer()
             }

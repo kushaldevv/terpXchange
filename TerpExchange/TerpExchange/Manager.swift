@@ -11,44 +11,89 @@ import FirebaseFirestore
 import FirebaseAuth
 
 let db = Firestore.firestore()
-let userID = Auth.auth().currentUser?.uid ?? "mhBd9Q7zeuM0RJM4jn3zJlmeBDu1"
-let username = Auth.auth().currentUser?.displayName ?? "Unknown"
+var userID = Auth.auth().currentUser?.uid ?? "8A3nHOpWaGgAWsPC6Irf77E7tUC3"
+var username = Auth.auth().currentUser?.displayName ?? "burner account"
 let placeholder = URL(string: "https://firebasestorage.googleapis.com/v0/b/terpexchange-ab6a8.appspot.com/o/chats%2FuniqueID%2FIMG_2021.png?alt=media&token=f16d80b0-db5d-4738-974b-a2e64610b5ad")
-let userPhotoURL = Auth.auth().currentUser?.photoURL ?? placeholder
+var userPhotoURL = Auth.auth().currentUser?.photoURL ?? placeholder
 
-//func getName(id: String) -> String {
-//    var output = "hi"
-//    let userDocRef = db.collection("users").document(id)
-//
-//    userDocRef.getDocument { (document, error) in
-//        if let document = document, document.exists {
-//            let data = document.data()
-//            output = data?["displayName"] as? String ?? "error"
-////            print(output)
-//        }
-//        else {
-//            print("Document does not exist")
-//        }
-//    }
-//    return output
-//}
 
-//func getPFP (id: String) -> URL{
-//    var output = ""
-//    db.collection("users").document(id).getDocument { (document, error) in
-//        if let document = document, document.exists {
-//            if let photoURL = document.get("photoURL") as? String {
-//                output = photoURL
-//            } else {
-//                print("photoURL field not found")
-//            }
-//        } else {
-//            print("Document not found")
-//        }
-//    }
-////    print(output)
-//    return URL(string: output) ?? placeholder!
-//}
+
+func getUserProfile(id: String, completion: @escaping ([String : String]) -> Void) {
+    var output = ["name": "", "pfp": ""]
+    let userDocRef = db.collection("users").document(id)
+    
+    userDocRef.getDocument { (document, error) in
+        if let document = document, document.exists {
+            let data = document.data()
+            output["name"] = data?["displayName"] as? String ?? ""
+            output["pfp"] = data?["photoURL"] as? String ?? ""
+        }
+        else {
+            print("Document does not exist")
+        }
+        completion(output)
+    }
+}
+
+func createChat(itemImage: String, sellerID: String, sellerName: String, sellerPFP: String, messageID: String){
+    let docRef = db.collection("chats").document(messageID)
+    docRef.getDocument { (document, error) in
+        if let document = document, document.exists {
+            print("chat already exists")
+            return
+        } else {
+            print("creating chat")
+            let userDocRef = db.collection("users").document(userID)
+            let sellerDocRef = db.collection("users").document(sellerID)
+            userDocRef.updateData([
+                "chats": FieldValue.arrayUnion([messageID])
+            ]) { error in
+                if let error = error {
+                    print("Error updating document: \(error)")
+                } else {
+                    print("Document updated successfully")
+                }
+            }
+            sellerDocRef.updateData([
+                "chats": FieldValue.arrayUnion([messageID])
+            ]) { error in
+                if let error = error {
+                    print("Error updating document: \(error)")
+                } else {
+                    print("Document updated successfully")
+                }
+            }
+            
+            let newChatData: [String: Any] = [
+                "messages": [],
+                "recentText": "",
+                "recentTextTime": Timestamp(),
+                "itemImage": itemImage,
+                "users": [
+                    [userID: [
+                        "name": username,
+                        "pfp": userPhotoURL?.absoluteString
+                    ]],
+                    [sellerID: [
+                        "name": sellerName,
+                        "pfp": sellerPFP
+                    ]]
+                ]
+            ]
+            
+            let newChatDocRef = db.collection("chats").document(messageID)
+            newChatDocRef.setData(newChatData, merge: true) { error in
+                if let error = error {
+                    print("Error adding document: \(error)")
+                } else {
+                    print("Document added successfully")
+                }
+            }
+        }
+    }
+}
+
+
 
 func displayDate(date: Date) -> String{
     if Calendar.current.isDateInToday(date) {

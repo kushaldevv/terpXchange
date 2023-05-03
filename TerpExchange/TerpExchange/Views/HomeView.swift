@@ -6,21 +6,6 @@
 //
 
 import SwiftUI
-//var items = Array(repeating: Item(userID: "test", image: Image("rubix"), title: "Rubix Cube", description: "Lorem Ipsum", price: 10.50), count: 25)
-
-//let testItem = Item(userID: "test", image: Image("rubix"), title: "Rubix Cube", description: "Lorem Ipsum", price: 10.50)
-
-struct basicCardView: View{
-    var item: Item
-    
-    var body: some View {
-        Text(item.title)
-//        item.image
-//            .resizable()
-//            .frame(width: 120, height: 120)
-//            .cornerRadius(8)
-    }
-}
 
 struct HomeView: View {
     @State private var searchText: String = ""
@@ -29,7 +14,7 @@ struct HomeView: View {
     @StateObject var itemsDB = UserItemsDB()
     
     @State private var showSecondView = false
-    @State private var chosenItem = Item(userID: "", image: [], title: "", description: "", price: 0.0)
+    @State private var chosenItem = Item(id: "Blank", userID: "", image: [], title: "", description: "", price: 0.0)
     
     var body: some View {
         NavigationView {
@@ -58,11 +43,6 @@ struct HomeView: View {
                             .fontDesign(.rounded)
                             .foregroundColor(Color.red)
                     }
-//                    Image(uiImage: UIImage(getpic()))
-//                        .resizable()
-//                        .aspectRatio(contentMode: .fit)
-//                        .frame(width: 100, height: 100)
-//                        .clipShape(Circle())
 
                     ScrollView {
                         HStack {
@@ -101,7 +81,6 @@ struct HomeView: View {
                                     .onTapGesture {
                                         chosenItem = item
                                         showSecondView = true
-                                        print(chosenItem.id)
                                         
                                     }
                                 }
@@ -122,7 +101,7 @@ struct HomeView: View {
             })
         }
         
-        SideMenu(sideMenuWidth: UIScreen.main.bounds.width/1.4, isMenuOpen: isMenuOpen, toggleMenu: toggleMenu)
+        SideMenu(sideMenuWidth: screenWidth/1.75, isMenuOpen: isMenuOpen, toggleMenu: toggleMenu)
             .edgesIgnoringSafeArea(.all)
             .zIndex(isMenuOpen ? 1 : 0)
     }

@@ -17,14 +17,14 @@ struct chatPreview: View {
         VStack{
             HStack{
                 HStack{
-                    Rectangle()
-                        .frame(width: 70, height: 70)
-                        .cornerRadius(10)
-//                    chatObject.product
-//                        .resizable()
-//                        .frame(width: 70, height: 70)
-//                        .clipShape(Rectangle())
-//                        .cornerRadius(10)
+                    AsyncImage(url: URL(string: chat.itemImage)) { image in
+                        image.resizable()
+                    } placeholder: {
+                        ProgressView()
+                    }
+                    .frame(width: 70, height: 70)
+                    .cornerRadius(10)
+  
                     VStack{
                         HStack{
                             Text(chat.name.count > 20 ? "\(chat.name.prefix(20))..." : (chat.name))
@@ -55,7 +55,7 @@ struct ChatsView: View {
     @StateObject var inboxManager = InboxManager()
     @State var text = "Inbox"
     @State private var showSecondView = false
-    @State private var currChat : Chat = Chat(messageID: "uniqueID", name: "Test", pfp: "x", recentText: "x", recentTextDate: Date())
+    @State private var currChat = Chat(itemImage: "", messageID: "messageID", name: "name", pfp: "pfp", recentText: "", recentTextDate: Date())
 
     var body: some View {
         NavigationView{
@@ -69,25 +69,27 @@ struct ChatsView: View {
                 List{
                     ForEach(inboxManager.chats, id: \.id){ chat in
                         Button(action: {
-                            self.currChat = chat
+                            currChat = chat
                             self.showSecondView = true
                         }) {
                             chatPreview(chat: chat)
                         }
                     }
-                    .onDelete(perform: removeChat)
+//                    .onDelete(perform: removeChat)
                 }
                 .listStyle(.plain)
                 .navigationBarHidden(true)
                 .navigationTitle("Inbox")
+                Text(currChat.messageID + currChat.itemImage)
+                    .frame(width: 0, height: 0)
             }
             .fullScreenCover(isPresented: $showSecondView,content: {
-                ChatView(messageID: self.$currChat.messageID, name: self.$currChat.name, pfp: self.$currChat.pfp)
+                ChatView(messageID: $currChat.messageID, name: $currChat.name, pfp: $currChat.pfp, itemImage: $currChat.itemImage)
             })
         }
     }
 
-    func removeChat(at offsets: IndexSet){
-//        chats.remove(atOffsets: offsets)
-    }
+//    func removeChat(at offsets: IndexSet){
+////        chats.remove(atOffsets: offsets)
+//    }
 }

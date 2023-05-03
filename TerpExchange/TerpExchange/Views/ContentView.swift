@@ -20,8 +20,7 @@ class AppData: ObservableObject {
 }
 
 struct ContentView: View {
-    @StateObject private var appData = AppData()
-    @State private var tabSelected: Tab = .message
+    @State private var tabSelected: Tab = .house
 
     var body: some View {
         ZStack {

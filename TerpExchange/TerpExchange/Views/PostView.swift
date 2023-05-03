@@ -151,6 +151,7 @@ struct PostView: View {
                             photoManager.upload(path: path, image: resizedImage) { imageURL in
                                 if let imageURL = imageURL {
                                     imagesURLs.append(imageURL)
+                                    print(imagesURLs)
                                     itemsDB.addItem(price: Double(self.priceField) ?? 0.0, description: self.descripField, title: self.titleField, images: imagesURLs)
                                 } else {
                                     print ("error getting imageURL")
