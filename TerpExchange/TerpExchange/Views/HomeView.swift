@@ -21,47 +21,56 @@ struct HomeView: View {
             ZStack {
                 VStack {
                     HStack {
-                        
                         if !isMenuOpen {
                             Button(action: {
-                                // Open Side Menu
                                 self.isMenuOpen.toggle()
                             }, label: {
                                 Image(systemName: "line.3.horizontal")
                                     .resizable()
                                     .frame(width: 22, height: 18)
                                     .padding(.leading, 20)
-                                    .accentColor(Color.red)
+                                    .accentColor(redColor)
                             })
                         }
                         
                         Spacer()
                         
-                        Text("TerpExchange")
-                            .padding(.trailing, 140)
-                            .fontWeight(.heavy)
-                            .fontDesign(.rounded)
-                            .foregroundColor(Color.red)
+                        if !isMenuOpen{
+                            Text("TerpExchange")
+                                .font(.system(size: 22))
+                                .fontWeight(.heavy)
+                                .fontDesign(.rounded)
+                                .padding(.trailing, 40)
+                                .foregroundColor(redColor)
+                        } else {
+                            Text("TerpExchange")
+                                .font(.system(size: 22))
+                                .fontWeight(.heavy)
+                                .fontDesign(.rounded)
+                                .padding(.trailing, -2)
+                                .foregroundColor(redColor)
+                        }
+                        
+                        Spacer()
+
                     }
 
                     ScrollView {
-                        HStack {
-                            Image(systemName: "magnifyingglass")
-                                .padding(.leading, 10)
-                            TextField("Search item", text: $searchText)
-                                .foregroundColor(.black)
-                        }
-                        .padding(20)
-                        .overlay(
-                            RoundedRectangle(cornerRadius: 10)
-                                .stroke(Color.gray, lineWidth: 1)
-                                .frame(width: screenWidth - 50, height: 40)
-                        )
-//                        Button(action: {
-//                            itemsDB.addItem(rating: 4, details:"gwenognwioengoiw")
-//                        }) {
-//                            Text(str)
+//                        HStack {
+//                            Image(systemName: "magnifyingglass")
+//                                .padding(.leading, 10)
+//                            TextField("Search item", text: $searchText)
+//                                .foregroundColor(.black)
 //                        }
+//                        .padding(20)
+//                        .overlay(
+//                            RoundedRectangle(cornerRadius: 10)
+//                                .stroke(Color.gray, lineWidth: 1)
+//                                .frame(width: screenWidth - 50, height: 40)
+//                        )
+                        Divider()
+                            .padding(.bottom, 20)
+                        
 
                         LazyVGrid(columns: [
                             GridItem(.flexible(),spacing: 0),
@@ -77,7 +86,7 @@ struct HomeView: View {
                                         ProgressView()
                                     }
                                     .cornerRadius(10)
-                                    .frame(width: 118, height: 118)
+                                    .frame(width: screenWidth/3.25, height: screenWidth/3.25)
                                     .onTapGesture {
                                         chosenItem = item
                                         showSecondView = true
@@ -90,8 +99,6 @@ struct HomeView: View {
                     }
                     .padding(5)
                 }
-                .background(offwhiteColor)
-                
             }
             .onAppear() {
                 itemsDB.fetchItems()
@@ -101,7 +108,7 @@ struct HomeView: View {
             })
         }
         
-        SideMenu(sideMenuWidth: screenWidth/1.75, isMenuOpen: isMenuOpen, toggleMenu: toggleMenu)
+        SideMenu(sideMenuWidth: screenWidth/1.4, isMenuOpen: isMenuOpen, toggleMenu: toggleMenu)
             .edgesIgnoringSafeArea(.all)
             .zIndex(isMenuOpen ? 1 : 0)
     }

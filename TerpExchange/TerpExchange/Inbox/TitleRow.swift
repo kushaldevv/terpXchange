@@ -43,6 +43,8 @@ struct TitleRow: View {
                     .cornerRadius(10)
             } placeholder: {
                 ProgressView()
+                    .frame(width: 70, height: 70)
+                    .cornerRadius(10)
             }
             .onTapGesture{
                 chosenItem = item

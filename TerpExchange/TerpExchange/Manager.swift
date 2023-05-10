@@ -9,6 +9,15 @@ import Foundation
 import Firebase
 import FirebaseFirestore
 import FirebaseAuth
+import SwiftUI
+
+let screenSize: CGRect = UIScreen.main.bounds
+let insets = UIApplication.shared.windows.first?.safeAreaInsets ?? .zero
+let screenWidth = screenSize.width
+let screenHeight = screenSize.height
+let coralPinkColor = Color("CoralPink")
+let offwhiteColor = Color("offwhite")
+let redColor = Color(red: 253.0/255.0, green: 138.0/255.0, blue: 138.0/255.0)
 
 let db = Firestore.firestore()
 var userID = Auth.auth().currentUser?.uid ?? "8A3nHOpWaGgAWsPC6Irf77E7tUC3"

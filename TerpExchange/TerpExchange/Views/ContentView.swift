@@ -7,18 +7,6 @@
 
 import SwiftUI
 
-class AppData: ObservableObject {
-    @Published var navBarHidden: Bool = false
-    
-    func hideNavbar () {
-        navBarHidden = true
-    }
-    
-    func showNavbar() {
-        navBarHidden = false
-    }
-}
-
 struct ContentView: View {
     @State private var tabSelected: Tab = .house
 
@@ -40,10 +28,10 @@ struct ContentView: View {
                     NavbarView(selectedTab: $tabSelected)
                         .offset(y: -5)
                 }
+                .ignoresSafeArea()
+
             }
-            .ignoresSafeArea()
         }
-        
     }
 }
 

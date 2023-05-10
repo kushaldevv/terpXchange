@@ -6,14 +6,6 @@
 //
 
 import SwiftUI
-
-
-let screenSize: CGRect = UIScreen.main.bounds
-let screenWidth = screenSize.width
-let screenHeight = screenSize.height
-//let coralPinkColor = Color("CoralPink")
-let offwhiteColor = Color("offwhite")
-
 enum Tab: String, CaseIterable {
     case house
     case message
@@ -50,15 +42,15 @@ struct NavbarView: View {
                     Spacer()
                     VStack{
                         Image(systemName: selectedTab == tab ? fillImage: tab.rawValue)
-                            .scaleEffect(tab == scaleEffect ? 1.25 : 1.0)
-                            .foregroundColor(tab == selectedTab ? Color.red : .gray)
+                            .scaleEffect(tab == scaleEffect ? 1.30 : 1.0)
+                            .foregroundStyle(tab == selectedTab ? redColor.gradient : Color.gray.gradient)
                             .font(.system(size: 20))
                         
                         Text(tabName(tab: tab))
                             .fontWeight(.heavy)
                             .font(.system(size: 14))
                             .offset(y: 3)
-                            .foregroundColor(tab == selectedTab ? Color.red : .gray)
+                            .foregroundColor(tab == selectedTab ? redColor : .gray)
                     }
                     .onTapGesture {
                         selectedTab = tab
@@ -74,11 +66,5 @@ struct NavbarView: View {
             .cornerRadius(20)
             .padding(9)
         }
-    }
-}
-
-struct NavbarView_Previews: PreviewProvider {
-    static var previews: some View {
-        NavbarView(selectedTab: .constant(.house))
     }
 }
