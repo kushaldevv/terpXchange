@@ -11,6 +11,7 @@ import FirebaseAuth
 import Firebase
 import FirebaseFirestore
 import FirebaseCore
+import FirebaseFunctions
 
 struct ReviewsView: View {
     let currUserId: String
@@ -121,6 +122,7 @@ struct AddReviewView: View {
                 }
             }
             
+            
             Button(action: {
                 let isReviewAdded = reviewsDB.addReview(rating: rating, details: details, theCurrUserID: theCurrUserID, currArr: currArr)
                 isPosted = true
@@ -134,6 +136,20 @@ struct AddReviewView: View {
                 Text("Save")
                     .foregroundColor(.blue)
             }
+            
+//            Button(action: {
+//                let isReviewAdded = reviewsDB.addReview(rating: rating, details: details, theCurrUserID: theCurrUserID, currArr: currArr)
+//                isPosted = true
+//                if !isReviewAdded {
+//                    responseText = "No Self / Duplicate Reviews"
+//                } else {
+//                    responseText = "Review Posted!"
+//                    reviewsDB.fetchReviews(userid: theCurrUserID)
+//                }
+//            }) {
+//                Text("Save")
+//                    .foregroundColor(.blue)
+//            }
             .alert(isPresented: $isPosted) {
                 Alert(title: Text(responseText), dismissButton: .default(Text("OK")
 //                                                                         , action: {
@@ -144,7 +160,9 @@ struct AddReviewView: View {
             .disabled(rating == 0)
         }
     }
+
 }
+
 
 
 //struct AddReviewView: View {

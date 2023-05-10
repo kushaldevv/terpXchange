@@ -97,7 +97,6 @@ struct UserProfileView: View {
     
     var body: some View {
         VStack {
-            
             if(userId == userID) {
                 Button(action: {
                    firebaseAuth.signOutGoogleAccount()
@@ -148,8 +147,6 @@ struct UserProfileView: View {
             .padding(.top, 0)
             
             if(reviewDB.reviews.isEmpty) {
-//                Text("")
-//                    .frame(maxWidth: 300)
                 
                 NavigationLink(destination: ReviewsView(currUserId: userId)) {
                     Text("User has no Reviews")
@@ -210,8 +207,16 @@ struct UserProfileView: View {
 
             }
             
-
+            ZStack{
+                VStack {
+                    Spacer()
+                    NavbarView(selectedTab: .constant(.person))
+                        .offset(y: -5)
+                }
+            }
+            .ignoresSafeArea()
         }
+//        .navigationBarHidden(false)
         .onAppear() {
             reviewDB.fetchReviews(userid: userId)
             itemsDB.fetchSpecificUserItems(userid: userId)

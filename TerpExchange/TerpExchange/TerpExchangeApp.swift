@@ -24,7 +24,6 @@ struct TerpExchangeApp: App {
                 } else {
                     AccountOptionsView()
                 }
-                
                 ZStack {
                     if showLaunchView {
                         LaunchView(showLauchView: $showLaunchView)
