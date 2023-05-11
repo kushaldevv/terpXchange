@@ -21,7 +21,7 @@ class AppData: ObservableObject {
 
 struct ContentView: View {
     @StateObject private var appData = AppData()
-    @State private var tabSelected: Tab = .person
+    @State private var tabSelected: Tab = .message
 
     var body: some View {
         NavigationView {
