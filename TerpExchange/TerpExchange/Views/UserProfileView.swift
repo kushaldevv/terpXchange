@@ -49,6 +49,7 @@ struct UserRatingView2: View {
     let size: CGFloat
     let displayName: String // now is name atm
     let userProfileURL: URL?
+    let userTimestamp: Date
     
     var body: some View {
         Group {
@@ -70,6 +71,11 @@ struct UserRatingView2: View {
                 HStack {
                     Text(displayName)
                     Spacer()
+                    Text(userTimestamp, style: .date)
+                        .font(.system(size: 14.5))
+                        .foregroundColor(.blue)
+                        .offset(x: -30)
+                    
                 }
                 
                 HStack {
@@ -82,8 +88,8 @@ struct UserRatingView2: View {
                     Spacer()
                 }
                 .padding(.top, -10)
+                
             }
-            
         }
         .onAppear {
             guard let url = userProfileURL else { return }
@@ -336,7 +342,7 @@ struct UserProfileView: View {
                                 if(reviewDB.reviews.isEmpty) {
                                     
                                 } else {
-                                    UserRatingView2(rating: Double((reviewDB.reviews[0].rating)), size: 50, displayName: reviewDB.reviews[0].reviewerName, userProfileURL: reviewDB.reviews[0].reviewerPhotoURL)
+                                    UserRatingView2(rating: Double((reviewDB.reviews[0].rating)), size: 50, displayName: reviewDB.reviews[0].reviewerName, userProfileURL: reviewDB.reviews[0].reviewerPhotoURL, userTimestamp: reviewDB.reviews[0].timestamp)
                                         .padding(.bottom, 200)
                                 }
                             }
@@ -353,7 +359,7 @@ struct UserProfileView: View {
                             
                             NavigationLink(destination: ReviewsView(currUserId: userId)) {
                                 Text("See all reviews ➤")
-                                    .font(.system(size: 23, weight: .bold))
+                                    .font(.system(size: 23))
                                     .foregroundColor(.blue)
                                     .padding(.leading, 40)
                                     .frame(maxWidth: .infinity, alignment: .leading)
