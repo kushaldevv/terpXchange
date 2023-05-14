@@ -1,108 +1,4 @@
-//
-//  AppDelegate.swift
-//  TerpExchange
-//
-//  Created by Ryan Abeysinghe on 3/13/23.
-//
 
-//import Foundation
-//import SwiftUI
-//import FirebaseCore
-//import GoogleSignIn
-//
-//class AppDelegate: NSObject, UIApplicationDelegate {
-//    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
-//
-//        FirebaseApp.configure()
-//
-//        return true
-//    }
-//
-//    func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey: Any] = [:]) -> Bool {
-//        return GIDSignIn.sharedInstance.handle(url)
-//    }
-//}
-
-
-//
-//  AppDelegate.swift
-//  TerpExchange
-//
-//  Created by Ryan Abeysinghe on 3/13/23.
-//
-
-//import Foundation
-//import SwiftUI
-//import FirebaseCore
-//import GoogleSignIn
-//import Firebase
-//import FirebaseMessaging
-//import UserNotifications
-//
-//class AppDelegate: NSObject, UIApplicationDelegate, MessagingDelegate, UNUserNotificationCenterDelegate {
-//
-//    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
-//
-//        FirebaseApp.configure()
-//
-//        Messaging.messaging().delegate = self
-//        UNUserNotificationCenter.current().delegate = self
-//
-//        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { success, _ in
-//            guard success else {
-//                return
-//            }
-//            print("Success in APNS registry")
-//        }
-//        application.registerForRemoteNotifications()
-//
-//
-//
-//        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { (granted, error) in
-//            if let error = error {
-//                print("Error requesting authorization for user notifications: \(error.localizedDescription)")
-//                return
-//            }
-//
-//            if granted {
-//                print("User has granted permission for user notifications")
-//            } else {
-//                print("User has denied permission for user notifications")
-//            }
-//        }
-//
-//        return true
-//    }
-//
-//    func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey: Any] = [:]) -> Bool {
-//        return GIDSignIn.sharedInstance.handle(url)
-//    }
-//
-//
-//    func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
-//        print("Successfully registered for remote notifications with APNs")
-//        Messaging.messaging().apnsToken = deviceToken
-//        Messaging.messaging().token { token, error in
-//            if let error = error {
-//                print("Error getting FCM token: \(error.localizedDescription)")
-//            } else if let token = token {
-//                print("FCM token: \(token)")
-//            }
-//        }
-//    }
-//
-//    func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String?) {
-//        guard let token = fcmToken else {
-//            return
-//        }
-//        print("FCM registration token: \(token)")
-//    }
-//
-//}
-
-
-//
-//
 import FirebaseCore
 import FirebaseMessaging
 import GoogleSignIn
@@ -139,6 +35,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         Messaging.messaging().delegate = self
 
+        UIApplication.shared.applicationIconBadgeNumber = 0
+        
         // Override point for customization after application launch.
         return true
     }
