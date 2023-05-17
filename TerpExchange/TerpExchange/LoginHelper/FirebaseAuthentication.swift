@@ -73,21 +73,21 @@ class FirebaseAuthenticationModel: ObservableObject {
                 
                 guard let user = res?.user else { return }
                 
-//                if !terpmailEmailAddressPredicate.evaluate(with: user.email) {
-//                    try? Auth.auth().signOut()
-//
-//                    self.showAlert = true
-//
-//                    user.delete { error in
-//                      if let error = error {
-//                          print(error.localizedDescription)
-//                      } else {
-//                        // Accounts that do not end with a "@termail.umd.edu" email address will be deleted.
-//                      }
-//                    }
-//
-//                    return
-//                }
+                if !terpmailEmailAddressPredicate.evaluate(with: user.email) {
+                    try? Auth.auth().signOut()
+
+                    self.showAlert = true
+
+                    user.delete { error in
+                      if let error = error {
+                          print(error.localizedDescription)
+                      } else {
+                        // Accounts that do not end with a "@termail.umd.edu" email address will be deleted.
+                      }
+                    }
+
+                    return
+                }
                 
                 // Store user ID in Firestore
                 let db = Firestore.firestore()
@@ -126,3 +126,5 @@ class FirebaseAuthenticationModel: ObservableObject {
         }
     }
 }
+
+

@@ -8,29 +8,22 @@
 import SwiftUI
 
 struct FakeNavigationLink: View {
-    var body: some View {
-        let screenSize = UIScreen.main.bounds.size
-        let insets = UIApplication.shared.windows.first?.safeAreaInsets ?? .zero
-        let stackViewHeight = screenSize.height - insets.top - insets.bottom
-        
-        VStack(spacing: 0) {
-            Image("rubix")
-                .resizable()
-                .scaledToFill()
-                .frame(width: screenSize.width, height: stackViewHeight/2 + insets.top)
-            
-            ZStack{
-                Color.red
-                    .cornerRadius(30)
-                Text("hello")
-            }
-            .offset(y: -25)
-            .padding(.bottom, -25)
-            .frame(width: screenSize.width, height: stackViewHeight/2 + insets.top)
-        }
-        .ignoresSafeArea()
-    }
+    @State private var buttonText = "Click me"
     
+    var body: some View {
+        VStack {
+            Button(action: {
+                async {
+                    buttonText = "Loading..."
+                    await Task.sleep(2_000_000_000) // Wait for 2 seconds
+                    buttonText = "Clicked!"
+                }
+            }) {
+                Text(buttonText)
+                    .padding()
+            }
+        }
+    }
 }
 
 struct FakeNavigationLink_Previews: PreviewProvider {

@@ -75,7 +75,7 @@ struct messageBubble: View {
                 .cornerRadius(20)
             }
             .frame(width: .infinity, height: .infinity)
-            .presentationBackground(.thinMaterial)
+//            .presentationBackground(.thinMaterial)
         }
     }
 }
@@ -127,7 +127,7 @@ struct ChatView: View {
                 let sellerID = String(messageID[startIndex...endIndex])
                 
                 if let currItem = itemsDB.fetchItem(userid: sellerID, itemid: String(messageID.suffix(36))) {
-                    TitleRow(name: name, imageUrl: URL(string: pfp)!, itemImage: URL(string: itemImage)!, item: Item(id: currItem.id, userID: sellerID, image: currItem.image, title: currItem.title, description: currItem.description, price: currItem.price))
+                    TitleRow(name: name, imageUrl: URL(string: pfp)!, itemImage: URL(string: itemImage)!, item: Item(id: currItem.id, userID: sellerID, image: currItem.image, title: currItem.title, description: currItem.description, price: currItem.price, category: currItem.category))
                         .offset(y: -10)
                         .padding(.top, 2)
                         .padding(.bottom, -10)
@@ -140,7 +140,7 @@ struct ChatView: View {
                     }
                     .frame(width: screenWidth)
                     .padding(.top, 10)
-                    .padding(.bottom, 40)
+                    .padding(.bottom, 50)
                     .background(Color.white)
                     .cornerRadius(20)
                     .onChange(of: messagesManager.lastMessageId) { id in
@@ -205,7 +205,7 @@ struct ChatView: View {
             .cornerRadius(10)
             .padding(.horizontal)
             .background(Color.white)
-            .padding(.vertical, -35)
+            .padding(.vertical, -47)
         }
         .sheet(isPresented: $selectPhoto) {
             ImagePicker(sourceType: .photoLibrary, selectedImage: $selectedImage, selectedImages: $selectedImages)

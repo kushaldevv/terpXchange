@@ -15,7 +15,7 @@ struct TitleRow: View {
     
     
     @State private var showSecondView = false
-    @State private var chosenItem = Item(id: "Blank", userID: "", image: [], title: "", description: "", price: 0.0)
+    @State private var chosenItem = Item(id: "Blank", userID: "", image: [], title: "", description: "", price: 0.0, category: "")
 
     var body: some View {
         HStack(spacing: 20) {
@@ -53,7 +53,7 @@ struct TitleRow: View {
         }
         .padding(.horizontal, 15)
         .fullScreenCover(isPresented: $showSecondView, content: {
-                ItemView(item: $chosenItem)
+            ItemView(item: $chosenItem)
         })
     }
 }

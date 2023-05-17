@@ -18,13 +18,15 @@ class Item {
     let title: String
     let description: String
     let price: Double
+    let category: String
     
-    init(id: String, userID: String, image: [String], title: String, description: String, price: Double) {
+    init(id: String, userID: String, image: [String], title: String, description: String, price: Double, category: String) {
         self.id = id
         self.userID = userID
         self.image = image
         self.title = title
         self.description = description
+        self.category = category
         self.price = price
         self.timestamp = Date() // Provide an initial value for the `timestamp` property
     }
@@ -47,7 +49,7 @@ class UserItemsDB: ObservableObject {
     @Published var specificItems: [Item] = []
     
     
-    func addItem(price: Double, description: String, title: String, images: [String]) {
+    func addItem(price: Double, description: String, title: String, images: [String], category: String) {
         if let user = firebaseAuth.getCurrentUser() {
             let usersRef = db.collection("users").document(user.uid)
             print("ARE YOU HERE")
@@ -57,6 +59,7 @@ class UserItemsDB: ObservableObject {
                     "userID": user.uid,
                     "title": title,
                     "description": description,
+                    "category": category,
                     "price": price,
                     "timestamp": Timestamp(),
                     "image": images
@@ -91,7 +94,8 @@ class UserItemsDB: ObservableObject {
                             let title = item["title"] as? String ?? ""
                             let userID = item["userID"] as? String ?? ""
                             let images = item["image"] as? [String] ?? []
-                            let curr = Item(id: id, userID: userID, image: images, title: title, description: description, price: price)
+                            let category = item["category"] as? String ?? ""
+                            let curr = Item(id: id, userID: userID, image: images.reversed(), title: title, description: description, price: price, category: category)
 //                            curr.updateID(id: id)
                             curr.updateTimestamp(timestamp: timestamp?.dateValue() ?? Date())
                             self.userItems.append(curr)
@@ -119,7 +123,8 @@ class UserItemsDB: ObservableObject {
                     let timestamp = item["timestamp"] as? Timestamp
                     let title = item["title"] as? String ?? ""
                     let images = item["image"] as? [String] ?? []
-                    let curr = Item(id: id, userID: userID, image: images, title: title, description: description, price: price)
+                    let category = item["category"] as? String ?? ""
+                    let curr = Item(id: id, userID: userID, image: images.reversed(), title: title, description: description, price: price, category: category)
                     curr.updateTimestamp(timestamp: timestamp?.dateValue() ?? Date())
                     self.specificItems.append(curr)
                 }

@@ -9,69 +9,36 @@ import SwiftUI
 import Firebase
 import GoogleSignIn
 
-
 @main
 struct TerpExchangeApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
-    @AppStorage("signIn") var isSignIn = false
+    @AppStorage("signIn") var accountSignedIn = false
     
     @State private var showLaunchView: Bool = true
-    
+
     var body: some Scene {
         WindowGroup {
-           //AccountOptionsView()
-            
             ZStack {
-                if isSignIn {
-//                    UserProfileAccessPage()
-                    ContentView()
+                if accountSignedIn {
+                    ContentView(filter: "all")
+//                        .colorScheme(.light)
                 } else {
-//                    NavigationStack{
-//                        ContentView()
-                    AccountOptionsPage()
-//                    }
-                    
+                    AccountOptionsView()
+//                        .colorScheme(.light)
                 }
+                
                 ZStack {
                     if showLaunchView {
                         LaunchView(showLauchView: $showLaunchView)
                             .transition(.move(edge: .leading))
+//                            .colorScheme(.light)
                     }
                 }
                 .zIndex(2.0)
             }
-        }
-    }
-    
-    /* Temporary Back Button for User Profile */
-    struct UserProfileAccessPage: View {
-        @AppStorage("signIn") var isSignIn = false
-        
-        var body: some View {
-            NavigationStack {
-                UserProfileView(userId: Auth.auth().currentUser?.displayName ?? "Unknown")
-                    .toolbar {
-                        ToolbarItem(placement: .navigationBarLeading) {
-                            Button(action: {
-                                try? Auth.auth().signOut()
-                                GIDSignIn.sharedInstance.signOut()
-                                withAnimation(.easeInOut) {
-                                    isSignIn = false
-                                }
-                            
-                            }, label: {
-                                HStack {
-                                    Image(systemName: "chevron.backward")
-                                }
-                            })
-                        }
-                    }
-            }
+//            .environment(\.colorScheme, .light)
         }
     }
 }
-
-
-
 
 

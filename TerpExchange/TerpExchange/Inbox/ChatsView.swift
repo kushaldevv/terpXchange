@@ -17,9 +17,7 @@ struct chatPreview: View {
         VStack{
             HStack{
                 HStack{
-                    
-//                    AsyncImage(url: URL(string: chat.itemImage)!, placeholder: {ProgressView()})
-                    
+                                
                     AsyncImage(url: URL(string: chat.itemImage)) { image in
                         image.resizable()
                     } placeholder: {
@@ -42,7 +40,8 @@ struct chatPreview: View {
                         }
                         .offset(y: -10)
 
-                        Text(chat.recentText.count > 80 ? "\(chat.recentText.prefix(80))..." : (chat.recentText + "\n"))
+                        Text(chat.recentText)
+                            .lineLimit(1)
                             .frame(maxWidth: .infinity, alignment: .leading)
                             .foregroundColor(Color.gray)
                             .font(.system(size: 13))
@@ -66,7 +65,6 @@ struct ChatsView: View {
                 Text("Inbox")
                     .fontWeight(.heavy)
                     .font(.system(size: 30))
-                    .foregroundColor(redColor)
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .offset(x: 20, y: 0)
                     .padding(.bottom, 20)
@@ -83,7 +81,6 @@ struct ChatsView: View {
                 }
                 .listStyle(.plain)
                 .navigationBarHidden(true)
-                .navigationTitle("Inbox")
                 Text(currChat.messageID + currChat.itemImage)
                     .frame(width: 0, height: 0)
             }
