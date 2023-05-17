@@ -34,7 +34,6 @@ struct LaunchView: View {
                                 .fontWeight(.heavy)
                                 .foregroundColor(Color.launch.accent)
                                 .offset(y: counter == index ? -5: 0)
-                            
                         }
                     }
                     .transition(AnyTransition.scale.animation(.easeIn))
