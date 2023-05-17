@@ -15,8 +15,12 @@
 	</array>
 	<key>UIAppFonts</key>
 	<array>
+		<string>IBMPlexSans-Bold.ttf</string>
+		<string>IBMPlexSans-SemiBold.ttf</string>
 		<string>Righteous-Regular.ttf</string>
 		<string>SourceSansPro-Black.ttf</string>
 	</array>
+	<key>UIBackgroundModes</key>
+	<array/>
 </dict>
 </plist>
