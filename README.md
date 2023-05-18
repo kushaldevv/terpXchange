@@ -14,26 +14,6 @@ Features
 ## Demo
 https://www.youtube.com/watch?v=CR91i9f5n8U&t=3s
 
-## Installation
-
-To run TerpXchange on your local machine, follow these steps:
-
-    Clone this repository to your local machine using the following command:
-
-    bash
-
-    git clone https://github.com/kushaldevv/TerpXchange.git
-
-    Open the project in Xcode.
-
-    Install the required dependencies using Swift Package Manager.
-
-    Configure Firebase services by creating a Firebase project and obtaining the necessary configuration files. Refer to the Firebase documentation for detailed instructions.
-
-    Replace the placeholder Firebase configuration files in the project with your own.
-
-    Build and run the application on the iOS simulator or a physical device.
-
 ## Dependencies
 
 TerpXchange relies on the following dependencies, which are managed using Swift Package Manager:
