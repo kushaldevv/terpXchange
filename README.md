@@ -12,7 +12,7 @@ Features
     Real-time Data Management: The application leverages Firebase Firestore to manage real-time data updates, ensuring that users have access to the latest information on product listings.
 
 ## Demo
-https://www.youtube.com/watch?v=CR91i9f5n8U&t=3s
+https://www.youtube.com/watch?v=CR91i9f5n8U
 <img width="1452" alt="terpXchange" src="https://github.com/kushaldevv/terpXchange/assets/67920321/fad69be9-6d40-418a-a217-aa8dbc0a62e5">
 
 
