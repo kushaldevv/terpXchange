@@ -277,7 +277,6 @@ struct UserProfileView: View {
     @State private var displayLogoutAlert = false
     @State private var loggingOutOfAccount = false
 
-    
     var userName: String
     var userId: String
     var userProfileURL: URL?
@@ -289,7 +288,6 @@ struct UserProfileView: View {
                 ScrollView{
                 VStack {
                     HStack {
-                        
                         Text("Account")
                             .frame(maxWidth: .infinity, alignment: .leading)
                             .padding(.leading, 20)
@@ -313,6 +311,8 @@ struct UserProfileView: View {
                                     loggingOutOfAccount = true
                                     DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
                                         firebaseAuth.signOutGoogleAccount()
+                                        let sendHome = Tab.house.rawValue
+                                        UserDefaults.standard.set(sendHome, forKey: "tab")
                                     }
                                 }, secondaryButton: .cancel())
                             }

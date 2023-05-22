@@ -121,6 +121,7 @@ class FirebaseAuthenticationModel: ObservableObject {
             try Auth.auth().signOut()
             GIDSignIn.sharedInstance.signOut()
             UserDefaults.standard.set(false, forKey: "signIn")
+            userID = ""
         } catch let error as NSError {
             print("Error signing out of account: \(error.localizedDescription)")
         }

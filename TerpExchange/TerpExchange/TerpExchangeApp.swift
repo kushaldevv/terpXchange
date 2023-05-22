@@ -12,18 +12,14 @@ import GoogleSignIn
 @main
 struct TerpExchangeApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
-    @AppStorage("signIn") var accountSignedIn = false
+    //@AppStorage("signIn") var accountSignedIn = false
     
     @State private var showLaunchView: Bool = true
 
     var body: some Scene {
         WindowGroup {
             ZStack {
-                if accountSignedIn {
-                    ContentView(filter: "all")
-                } else {
-                    AccountOptionsView()
-                }
+                ContentView(filter: "all")
                 
                 ZStack {
                     if showLaunchView {
