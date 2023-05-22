@@ -35,76 +35,75 @@ struct MenuContent: View {
     let items: [MenuItem] = [
         MenuItem(text: "General", imageName: "gear", destination: (ContentView(filter: "all")), subMenuItems: nil),
         
-//        MenuItem(text: "Electronics", imageName: "tv.and.mediabox", destination: AnyView(ContentView(filter: "tv.and.mediabox")), subMenuItems: [
-//            SubMenuItem(text: "View All", imageName: "", destination: AnyView(ContentView(filter: "tv.and.mediabox"))),
-//            SubMenuItem(text: "Video Games & Consoles", imageName: "", destination: AnyView(ContentView(filter: ""))),
-//            SubMenuItem(text: "Computers & Accessories", imageName: "", destination: AnyView(ContentView(filter: ""))),
-//            SubMenuItem(text: "Audio & Speakers", imageName: "", destination: AnyView(ContentView(filter: ""))),
-//            SubMenuItem(text: "Cell Phones & Accessories", imageName: "", destination: AnyView(ContentView(filter: ""))),
-//            SubMenuItem(text: "Wearables", imageName: "", destination: AnyView(ContentView(filter: ""))),
-//            SubMenuItem(text: "TVs & Media Players", imageName: "", destination: AnyView(ContentView(filter: ""))),
-//            SubMenuItem(text: "Printers & Supplies", imageName: "", destination: AnyView(ContentView(filter: ""))),
-//            SubMenuItem(text: "Other: Electronics", imageName: "", destination: AnyView(ContentView(filter: "")))
+        MenuItem(text: "Electronics", imageName: "tv.and.mediabox", destination: ContentView(filter: "tv.and.mediabox"), subMenuItems: [
+            SubMenuItem(text: "View All", imageName: "", destination: ContentView(filter: "tv.and.mediabox")),
+            SubMenuItem(text: "Video Games & Consoles", imageName: "", destination: ContentView(filter: "")),
+            SubMenuItem(text: "Computers & Accessories", imageName: "", destination: ContentView(filter: "")),
+            SubMenuItem(text: "Audio & Speakers", imageName: "", destination: ContentView(filter: "")),
+            SubMenuItem(text: "Cell Phones & Accessories", imageName: "", destination: ContentView(filter: "")),
+            SubMenuItem(text: "Wearables", imageName: "", destination: ContentView(filter: "")),
+            SubMenuItem(text: "TVs & Media Players", imageName: "", destination: ContentView(filter: "")),
+            SubMenuItem(text: "Printers & Supplies", imageName: "", destination: ContentView(filter: "")),
+            SubMenuItem(text: "Other: Electronics", imageName: "", destination: ContentView(filter: ""))
+        ]),
         
-//        ]),
+        MenuItem(text: "Clothing & Shoes", imageName: "tshirt", destination: ContentView(filter: "tshirt"), subMenuItems: [
+            SubMenuItem(text: "View All", imageName: "", destination: ContentView(filter: "tshirt")),
+            SubMenuItem(text: "Women's Clothing", imageName: "", destination: ContentView(filter: "")),
+            SubMenuItem(text: "Men's Clothing", imageName: "", destination: ContentView(filter: "")),
+            SubMenuItem(text: "Women's Shoes", imageName: "", destination: ContentView(filter: "")),
+            SubMenuItem(text: "Men's Shoes", imageName: "shoeprints.fill", destination: ContentView(filter: "")),
+            SubMenuItem(text: "Other: Clothing & Shoes", imageName: "", destination: ContentView(filter: ""))
+        ]),
         
-//        MenuItem(text: "Clothing & Shoes", imageName: "tshirt", destination: AnyView(ContentView(filter: "tshirt")), subMenuItems: [
-//            SubMenuItem(text: "View All", imageName: "", destination: AnyView(ContentView(filter: "tshirt"))),
-//            SubMenuItem(text: "Women's Clothing", imageName: "", destination: AnyView(ContentView(filter: ""))),
-//            SubMenuItem(text: "Men's Clothing", imageName: "", destination: AnyView(ContentView(filter: ""))),
-//            SubMenuItem(text: "Women's Shoes", imageName: "", destination: AnyView(ContentView(filter: ""))),
-//            SubMenuItem(text: "Men's Shoes", imageName: "shoeprints.fill", destination: AnyView(ContentView(filter: ""))),
-//            SubMenuItem(text: "Other: Clothing & Shoes", imageName: "", destination: AnyView(ContentView(filter: "")))
-//        ]),
+        MenuItem(text: "Collectibles & Art", imageName: "paintbrush.pointed", destination: ContentView(filter: "paintbrush.pointed"), subMenuItems: [
+            SubMenuItem(text: "View All", imageName: "", destination: ContentView(filter: "paintbrush.pointed")),
+            SubMenuItem(text: "Art", imageName: "", destination: ContentView(filter: "")),
+            SubMenuItem(text: "Art & Crafts Supplies", imageName: "", destination: ContentView(filter: "")),
+            SubMenuItem(text: "Antiques", imageName: "", destination: ContentView(filter: "")),
+            SubMenuItem(text: "Collectibles", imageName: "", destination: ContentView(filter: "")),
+            SubMenuItem(text: "Other: Collectibles & Art", imageName: "", destination: ContentView(filter: ""))
+        ]),
         
-//        MenuItem(text: "Collectibles & Art", imageName: "paintbrush.pointed", destination: AnyView(ContentView(filter: "paintbrush.pointed")), subMenuItems: [
-//            SubMenuItem(text: "View All", imageName: "", destination: AnyView(ContentView(filter: "paintbrush.pointed"))),
-//            SubMenuItem(text: "Art", imageName: "", destination: AnyView(ContentView(filter: ""))),
-//            SubMenuItem(text: "Art & Crafts Supplies", imageName: "", destination: AnyView(ContentView(filter: ""))),
-//            SubMenuItem(text: "Antiques", imageName: "", destination: AnyView(ContentView(filter: ""))),
-//            SubMenuItem(text: "Collectibles", imageName: "", destination: AnyView(ContentView(filter: ""))),
-//            SubMenuItem(text: "Other: Collectibles & Art", imageName: "", destination: AnyView(ContentView(filter: "")))
-//        ]),
+        MenuItem(text: "Health & Beauty", imageName: "figure.mind.and.body", destination: ContentView(filter: "figure.mind.and.body"), subMenuItems: [
+            SubMenuItem(text: "View All", imageName: "", destination: ContentView(filter: "figure.mind.and.body")),
+            SubMenuItem(text: "Personal Care", imageName: "", destination: ContentView(filter: "")),
+            SubMenuItem(text: "Makeup & Cosmetics", imageName: "", destination: ContentView(filter: "")),
+            SubMenuItem(text: "Fragrance", imageName: "", destination: ContentView(filter: "")),
+            SubMenuItem(text: "Tools & Accessories", imageName: "", destination: ContentView(filter: "")),
+            SubMenuItem(text: "Hair care", imageName: "", destination: ContentView(filter: "")),
+            SubMenuItem(text: "Skincare", imageName: "", destination: ContentView(filter: "")),
+            SubMenuItem(text: "Bath & Body", imageName: "", destination: ContentView(filter: "")),
+            SubMenuItem(text: "Other: Health & Beauty", imageName: "", destination: ContentView(filter: ""))
+        ]),
         
-//        MenuItem(text: "Health & Beauty", imageName: "figure.mind.and.body", destination: AnyView(ContentView(filter: "figure.mind.and.body")), subMenuItems: [
-//            SubMenuItem(text: "View All", imageName: "", destination: AnyView(ContentView(filter: "figure.mind.and.body"))),
-//            SubMenuItem(text: "Personal Care", imageName: "", destination: AnyView(ContentView(filter: ""))),
-//            SubMenuItem(text: "Makeup & Cosmetics", imageName: "", destination: AnyView(ContentView(filter: ""))),
-//            SubMenuItem(text: "Fragrance", imageName: "", destination: AnyView(ContentView(filter: ""))),
-//            SubMenuItem(text: "Tools & Accessories", imageName: "", destination: AnyView(ContentView(filter: ""))),
-//            SubMenuItem(text: "Hair care", imageName: "", destination: AnyView(ContentView(filter: ""))),
-//            SubMenuItem(text: "Skincare", imageName: "", destination: AnyView(ContentView(filter: ""))),
-//            SubMenuItem(text: "Bath & Body", imageName: "", destination: AnyView(ContentView(filter: ""))),
-//            SubMenuItem(text: "Other: Health & Beauty", imageName: "", destination: AnyView(ContentView(filter: "")))
-//        ]),
+        MenuItem(text: "Games & Toys", imageName: "puzzlepiece", destination: ContentView(filter: "puzzlepiece"), subMenuItems: [
+            SubMenuItem(text: "View All", imageName: "", destination: ContentView(filter: "puzzlepiece")),
+            SubMenuItem(text: "Board Games & Puzzles", imageName: "", destination: ContentView(filter: "")),
+            SubMenuItem(text: "Toys", imageName: "", destination: ContentView(filter: "")),
+            SubMenuItem(text: "Outdoor Games & Toys", imageName: "", destination: ContentView(filter: "")),
+            SubMenuItem(text: "Card Games", imageName: "", destination: ContentView(filter: "")),
+            SubMenuItem(text: "Stuffed Animals & Plush", imageName: "", destination: ContentView(filter: "")),
+            SubMenuItem(text: "Action Figures & Dolls", imageName: "", destination: ContentView(filter: "")),
+            SubMenuItem(text: "Other: Games & Toys", imageName: "", destination: ContentView(filter: ""))
+        ]),
         
-//        MenuItem(text: "Games & Toys", imageName: "puzzlepiece", destination: AnyView(ContentView(filter: "puzzlepiece")), subMenuItems: [
-//            SubMenuItem(text: "View All", imageName: "", destination: AnyView(ContentView(filter: "puzzlepiece"))),
-//            SubMenuItem(text: "Board Games & Puzzles", imageName: "", destination: AnyView(ContentView(filter: ""))),
-//            SubMenuItem(text: "Toys", imageName: "", destination: AnyView(ContentView(filter: ""))),
-//            SubMenuItem(text: "Outdoor Games & Toys", imageName: "", destination: AnyView(ContentView(filter: ""))),
-//            SubMenuItem(text: "Card Games", imageName: "", destination: AnyView(ContentView(filter: ""))),
-//            SubMenuItem(text: "Stuffed Animals & Plush", imageName: "", destination: AnyView(ContentView(filter: ""))),
-//            SubMenuItem(text: "Action Figures & Dolls", imageName: "", destination: AnyView(ContentView(filter: ""))),
-//            SubMenuItem(text: "Other: Games & Toys", imageName: "", destination: AnyView(ContentView(filter: "")))
-//        ]),
+        MenuItem(text: "Sports & Outdoors", imageName: "football", destination: ContentView(filter: "football"), subMenuItems: [
+            SubMenuItem(text: "View All", imageName: "", destination: ContentView(filter: "sportscourt")),
+            SubMenuItem(text: "Bikes", imageName: "", destination: ContentView(filter: "")),
+            SubMenuItem(text: "Skateboarding", imageName: "", destination: ContentView(filter: "")),
+            SubMenuItem(text: "Light Electric Vehicles", imageName: "", destination: ContentView(filter: "")),
+            SubMenuItem(text: "Exercise", imageName: "", destination: ContentView(filter: "")),
+            SubMenuItem(text: "Camping & Hiking", imageName: "", destination: ContentView(filter: "")),
+            SubMenuItem(text: "Other: Sports & Outdoors", imageName: "", destination: ContentView(filter: ""))
+        ]),
         
-//        MenuItem(text: "Sports & Outdoors", imageName: "football", destination: AnyView(ContentView(filter: "football")), subMenuItems: [
-//            SubMenuItem(text: "View All", imageName: "", destination: AnyView(ContentView(filter: "sportscourt"))),
-//            SubMenuItem(text: "Bikes", imageName: "", destination: AnyView(ContentView(filter: ""))),
-//            SubMenuItem(text: "Skateboarding", imageName: "", destination: AnyView(ContentView(filter: ""))),
-//            SubMenuItem(text: "Light Electric Vehicles", imageName: "", destination: AnyView(ContentView(filter: ""))),
-//            SubMenuItem(text: "Exercise", imageName: "", destination: AnyView(ContentView(filter: ""))),
-//            SubMenuItem(text: "Camping & Hiking", imageName: "", destination: AnyView(ContentView(filter: ""))),
-//            SubMenuItem(text: "Other: Sports & Outdoors", imageName: "", destination: AnyView(ContentView(filter: ""))),
-//        ]),
-        
-//        MenuItem(text: "Tickets", imageName: "ticket", destination: AnyView(ContentView(filter: "ticket")), subMenuItems: [
-//            SubMenuItem(text: "View All", imageName: "", destination: AnyView(ContentView(filter: "ticket"))),
-//            SubMenuItem(text: "Concerts", imageName: "", destination: AnyView(ContentView(filter: ""))),
-//            SubMenuItem(text: "Sports", imageName: "", destination: AnyView(ContentView(filter: ""))),
-//            SubMenuItem(text: "Theater", imageName: "", destination: AnyView(ContentView(filter: ""))),
-//            SubMenuItem(text: "Other - Tickets", imageName: "", destination: AnyView(ContentView(filter: "")))
+//        MenuItem(text: "Tickets", imageName: "ticket", destination: ContentView(filter: "ticket"), subMenuItems: [
+//            SubMenuItem(text: "View All", imageName: "", destination: ContentView(filter: "ticket")),
+//            SubMenuItem(text: "Concerts", imageName: "", destination: ContentView(filter: "")),
+//            SubMenuItem(text: "Sports", imageName: "", destination: ContentView(filter: "")),
+//            SubMenuItem(text: "Theater", imageName: "", destination: ContentView(filter: "")),
+//            SubMenuItem(text: "Other - Tickets", imageName: "", destination: ContentView(filter: ""))
 //        ]),
     ]
     
